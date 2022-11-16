@@ -13,7 +13,7 @@
     "distance": 20,
     "tel": "+49 0123 456789",
     "mail": "anna@mail.com",
-    "image": "../public/images/body.jpg"
+    "image": "images/body.jpg"
   },
   {
     "id": 2,
@@ -29,7 +29,7 @@
     "distance": 10,
     "tel": "+43 9876 54321",
     "mail": "maik@examplemail.com",
-    "image": "LINK!!!"
+    "image": "images/strampler.jpg"
   },
   {
     "id": 3,
@@ -45,7 +45,7 @@
     "distance": 10,
     "tel": "+49 0123 456789",
     "mail": "anna@mail.com",
-    "image": "LINK!!!"
+    "image": "images/muetze.jpg"
   },
   {
     "id": 4,
@@ -61,6 +61,6 @@
     "distance": 17,
     "tel": "+49 0011 223344",
     "mail": "john@reactcoding.com",
-    "image": "LINK!!!"
+    "image": "images/socken.jpg"
   }
 ]

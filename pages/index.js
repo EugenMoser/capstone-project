@@ -1,21 +1,28 @@
 import ArticleList from "../components/ArticleList";
-// import useSWR from "swr";
-import articlesDb from "../helpers/db.json";
+import styled from "styled-components";
+import useSWR from "swr";
+import { fetcher } from "../helpers/api";
+//import articlesDb from "../helpers/db.json";
 
 function Home() {
-  // function fetcher(url) {
-  //   return fetch(url).then((res) => res.json());
-  // }
-  // const { data, error } = useSWR("../helpers/db.json", fetcher);
-  // console.log(data);
-  console.log(articlesDb);
+  const { data: articles, error } = useSWR("/api/articles", fetcher);
+  console.log(articles);
 
+  if (!articles) {
+    return <h4>loading...</h4>;
+  }
   return (
     <>
       <h2>Alle Artikel in deiner Nähe:</h2>
-      <ArticleList articlesDb={articlesDb} />
+      <UL>
+        <ArticleList articles={articles} />
+      </UL>
     </>
   );
 }
 
 export default Home;
+
+const UL = styled.ul`
+  padding: 0;
+`;

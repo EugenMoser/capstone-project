@@ -1,9 +1,9 @@
 import Article from "../Article";
 
-function ArticleList({ articlesDb }) {
+function ArticleList({ articles }) {
   return (
     <>
-      {articlesDb.map((article) => {
+      {articles.map((article) => {
         return (
           <Article
             key={article.id}

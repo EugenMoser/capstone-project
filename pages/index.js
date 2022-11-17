@@ -11,9 +11,7 @@ function Home() {
   }
   return (
     <>
-      <main>
-        <ArticleList articles={articles} />
-      </main>
+      <ArticleList articles={articles} />
     </>
   );
 }

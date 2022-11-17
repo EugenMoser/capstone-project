@@ -1,15 +1,16 @@
 import styled from "styled-components";
 import Image from "next/image";
 import Svg from "../Svg";
+import Link from "next/link";
 
 function Article({ article }) {
-  const { name, size, gender, price, image } = article;
+  const { id, name, size, gender, price, image } = article;
 
   return (
     <StyledArticle>
       <Image
         src={image}
-        alt={`image of ${name}`}
+        alt={`Bild von ${name}`}
         width={150}
         height={200}
       />
@@ -21,12 +22,17 @@ function Article({ article }) {
         <li>Geschlecht: {gender}</li>
         <li>Preis: {price}</li>
       </ul>
-      <StyledButton>
-        <Svg
-          variant="details"
-          size="25px"
-        ></Svg>
-      </StyledButton>
+      <Link
+        passHref
+        href={`/articleDetails/${id}`}
+      >
+        <StyledButton>
+          <Svg
+            variant="details"
+            size="25px"
+          ></Svg>
+        </StyledButton>
+      </Link>
     </StyledArticle>
   );
 }

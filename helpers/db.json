@@ -1,6 +1,6 @@
 [
   {
-    "id": 1,
+    "id": "1",
     "name": "Body",
     "price": 10.0,
     "size": 74,
@@ -16,7 +16,7 @@
     "image": "/images/body.JPG"
   },
   {
-    "id": 2,
+    "id": "2",
     "name": "Strampler",
     "price": 15,
     "size": 48,
@@ -32,7 +32,7 @@
     "image": "/images/strampler.JPG"
   },
   {
-    "id": 3,
+    "id": "3",
     "name": "Mütze",
     "price": 5,
     "size": 38,
@@ -48,7 +48,7 @@
     "image": "/images/muetze.JPG"
   },
   {
-    "id": 4,
+    "id": "4",
     "name": "Socken",
     "price": 2,
     "size": 16,

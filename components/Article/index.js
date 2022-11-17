@@ -3,12 +3,12 @@ import Image from "next/image";
 
 function Article({ article }) {
   const { name, size, gender, price, image } = article;
-  console.log(name, size, gender, price, image);
+
   return (
     <StyledArticle>
       <Image
         src={image}
-        alt="article picture"
+        alt="article image"
         width={150}
         height={200}
       />

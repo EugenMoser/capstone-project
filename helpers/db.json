@@ -29,7 +29,7 @@
     "distance": 10.0,
     "tel": "+43 9876 54321",
     "mail": "maik@examplemail.com",
-    "image": "/images/strampler.jpg"
+    "image": "/images/strampler.JPG"
   },
   {
     "id": 3,
@@ -45,7 +45,7 @@
     "distance": 10.0,
     "tel": "+49 0123 456789",
     "mail": "anna@mail.com",
-    "image": "/images/muetze.jpg"
+    "image": "/images/muetze.JPG"
   },
   {
     "id": 4,
@@ -61,6 +61,6 @@
     "distance": 17.0,
     "tel": "+49 0011 223344",
     "mail": "john@reactcoding.com",
-    "image": "/images/socken.jpg"
+    "image": "/images/socken.JPG"
   }
 ]

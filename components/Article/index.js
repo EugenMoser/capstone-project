@@ -44,6 +44,9 @@ const StyledButton = styled.button`
   position: absolute;
   right: 10px;
   top: 10px;
-  border-style: none;
-  background-color: inherit;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: none;
+  border-radius: 3px;
 `;

@@ -1,5 +1,6 @@
 import styled from "styled-components";
 import Image from "next/image";
+import Svg from "../Svg";
 
 function Article({ article }) {
   const { name, size, gender, price, image } = article;
@@ -8,17 +9,24 @@ function Article({ article }) {
     <StyledArticle>
       <Image
         src={image}
-        alt="article image"
+        alt={`image of ${name}`}
         width={150}
         height={200}
       />
 
       <h3>{name}</h3>
+
       <ul>
         <li>Größe: {size}</li>
         <li>Geschlecht: {gender}</li>
         <li>Preis: {price}</li>
       </ul>
+      <StyledButton>
+        <Svg
+          variant="details"
+          size="25px"
+        ></Svg>
+      </StyledButton>
     </StyledArticle>
   );
 }
@@ -29,4 +37,13 @@ const StyledArticle = styled.article`
   border: 1px solid black;
   margin: 2rem;
   list-style: none;
+  position: relative;
+`;
+
+const StyledButton = styled.button`
+  position: absolute;
+  right: 10px;
+  top: 10px;
+  border-style: none;
+  background-color: inherit;
 `;

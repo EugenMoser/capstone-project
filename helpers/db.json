@@ -1,8 +1,8 @@
 [
   {
     "id": 1,
-    "article": "Body",
-    "price": 10,
+    "name": "Body",
+    "price": 10.0,
     "size": 74,
     "author": "Anna",
     "gender": "w",
@@ -13,11 +13,11 @@
     "distance": 20,
     "tel": "+49 0123 456789",
     "mail": "anna@mail.com",
-    "image": "images/body.jpg"
+    "image": "/images/body.jpg"
   },
   {
     "id": 2,
-    "article": "Strampler",
+    "name": "Strampler",
     "price": 15,
     "size": 48,
     "author": "Maik",
@@ -26,14 +26,14 @@
     "animal": false,
     "smoker": true,
     "description": "Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam",
-    "distance": 10,
+    "distance": 10.0,
     "tel": "+43 9876 54321",
     "mail": "maik@examplemail.com",
-    "image": "images/strampler.jpg"
+    "image": "/images/strampler.jpg"
   },
   {
     "id": 3,
-    "article": "Mütze",
+    "name": "Mütze",
     "price": 5,
     "size": 38,
     "author": "Anna",
@@ -42,14 +42,14 @@
     "animal": false,
     "smoker": true,
     "description": "Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam",
-    "distance": 10,
+    "distance": 10.0,
     "tel": "+49 0123 456789",
     "mail": "anna@mail.com",
-    "image": "images/muetze.jpg"
+    "image": "/images/muetze.jpg"
   },
   {
     "id": 4,
-    "article": "Socken",
+    "name": "Socken",
     "price": 2,
     "size": 16,
     "author": "John",
@@ -58,9 +58,9 @@
     "animal": true,
     "smoker": true,
     "description": "Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam",
-    "distance": 17,
+    "distance": 17.0,
     "tel": "+49 0011 223344",
     "mail": "john@reactcoding.com",
-    "image": "images/socken.jpg"
+    "image": "/images/socken.jpg"
   }
 ]

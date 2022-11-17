@@ -1,34 +1,32 @@
 import styled from "styled-components";
+import Image from "next/image";
 
 function Article({ article }) {
+  const { name, size, gender, price, image } = article;
+  console.log(name, size, gender, price, image);
   return (
-    <List>
-      <Art>
-        <img
-          src={article.image}
-          width="110px"
-        />
-        <div>
-          <h3>{article.article}</h3>
-          <p>Größe: {article.size}</p>
-          <p>Geschlecht: {article.gender}</p>
-          <p>Preis: {article.price}</p>
-        </div>
-      </Art>
-    </List>
+    <StyledArticle>
+      <Image
+        src={image}
+        alt="article picture"
+        width={150}
+        height={200}
+      />
+
+      <h3>{name}</h3>
+      <ul>
+        <li>Größe: {size}</li>
+        <li>Geschlecht: {gender}</li>
+        <li>Preis: {price}</li>
+      </ul>
+    </StyledArticle>
   );
 }
 
 export default Article;
 
-const List = styled.li`
+const StyledArticle = styled.article`
   border: 1px solid black;
   margin: 2rem;
   list-style: none;
-`;
-
-const Art = styled.article`
-  display: flex;
-  width: 80vw;
-  height: 200px;
 `;

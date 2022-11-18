@@ -22,17 +22,15 @@ function Article({ article }) {
         <li>Geschlecht: {gender}</li>
         <li>Preis: {price}</li>
       </ul>
-      <Link
-        passHref
+      <StyledLink
         href={`/articleDetails/${id}`}
+        aria-label="Article Details"
       >
-        <StyledButton>
-          <Svg
-            variant="details"
-            size="25px"
-          ></Svg>
-        </StyledButton>
-      </Link>
+        <Svg
+          variant="details"
+          size="35px"
+        ></Svg>
+      </StyledLink>
     </StyledArticle>
   );
 }
@@ -46,13 +44,9 @@ const StyledArticle = styled.article`
   position: relative;
 `;
 
-const StyledButton = styled.button`
+const StyledLink = styled(Link)`
   position: absolute;
   right: 10px;
   top: 10px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  border: none;
-  border-radius: 3px;
+  border-style: none;
 `;

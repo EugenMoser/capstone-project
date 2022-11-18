@@ -5,7 +5,6 @@ function getAllArticles() {
 }
 
 function getArticlesById(id) {
-  console.log(id);
   return articlesDb.find((article) => {
     return article.id === id;
   });

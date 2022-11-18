@@ -12,8 +12,9 @@ function articleDetails() {
   const { id } = query;
   const { data: article, error } = useSWR(`/api/articles/${id}`, fetcher);
 
-  if (!article) return <p>Artikel Details werden geladen...</p>;
   if (error) return <p>Fehler! keine Artikel Details gefunden.</p>;
+  if (!article) return <p>Artikel Details werden geladen...</p>;
+
   const {
     name,
     price,
@@ -26,7 +27,7 @@ function articleDetails() {
     distance,
     image,
   } = article;
-  console.log(animal, smoker);
+
   return (
     <>
       <StyledArticle>
@@ -38,17 +39,21 @@ function articleDetails() {
           height={200}
         />
         <ul>
-          <StyledList>Preis: {price} Euro</StyledList>
-          <StyledList>Größe: {size}</StyledList>
-          <StyledList>Geschlecht: {gender}</StyledList>
-          <StyledList>Zustand: {status}</StyledList>
+          <StyledListItem>Preis: {price} Euro</StyledListItem>
+          <StyledListItem>Größe: {size}</StyledListItem>
+          <StyledListItem>Geschlecht: {gender}</StyledListItem>
+          <StyledListItem>Zustand: {status}</StyledListItem>
 
-          <StyledList variant={!animal && "hide"}>Tierhaushalt</StyledList>
-          <StyledList variant={!smoker && "hide"}>
+          <StyledListItem variant={!animal && "hide"}>
+            Tierhaushalt
+          </StyledListItem>
+          <StyledListItem variant={!smoker && "hide"}>
             Raucherhaushalt{smoker}
-          </StyledList>
-          <StyledList>kurze Beschreibung: {description}</StyledList>
-          <StyledList>Entfernung: {distance} KM</StyledList>
+          </StyledListItem>
+          <StyledListItem>
+            kurze Beschreibung: {description}
+          </StyledListItem>
+          <StyledListItem>Entfernung: {distance} KM</StyledListItem>
         </ul>
         <StyledLink
           href="/"
@@ -69,7 +74,7 @@ const StyledArticle = styled.article`
   position: relative;
 `;
 
-const StyledList = styled.li`
+const StyledListItem = styled.li`
   list-style: none;
   ${({ variant }) =>
     variant === "hide" &&

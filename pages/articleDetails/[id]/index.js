@@ -64,6 +64,13 @@ function articleDetails() {
             size="35px"
           />
         </StyledLink>
+        <StyledContactButton>
+          <Svg
+            variant="contact"
+            size="20px"
+          />
+          Kontaktdaten
+        </StyledContactButton>
       </StyledArticle>
     </>
   );
@@ -89,4 +96,9 @@ const StyledLink = styled(Link)`
   top: 10px;
   border-style: none;
   color: inherit;
+`;
+
+const StyledContactButton = styled.button`
+  display: flex;
+  text-align: center;
 `;

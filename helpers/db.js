@@ -4,4 +4,9 @@ function getAllArticles() {
   return articlesDb;
 }
 
-export default getAllArticles;
+function getArticlesById(id) {
+  return articlesDb.find((article) => {
+    return article.id === id;
+  });
+}
+export { getAllArticles, getArticlesById };

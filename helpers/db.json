@@ -1,11 +1,11 @@
 [
   {
-    "id": 1,
+    "id": "1",
     "name": "Body",
     "price": 10.0,
     "size": 74,
     "author": "Anna",
-    "gender": "w",
+    "gender": "Mädchen",
     "status": "gut",
     "animal": false,
     "smoker": true,
@@ -16,12 +16,12 @@
     "image": "/images/body.JPG"
   },
   {
-    "id": 2,
+    "id": "2",
     "name": "Strampler",
     "price": 15,
     "size": 48,
     "author": "Maik",
-    "gender": "m",
+    "gender": "Junge",
     "status": "sehr gut",
     "animal": false,
     "smoker": true,
@@ -32,12 +32,12 @@
     "image": "/images/strampler.JPG"
   },
   {
-    "id": 3,
+    "id": "3",
     "name": "Mütze",
     "price": 5,
     "size": 38,
     "author": "Anna",
-    "gender": "w",
+    "gender": "Mädchen",
     "status": "schlecht",
     "animal": false,
     "smoker": true,
@@ -48,12 +48,12 @@
     "image": "/images/muetze.JPG"
   },
   {
-    "id": 4,
+    "id": "4",
     "name": "Socken",
     "price": 2,
     "size": 16,
     "author": "John",
-    "gender": "m",
+    "gender": "Mädchen",
     "status": "gut",
     "animal": true,
     "smoker": true,

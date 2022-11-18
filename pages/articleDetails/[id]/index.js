@@ -5,6 +5,7 @@ import Image from "next/image";
 import styled from "styled-components";
 import css from "styled-jsx/css";
 import Svg from "../../../components/Svg";
+import ShowContact from "../../../components/ShowContact";
 import Link from "next/link";
 
 function articleDetails() {
@@ -64,13 +65,7 @@ function articleDetails() {
             size="35px"
           />
         </StyledLink>
-        <StyledContactButton>
-          <Svg
-            variant="contact"
-            size="20px"
-          />
-          Kontaktdaten
-        </StyledContactButton>
+        <ShowContact article={article} />
       </StyledArticle>
     </>
   );
@@ -96,9 +91,4 @@ const StyledLink = styled(Link)`
   top: 10px;
   border-style: none;
   color: inherit;
-`;
-
-const StyledContactButton = styled.button`
-  display: flex;
-  text-align: center;
 `;

@@ -83,7 +83,5 @@ const StyledLink = styled(Link)`
   right: 10px;
   top: 10px;
   border-style: none;
-
-  /* padding: 0;
-  margin: 0; */
+  color: inherit;
 `;

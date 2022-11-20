@@ -1,6 +1,4 @@
 import { useRouter } from "next/router";
-import useSWR from "swr";
-import { fetcher } from "../../../helpers/api";
 import Image from "next/image";
 import styled from "styled-components";
 import css from "styled-jsx/css";
@@ -8,12 +6,16 @@ import Svg from "../../../components/Svg";
 import ShowContact from "../../../components/ShowContact";
 import Link from "next/link";
 
-function articleDetails() {
+function articleDetails({ articles }) {
   const { query } = useRouter();
   const { id } = query;
-  const { data: article, error } = useSWR(`/api/articles/${id}`, fetcher);
 
-  if (error) return <p>Fehler! keine Artikel Details gefunden.</p>;
+  function getArticlesById(id) {
+    return articles.find((article) => {
+      return article.id === id;
+    });
+  }
+  const article = getArticlesById(id);
   if (!article) return <p>Artikel Details werden geladen...</p>;
 
   const {

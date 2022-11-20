@@ -41,7 +41,7 @@ function ShowContact({ article }) {
               href={`tel: ${tel}`}
               aria-label="Diese Telefonnummer anrufen"
             >
-              Telefon: {tel}{" "}
+              Telefon: {tel}
             </StyledLink>
             <StyledLink
               href={`mailto: ${mail}`}

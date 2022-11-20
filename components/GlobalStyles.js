@@ -11,6 +11,9 @@ const GlobalStyles = createGlobalStyle`
     * {
         box-sizing: border-box;
     }
+    body {
+        background-color: lightgrey
+    }
 `;
 
 export default GlobalStyles;

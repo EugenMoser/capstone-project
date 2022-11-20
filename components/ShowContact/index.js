@@ -10,6 +10,7 @@ function ShowContact({ article }) {
   return (
     <>
       <StyledContactButton
+        aria-label="Kontaktdaten anzeigen"
         onClick={() => {
           setIsOpen((isOpen) => !isOpen);
         }}
@@ -25,6 +26,7 @@ function ShowContact({ article }) {
         <ModalBackground>
           <Modal>
             <StyledCloseButton
+              aria-label="Kontaktdaten schließen"
               onClick={() => {
                 setIsOpen((isOpen) => !isOpen);
               }}
@@ -35,8 +37,18 @@ function ShowContact({ article }) {
               />
             </StyledCloseButton>
             <h4>Kontaktdaten von {author}</h4>
-            <StyledLink href={`tel: ${tel}`}>Telefon: {tel} </StyledLink>
-            <StyledLink href={`mailto: ${mail}`}>Mail: {mail}</StyledLink>
+            <StyledLink
+              href={`tel: ${tel}`}
+              aria-label="Diese Telefonnummer anrufen"
+            >
+              Telefon: {tel}{" "}
+            </StyledLink>
+            <StyledLink
+              href={`mailto: ${mail}`}
+              aria-label="Email schreiben"
+            >
+              Mail: {mail}
+            </StyledLink>
           </Modal>
         </ModalBackground>
       )}

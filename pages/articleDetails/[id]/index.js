@@ -35,7 +35,7 @@ function articleDetails() {
         <h3>Details zum Artikel: {name}</h3>
         <Image
           src={image}
-          alt={`Bild von ${name}`}
+          alt={`Ein Bild von / vom ${name}`}
           width={150}
           height={200}
         />
@@ -51,9 +51,7 @@ function articleDetails() {
           <StyledListItem variant={!smoker && "hide"}>
             Raucherhaushalt{smoker}
           </StyledListItem>
-          <StyledListItem>
-            kurze Beschreibung: {description}
-          </StyledListItem>
+          <StyledListItem>Beschreibung: {description}</StyledListItem>
           <StyledListItem>Entfernung: {distance} KM</StyledListItem>
         </ul>
         <StyledLink

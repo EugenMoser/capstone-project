@@ -24,7 +24,7 @@ function ArticleSell() {
           Größe
         </label>
         <input
-          type="text"
+          type="number"
           id="groesse"
           maxLength={3}
         ></input>

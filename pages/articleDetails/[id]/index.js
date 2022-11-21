@@ -1,18 +1,19 @@
 import { useRouter } from "next/router";
-import useSWR from "swr";
-import { fetcher } from "../../../helpers/api";
 import Image from "next/image";
 import styled from "styled-components";
 import css from "styled-jsx/css";
 import Svg from "../../../components/Svg";
+import ShowContact from "../../../components/ShowContact";
 import Link from "next/link";
 
-function articleDetails() {
+function articleDetails({ articles }) {
   const { query } = useRouter();
   const { id } = query;
-  const { data: article, error } = useSWR(`/api/articles/${id}`, fetcher);
 
-  if (error) return <p>Fehler! keine Artikel Details gefunden.</p>;
+  function getArticlesById(id) {
+    return articles.find((article) => article.id === id);
+  }
+  const article = getArticlesById(id);
   if (!article) return <p>Artikel Details werden geladen...</p>;
 
   const {
@@ -34,7 +35,7 @@ function articleDetails() {
         <h3>Details zum Artikel: {name}</h3>
         <Image
           src={image}
-          alt={`Bild von ${name}`}
+          alt={`Ein Bild von / vom ${name}`}
           width={150}
           height={200}
         />
@@ -50,9 +51,7 @@ function articleDetails() {
           <StyledListItem variant={!smoker && "hide"}>
             Raucherhaushalt{smoker}
           </StyledListItem>
-          <StyledListItem>
-            kurze Beschreibung: {description}
-          </StyledListItem>
+          <StyledListItem>Beschreibung: {description}</StyledListItem>
           <StyledListItem>Entfernung: {distance} KM</StyledListItem>
         </ul>
         <StyledLink
@@ -64,6 +63,7 @@ function articleDetails() {
             size="35px"
           />
         </StyledLink>
+        <ShowContact article={article} />
       </StyledArticle>
     </>
   );

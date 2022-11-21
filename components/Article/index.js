@@ -39,9 +39,12 @@ export default Article;
 
 const StyledArticle = styled.article`
   border: 1px solid black;
-  margin: 2rem;
+  margin: 1rem;
   list-style: none;
   position: relative;
+  background-color: white;
+  border: none;
+  border-radius: 2px;
 `;
 
 const StyledLink = styled(Link)`

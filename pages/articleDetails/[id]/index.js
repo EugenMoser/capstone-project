@@ -72,6 +72,7 @@ function articleDetails({ articles }) {
 export default articleDetails;
 const StyledArticle = styled.article`
   position: relative;
+  margin-bottom: 50px; //for navbar
 `;
 
 const StyledListItem = styled.li`

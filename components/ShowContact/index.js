@@ -4,7 +4,7 @@ import { useState } from "react";
 import Link from "next/link";
 
 function ShowContact({ article }) {
-  const [isOpen, setIsOpen] = useState(false);
+  const [openContact, setOpenContact] = useState(false);
 
   const { author, tel, mail } = article;
   return (
@@ -12,7 +12,7 @@ function ShowContact({ article }) {
       <StyledContactButton
         aria-label="Kontaktdaten anzeigen"
         onClick={() => {
-          setIsOpen((isOpen) => !isOpen);
+          setOpenContact(!openContact);
         }}
       >
         <Svg
@@ -22,13 +22,13 @@ function ShowContact({ article }) {
         Kontaktdaten
       </StyledContactButton>
 
-      {isOpen && (
+      {openContact && (
         <ModalBackground>
           <Modal>
             <StyledCloseButton
               aria-label="Kontaktdaten schließen"
               onClick={() => {
-                setIsOpen((isOpen) => !isOpen);
+                setOpenContact(!openContact);
               }}
             >
               <Svg

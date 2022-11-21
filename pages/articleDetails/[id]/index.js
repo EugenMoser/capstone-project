@@ -11,9 +11,7 @@ function articleDetails({ articles }) {
   const { id } = query;
 
   function getArticlesById(id) {
-    return articles.find((article) => {
-      return article.id === id;
-    });
+    return articles.find((article) => article.id === id);
   }
   const article = getArticlesById(id);
   if (!article) return <p>Artikel Details werden geladen...</p>;

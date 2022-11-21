@@ -132,6 +132,7 @@ function articleSell() {
 export default articleSell;
 
 const StyledForm = styled.form`
+  margin: 10px;
   display: flex;
   flex-direction: column;
 `;

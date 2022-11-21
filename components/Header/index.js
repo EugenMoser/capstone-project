@@ -9,7 +9,9 @@ function Header() {
         ? "Bazam"
         : pathname === "/articleSell"
         ? "Artikel verkaufen"
-        : "Artikeldetails"}
+        : pathname.startsWith("/articleDetails")
+        ? "Artikeldetails"
+        : "Bazam"}
     </h1>
   );
 }

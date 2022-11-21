@@ -2,7 +2,7 @@ import styled from "styled-components";
 import Link from "next/link";
 import Svg from "../components/Svg";
 
-function articleSell() {
+function ArticleSell() {
   return (
     <>
       <StyledForm>
@@ -129,7 +129,7 @@ function articleSell() {
   );
 }
 
-export default articleSell;
+export default ArticleSell;
 
 const StyledForm = styled.form`
   margin: 10px;

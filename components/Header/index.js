@@ -2,8 +2,18 @@ import { useRouter } from "next/router";
 
 function Header() {
   const { pathname } = useRouter();
-  const isArticleDetails = pathname.startsWith("/articleDetails");
-  return <h1>{isArticleDetails ? "Details" : "Bazam"}</h1>;
+
+  return (
+    <h1>
+      {pathname === "/"
+        ? "Bazam"
+        : pathname === "/articleSell"
+        ? "Artikel verkaufen"
+        : pathname.startsWith("/articleDetails")
+        ? "Artikeldetails"
+        : "Bazam"}
+    </h1>
+  );
 }
 
 export default Header;

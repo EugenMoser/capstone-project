@@ -1,10 +1,66 @@
 import styled from "styled-components";
 import Link from "next/link";
 import Svg from "../components/Svg";
+import { useState } from "react";
+import accountData from "../helpers/accountData.json";
+import { nanoid } from "nanoid";
+//id: crypto.randomUUID()
+
+function ArticleSell({ articles, setArticles }) {
+  function handleSubmit(event) {
+    event.preventDefault();
+    const formData = new FormData(event.target);
+    const {
+      name,
+      size,
+      gender,
+      status,
+      animal,
+      smoker,
+      description,
+      price,
+    } = Object.fromEntries(formData);
+    console.log({
+      name,
+      size,
+      gender,
+      status,
+      animal,
+      smoker,
+      description,
+      price,
+    });
+
+    setArticles((oldArticles) => [
+      ...oldArticles,
+
+      {
+        id: nanoid(),
+        name,
+        size,
+        gender,
+        status,
+        animal,
+        smoker,
+        description,
+        price,
+        ...accountData,
+      },
+    ]);
+  }
+
+  const [checkedAnimal, setCheckedAnimal] = useState(false);
+  const [checkedSmoker, setCheckedSmoker] = useState(false);
+  const handleChangeAnimal = () => {
+    setCheckedAnimal(!checkedAnimal);
+  };
+  const handleChangeSmoker = () => {
+    setCheckedSmoker(!checkedSmoker);
+  };
 
   return (
     <>
-      <StyledForm>
+      <StyledForm onSubmit={handleSubmit}>
         <label htmlFor="name">Name</label>
         <input
           type="text"
@@ -38,8 +94,8 @@ import Svg from "../components/Svg";
           >
             bitte wählen
           </option>
-          <option value="mädchen">Mädchen</option>
-          <option value="junge">Junge</option>
+          <option value="Mädchen">Mädchen</option>
+          <option value="Junge">Junge</option>
         </select>
 
         <label htmlFor="status">Zustand</label>
@@ -61,22 +117,31 @@ import Svg from "../components/Svg";
           <option value="zufriedenstellend">zufriedenstellend</option>
         </select>
 
-        <label htmlFor="animal">
+        <label
+          htmlFor="animal"
+          value={checkedAnimal ? true : false}
+        >
           <input
             type="checkbox"
             name="animal"
             id="animal"
+            onClick={handleChangeAnimal}
           ></input>
           Tierhaushalt
         </label>
-        <label htmlFor="smoker">
+        <label
+          htmlFor="smoker"
+          value={checkedSmoker ? true : false}
+        >
           <input
             type="checkbox"
             name="smoker"
             id="smoker"
+            onClick={handleChangeSmoker}
           ></input>
           Raucherhaushalt
         </label>
+
         <label htmlFor="description">Beschreibung:</label>
         <textarea
           id="description"
@@ -90,6 +155,7 @@ import Svg from "../components/Svg";
           maxLength={4}
           step="0.01"
         ></input>
+        <button type="submit">bestätigen</button>
       </StyledForm>
       <StyledLink
         href="/"

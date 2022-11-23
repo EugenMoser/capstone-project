@@ -3,8 +3,10 @@ import Link from "next/link";
 import Svg from "../components/Svg";
 import accountData from "../helpers/accountData.json";
 import { nanoid } from "nanoid";
+import { useRouter } from "next/router";
 
 function ArticleSell({ setArticles }) {
+  const router = useRouter();
   function handleSubmit(event) {
     event.preventDefault();
 
@@ -17,7 +19,6 @@ function ArticleSell({ setArticles }) {
 
     setArticles((oldArticles) => [
       ...oldArticles,
-
       {
         id: nanoid(),
         name,
@@ -31,6 +32,7 @@ function ArticleSell({ setArticles }) {
         ...accountData,
       },
     ]);
+    router.push("/");
   }
 
   return (

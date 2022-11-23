@@ -1,35 +1,20 @@
 import styled from "styled-components";
 import Link from "next/link";
 import Svg from "../components/Svg";
-import { useState } from "react";
 import accountData from "../helpers/accountData.json";
 import { nanoid } from "nanoid";
 //id: crypto.randomUUID()
 
-function ArticleSell({ articles, setArticles }) {
+function ArticleSell({ setArticles }) {
   function handleSubmit(event) {
     event.preventDefault();
+
     const formData = new FormData(event.target);
-    const {
-      name,
-      size,
-      gender,
-      status,
-      animal,
-      smoker,
-      description,
-      price,
-    } = Object.fromEntries(formData);
-    console.log({
-      name,
-      size,
-      gender,
-      status,
-      animal,
-      smoker,
-      description,
-      price,
-    });
+    const { name, size, gender, status, description, price } =
+      Object.fromEntries(formData);
+
+    const checkedAnimal = animal.checked;
+    const checkedSmoker = smoker.checked;
 
     setArticles((oldArticles) => [
       ...oldArticles,
@@ -40,23 +25,14 @@ function ArticleSell({ articles, setArticles }) {
         size,
         gender,
         status,
-        animal,
-        smoker,
+        animal: checkedAnimal,
+        smoker: checkedSmoker,
         description,
         price,
         ...accountData,
       },
     ]);
   }
-
-  const [checkedAnimal, setCheckedAnimal] = useState(false);
-  const [checkedSmoker, setCheckedSmoker] = useState(false);
-  const handleChangeAnimal = () => {
-    setCheckedAnimal(!checkedAnimal);
-  };
-  const handleChangeSmoker = () => {
-    setCheckedSmoker(!checkedSmoker);
-  };
 
   return (
     <>
@@ -117,27 +93,19 @@ function ArticleSell({ articles, setArticles }) {
           <option value="zufriedenstellend">zufriedenstellend</option>
         </select>
 
-        <label
-          htmlFor="animal"
-          value={checkedAnimal ? true : false}
-        >
+        <label htmlFor="animal">
           <input
             type="checkbox"
             name="animal"
             id="animal"
-            onClick={handleChangeAnimal}
           ></input>
           Tierhaushalt
         </label>
-        <label
-          htmlFor="smoker"
-          value={checkedSmoker ? true : false}
-        >
+        <label htmlFor="smoker">
           <input
             type="checkbox"
             name="smoker"
             id="smoker"
-            onClick={handleChangeSmoker}
           ></input>
           Raucherhaushalt
         </label>

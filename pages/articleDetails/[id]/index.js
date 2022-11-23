@@ -27,6 +27,7 @@ function articleDetails({ articles }) {
     description,
     distance,
     image,
+    author,
   } = article;
 
   return (
@@ -49,10 +50,13 @@ function articleDetails({ articles }) {
             Tierhaushalt
           </StyledListItem>
           <StyledListItem variant={!smoker && "hide"}>
-            Raucherhaushalt{smoker}
+            Raucherhaushalt
           </StyledListItem>
           <StyledListItem>Beschreibung: {description}</StyledListItem>
-          <StyledListItem>Entfernung: {distance} KM</StyledListItem>
+
+          <StyledListItem variant={author === "Eugen" && "hide"}>
+            Entfernung: {distance} KM
+          </StyledListItem>
         </ul>
         <StyledLink
           href="/"

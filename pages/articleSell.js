@@ -3,7 +3,6 @@ import Link from "next/link";
 import Svg from "../components/Svg";
 import accountData from "../helpers/accountData.json";
 import { nanoid } from "nanoid";
-//id: crypto.randomUUID()
 
 function ArticleSell({ setArticles }) {
   function handleSubmit(event) {

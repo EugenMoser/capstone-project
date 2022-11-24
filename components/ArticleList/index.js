@@ -1,10 +1,10 @@
 import Article from "../Article";
 import styled from "styled-components";
 
-function ArticleList({ articles }) {
+function ArticleList({ articles, secondHeadline }) {
   return (
     <>
-      <h2>Alle Artikel in deiner Nähe:</h2>
+      <h2>{secondHeadline}</h2>
       <StyledList>
         {articles.map((article) => {
           return (

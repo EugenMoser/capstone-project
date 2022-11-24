@@ -11,6 +11,8 @@ function Header() {
         ? "Artikel verkaufen"
         : pathname.startsWith("/articleDetails")
         ? "Artikeldetails"
+        : pathname.startsWith("/myArticles")
+        ? "Meine Artikel"
         : "Bazam"}
     </h1>
   );

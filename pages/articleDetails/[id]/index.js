@@ -4,11 +4,10 @@ import styled from "styled-components";
 import css from "styled-jsx/css";
 import Svg from "../../../components/Svg";
 import ShowContact from "../../../components/ShowContact";
-import Link from "next/link";
 
 function articleDetails({ articles }) {
-  const { query } = useRouter();
-  const { id } = query;
+  const router = useRouter();
+  const { id } = router.query;
 
   function getArticlesById(id) {
     return articles.find((article) => article.id === id);
@@ -58,15 +57,15 @@ function articleDetails({ articles }) {
             Entfernung: {distance} KM
           </StyledListItem>
         </ul>
-        <StyledLink
-          href="/"
+        <StyledButton
+          onClick={() => router.back()}
           aria-label="Artikel Details schließen und zur Homepage zurück"
         >
           <Svg
             variant="close"
             size="35px"
           />
-        </StyledLink>
+        </StyledButton>
         <ShowContact article={article} />
       </StyledArticle>
     </>
@@ -88,10 +87,12 @@ const StyledListItem = styled.li`
     `}
 `;
 
-const StyledLink = styled(Link)`
+const StyledButton = styled.button`
   position: absolute;
   right: 10px;
   top: 10px;
   border-style: none;
   color: inherit;
+  background-color: inherit;
+  cursor: pointer;
 `;

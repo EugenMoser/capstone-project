@@ -1,12 +1,16 @@
 import ArticleList from "../components/ArticleList";
 
 function MyArticles({ articles }) {
-  console.log(articles);
   const authorArticles = articles.filter(
     (findAuthor) => findAuthor.author === "Eugen"
   );
-  console.log(find);
-  return <ArticleList articles={authorArticles} />;
+
+  return (
+    <ArticleList
+      articles={authorArticles}
+      secondHeadline="Das sind deine Artikel:"
+    />
+  );
 }
 
 export default MyArticles;

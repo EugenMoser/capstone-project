@@ -1,9 +1,13 @@
 import ArticleList from "../components/ArticleList";
+import { useRouter } from "next/router";
 
 function Home({ articles }) {
+  const { pathname } = useRouter();
+
   return (
     <>
-      <ArticleList articles={articles} />
+      {pathname === "/" && <ArticleList articles={articles} />}
+      {pathname === "/myArticles" && <ArticleList articles={articles} />}
     </>
   );
 }

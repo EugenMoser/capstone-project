@@ -12,9 +12,15 @@ function Navbar() {
       </Link>
       <Link
         href="/articleSell"
-        aria-label="zurück zur Startseite"
+        aria-label="zur Artikel verkaufen Seite"
       >
         verkaufen
+      </Link>
+      <Link
+        href="/myArticles"
+        aria-label="zur meinen Artikel"
+      >
+        meine Artikel
       </Link>
     </StyledNavbar>
   );

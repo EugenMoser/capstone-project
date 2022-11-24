@@ -10,7 +10,7 @@ function Article({ article }) {
     <StyledArticle>
       <Image
         src={image}
-        alt={`Bild von ${name}`}
+        alt={`Ein Bild von ${name}`}
         width={150}
         height={200}
       />

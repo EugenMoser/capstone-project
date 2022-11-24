@@ -1,40 +1,64 @@
 import styled from "styled-components";
 import Link from "next/link";
 import Svg from "../components/Svg";
+import accountData from "../helpers/accountData.json";
+import { nanoid } from "nanoid";
+import { useRouter } from "next/router";
 
-function ArticleSell() {
+function ArticleSell({ setArticles }) {
+  const router = useRouter();
+  function handleSubmit(event) {
+    event.preventDefault();
+
+    const formData = new FormData(event.target);
+    const { name, size, gender, status, description, price } =
+      Object.fromEntries(formData);
+
+    const checkedAnimal = animal.checked;
+    const checkedSmoker = smoker.checked;
+
+    setArticles((oldArticles) => [
+      ...oldArticles,
+      {
+        id: nanoid(),
+        name,
+        size,
+        gender,
+        status,
+        animal: checkedAnimal,
+        smoker: checkedSmoker,
+        description,
+        price,
+        ...accountData,
+      },
+    ]);
+    router.push("/");
+  }
+
   return (
     <>
-      <StyledForm>
-        <label
-          htmlFor="name"
-          aria-label="Name eingeben"
-        >
-          Name
-        </label>
+      <StyledForm onSubmit={handleSubmit}>
+        <label htmlFor="name">Name</label>
         <input
           type="text"
+          name="name"
           id="name"
           maxLength={20}
         ></input>
         <label
-          htmlFor="groesse"
-          aria-label="Größe eingeben"
+          htmlFor="size"
+          required
         >
           Größe
         </label>
         <input
-          type="text"
-          id="groesse"
+          type="number"
+          name="size"
+          id="size"
           maxLength={3}
         ></input>
-        <label
-          htmlFor="geschlecht"
-          aria-label="Geschlecht auswählen"
-          required
-        >
-          Geschlecht
-        </label>
+
+        <label htmlFor="gender">Geschlecht</label>
         <select
           name="gender"
           id="gender"
@@ -45,18 +69,13 @@ function ArticleSell() {
             value=""
             disabled
           >
-            bitte eingeben
+            bitte wählen
           </option>
-          <option value="mädchen">Mädchen</option>
-          <option value="junge">Junge</option>
+          <option value="Mädchen">Mädchen</option>
+          <option value="Junge">Junge</option>
         </select>
-        <label
-          htmlFor="zustand"
-          aria-label="Zustand auswählen"
-          required
-        >
-          Zustand
-        </label>
+
+        <label htmlFor="status">Zustand</label>
         <select
           name="status"
           id="status"
@@ -67,54 +86,45 @@ function ArticleSell() {
             value=""
             disabled
           >
-            bitte eingeben
+            bitte wählen
           </option>
           <option value="neu">neu</option>
           <option value="sehr gut">sehr gut</option>
           <option value="gut">gut</option>
           <option value="zufriedenstellend">zufriedenstellend</option>
         </select>
-        <label
-          htmlFor="animal"
-          name="animal"
-          aria-label="Tierhaushalt wählen"
-        >
+
+        <label htmlFor="animal">
           <input
             type="checkbox"
+            name="animal"
             id="animal"
           ></input>
           Tierhaushalt
         </label>
-        <label
-          htmlFor="smoker"
-          name="smoker"
-          aria-label="Raucherhaushalt wählen"
-        >
+        <label htmlFor="smoker">
           <input
             type="checkbox"
+            name="smoker"
             id="smoker"
           ></input>
           Raucherhaushalt
         </label>
-        <label
-          htmlFor="description"
+
+        <label htmlFor="description">Beschreibung:</label>
+        <textarea
+          id="description"
           name="description"
-        >
-          Beschreibung:
-        </label>
-        <textarea id="description"></textarea>
-        <label
-          htmlFor="price"
-          aria-label="Verkaufspreis eingeben"
-        >
-          Preis in Euro
-        </label>
+        ></textarea>
+        <label htmlFor="price">Preis in Euro</label>
         <input
           type="number"
+          name="price"
           id="price"
           maxLength={4}
           step="0.01"
         ></input>
+        <button type="submit">bestätigen</button>
       </StyledForm>
       <StyledLink
         href="/"

@@ -14,11 +14,3 @@ function MyArticles({ articles }) {
 }
 
 export default MyArticles;
-
-// {articles.map((article) => {
-//   // article.author === "Eugen" && (
-//   <li key={article.id}>
-//     <Article article={article} />
-//   </li>;
-//   // );
-// })}

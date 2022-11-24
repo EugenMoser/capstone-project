@@ -73,6 +73,7 @@ function ArticleSell({ setArticles }) {
           </option>
           <option value="Mädchen">Mädchen</option>
           <option value="Junge">Junge</option>
+          <option value="Unisex">Unisex</option>
         </select>
 
         <label htmlFor="status">Zustand</label>

@@ -33,10 +33,7 @@ function ShowContact({ article }) {
                 setOpenContact(!openContact);
               }}
             >
-              <Svg
-                variant="close"
-                size="35px"
-              />
+              <Svg variant="close" />
             </StyledCloseButton>
             <h4>Kontaktdaten von {author}</h4>
             <StyledLink

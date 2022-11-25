@@ -39,7 +39,7 @@ function Form({ setArticles }) {
   return (
     <>
       <StyledForm onSubmit={handleSubmit}>
-        <label htmlFor="name">Name</label>
+        <label htmlFor="name">Artikelbezeichnung</label>
         <input
           type="text"
           name="name"

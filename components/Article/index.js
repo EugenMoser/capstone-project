@@ -26,10 +26,7 @@ function Article({ article }) {
         href={`/articleDetails/${id}`}
         aria-label="Article Details"
       >
-        <Svg
-          variant="details"
-          size="35px"
-        ></Svg>
+        <Svg variant="details"></Svg>
       </StyledLink>
     </StyledArticle>
   );

@@ -4,6 +4,7 @@ import styled from "styled-components";
 import css from "styled-jsx/css";
 import Svg from "../../../components/Svg";
 import ShowContact from "../../../components/ShowContact";
+import Link from "next/link";
 
 function articleDetails({ articles }) {
   const router = useRouter();
@@ -59,20 +60,28 @@ function articleDetails({ articles }) {
         </ul>
         <StyledButton
           onClick={() => router.back()}
-          aria-label="Artikel Details schließen und zur Homepage zurück"
+          aria-label="Artikel Details schließen und zurück"
         >
-          <Svg
-            variant="close"
-            size="35px"
-          />
+          <Svg variant="close" />
         </StyledButton>
-        <ShowContact article={article} />
+        <ShowContact
+          article={article}
+          variant={author === "Eugen" && "hide"}
+        />
+        <Link href={`/articleDetails/${id}/edit`}>
+          <Svg
+            variant="edit"
+            color={"black"}
+          />
+          editieren
+        </Link>
       </StyledArticle>
     </>
   );
 }
 
 export default articleDetails;
+
 const StyledArticle = styled.article`
   position: relative;
   margin-bottom: 50px; //for navbar

@@ -1,5 +1,4 @@
 import ArticleList from "../components/ArticleList";
-import { useRouter } from "next/router";
 
 function Home({ articles }) {
   return (

@@ -22,12 +22,12 @@ function Article({ article }) {
         <li>Geschlecht: {gender}</li>
         <li>Preis: {price}</li>
       </ul>
-      <StyledLink
+      <StyledDetailsLink
         href={`/articleDetails/${id}`}
         aria-label="Article Details"
       >
-        <Svg variant="details"></Svg>
-      </StyledLink>
+        <Svg variant={"details"}></Svg>
+      </StyledDetailsLink>
     </StyledArticle>
   );
 }
@@ -44,7 +44,7 @@ const StyledArticle = styled.article`
   border-radius: 2px;
 `;
 
-const StyledLink = styled(Link)`
+const StyledDetailsLink = styled(Link)`
   position: absolute;
   right: 10px;
   top: 10px;

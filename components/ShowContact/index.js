@@ -105,7 +105,3 @@ const StyledCloseButton = styled.button`
 const StyledLink = styled(Link)`
   display: flex;
 `;
-
-const StyledShowContact = styled(ShowContact)`
-  border: 1px dotted yellow;
-`;

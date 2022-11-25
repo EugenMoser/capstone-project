@@ -5,7 +5,7 @@ import Link from "next/link";
 import { useRouter } from "next/router";
 import { nanoid } from "nanoid";
 
-function Form({ setArticles }) {
+function Form({ setArticles, content, isEdit, id, articles }) {
   const router = useRouter();
 
   function handleSubmit(event) {
@@ -18,22 +18,63 @@ function Form({ setArticles }) {
     const checkedAnimal = animal.checked;
     const checkedSmoker = smoker.checked;
 
-    setArticles((oldArticles) => [
-      ...oldArticles,
-      {
-        id: nanoid(),
-        name,
-        size,
-        gender,
-        status,
-        animal: checkedAnimal,
-        smoker: checkedSmoker,
-        description,
-        price,
-        ...accountData,
-      },
-    ]);
-    router.push("/");
+    function editArticle(
+      newname,
+      newsize,
+      newgender,
+      newstatus,
+      newanimal,
+      newsmoker,
+      newdescription,
+      newprice
+    ) {
+      setArticles((oldArticles) =>
+        oldArticles.map((article) => {
+          if (id === article.id) {
+            return {
+              ...article,
+              name: newname,
+              size: newsize,
+              gender: newgender,
+              status: newstatus,
+              animal: newanimal,
+              smoker: newsmoker,
+              description: newdescription,
+              price: newprice,
+            };
+          }
+          return article;
+        })
+      );
+    }
+    isEdit
+      ? editArticle(
+          name,
+          size,
+          gender,
+          status,
+          checkedAnimal,
+          checkedSmoker,
+          description,
+          price
+        )
+      : setArticles((oldArticles) => [
+          ...oldArticles,
+          {
+            id: nanoid(),
+            name,
+            size,
+            gender,
+            status,
+            animal: checkedAnimal,
+            smoker: checkedSmoker,
+            description,
+            price,
+            ...accountData,
+          },
+        ]);
+
+    router.push("/myArticles");
   }
 
   return (
@@ -45,13 +86,9 @@ function Form({ setArticles }) {
           name="name"
           id="name"
           maxLength={20}
-        ></input>
-        <label
-          htmlFor="size"
           required
-        >
-          Größe
-        </label>
+        ></input>
+        <label htmlFor="size">Größe</label>
         <input
           type="number"
           name="size"

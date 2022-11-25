@@ -68,19 +68,31 @@ function articleDetails({ articles }) {
           article={article}
           variant={author === "Eugen" && "hide"}
         />
-        <Link href={`/articleDetails/${id}/edit`}>
+        <StyledEditLink
+          href={`/articleDetails/${id}/edit`}
+          variant={author !== "Eugen" && "hide"}
+        >
           <Svg
-            variant="edit"
+            variant={"edit"}
             color={"black"}
           />
           editieren
-        </Link>
+        </StyledEditLink>
       </StyledArticle>
     </>
   );
 }
 
 export default articleDetails;
+
+const StyledEditLink = styled(Link)`
+  border: 1px solid black;
+  ${({ variant }) =>
+    variant === "hide" &&
+    css`
+      display: none;
+    `}
+`;
 
 const StyledArticle = styled.article`
   position: relative;

@@ -46,15 +46,17 @@ function articleDetails({ articles }) {
           <StyledListItem>Geschlecht: {gender}</StyledListItem>
           <StyledListItem>Zustand: {status}</StyledListItem>
 
-          <StyledListItem variant={!animal && "hide"}>
+          <StyledListItem variant={!animal ? "hide" : undefined}>
             Tierhaushalt
           </StyledListItem>
-          <StyledListItem variant={!smoker && "hide"}>
+          <StyledListItem variant={!smoker ? "hide" : undefined}>
             Raucherhaushalt
           </StyledListItem>
           <StyledListItem>Beschreibung: {description}</StyledListItem>
 
-          <StyledListItem variant={author === "Eugen" && "hide"}>
+          <StyledListItem
+            variant={author === "Eugen" ? "hide" : undefined}
+          >
             Entfernung: {distance} KM
           </StyledListItem>
         </ul>
@@ -66,11 +68,11 @@ function articleDetails({ articles }) {
         </StyledButton>
         <ShowContact
           article={article}
-          variant={author === "Eugen" && "hide"}
+          variant={author === "Eugen" ? "hide" : undefined}
         />
         <StyledEditLink
           href={`/articleDetails/${id}/edit`}
-          variant={author !== "Eugen" && "hide"}
+          variant={author !== "Eugen" ? "hide" : undefined}
         >
           <Svg
             variant={"edit"}

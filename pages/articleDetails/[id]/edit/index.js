@@ -11,15 +11,45 @@ function Edit({ articles, setArticles }) {
   const article = getArticlesById(id);
   if (!article) return <p>Artikel Details werden geladen...</p>;
 
+  function editArticle(
+    id,
+    newname,
+    newsize,
+    newgender,
+    newstatus,
+    newanimal,
+    newsmoker,
+    newdescription,
+    newprice
+  ) {
+    setArticles((oldArticles) =>
+      oldArticles.map((article) => {
+        if (id === article.id) {
+          return {
+            ...article,
+            name: newname,
+            size: newsize,
+            gender: newgender,
+            status: newstatus,
+            animal: newanimal,
+            smoker: newsmoker,
+            description: newdescription,
+            price: newprice,
+          };
+        }
+        return article;
+      })
+    );
+  }
+
   return (
     <>
-      <p>test Ausgabe: {article.name}</p>
+      <p>Deinen Artikel ändern: {article.name}</p>
       <Form
-        content={article}
         id={article.id}
         articles={articles}
-        setArticles={setArticles}
-        isEdit
+        onSubmit={editArticle}
+        buttonText="aktualisieren"
       />
     </>
   );

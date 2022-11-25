@@ -3,9 +3,8 @@ import accountData from "../../helpers/accountData.json";
 import styled from "styled-components";
 import Link from "next/link";
 import { useRouter } from "next/router";
-import { nanoid } from "nanoid";
 
-function Form({ setArticles, content, isEdit, id, articles }) {
+function Form({ onSubmit, id, buttonText }) {
   const router = useRouter();
 
   function handleSubmit(event) {
@@ -18,61 +17,18 @@ function Form({ setArticles, content, isEdit, id, articles }) {
     const checkedAnimal = animal.checked;
     const checkedSmoker = smoker.checked;
 
-    function editArticle(
-      newname,
-      newsize,
-      newgender,
-      newstatus,
-      newanimal,
-      newsmoker,
-      newdescription,
-      newprice
-    ) {
-      setArticles((oldArticles) =>
-        oldArticles.map((article) => {
-          if (id === article.id) {
-            return {
-              ...article,
-              name: newname,
-              size: newsize,
-              gender: newgender,
-              status: newstatus,
-              animal: newanimal,
-              smoker: newsmoker,
-              description: newdescription,
-              price: newprice,
-            };
-          }
-          return article;
-        })
-      );
-    }
-    isEdit
-      ? editArticle(
-          name,
-          size,
-          gender,
-          status,
-          checkedAnimal,
-          checkedSmoker,
-          description,
-          price
-        )
-      : setArticles((oldArticles) => [
-          ...oldArticles,
-          {
-            id: nanoid(),
-            name,
-            size,
-            gender,
-            status,
-            animal: checkedAnimal,
-            smoker: checkedSmoker,
-            description,
-            price,
-            ...accountData,
-          },
-        ]);
+    onSubmit(
+      id,
+      name,
+      size,
+      gender,
+      status,
+      checkedAnimal,
+      checkedSmoker,
+      description,
+      price,
+      accountData
+    );
 
     router.push("/myArticles");
   }
@@ -86,6 +42,7 @@ function Form({ setArticles, content, isEdit, id, articles }) {
           name="name"
           id="name"
           maxLength={20}
+          pattern=".*[\S]+.*"
           required
         ></input>
         <label htmlFor="size">Größe</label>
@@ -94,6 +51,7 @@ function Form({ setArticles, content, isEdit, id, articles }) {
           name="size"
           id="size"
           maxLength={3}
+          pattern=".*[\S]+.*"
         ></input>
 
         <label htmlFor="gender">Geschlecht</label>
@@ -162,8 +120,9 @@ function Form({ setArticles, content, isEdit, id, articles }) {
           id="price"
           maxLength={4}
           step="0.01"
+          pattern=".*[\S]+.*"
         ></input>
-        <button type="submit">bestätigen</button>
+        <button type="submit">{buttonText}</button>
       </StyledForm>
       <StyledLink
         href="/"

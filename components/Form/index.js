@@ -30,13 +30,13 @@ function Form({
 
     onSubmit(
       id,
-      name,
+      name.trim(),
       size,
       gender,
       status,
       checkedAnimal,
       checkedSmoker,
-      description,
+      description.trim(),
       price,
       accountData
     );

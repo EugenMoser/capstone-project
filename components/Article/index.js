@@ -4,7 +4,7 @@ import Svg from "../Svg";
 import Link from "next/link";
 
 function Article({ article }) {
-  const { id, name, size, gender, price, image, author } = article;
+  const { id, name, size, gender, price, image } = article;
 
   return (
     <StyledArticle>

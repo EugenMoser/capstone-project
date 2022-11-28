@@ -1,7 +1,7 @@
 import Form from "../../../../components/Form";
 import { useRouter } from "next/router";
 
-function Edit({ articles, setArticles, getArticleById }) {
+function Edit({ setArticles, getArticleById }) {
   const { query } = useRouter();
   const { id } = query;
 

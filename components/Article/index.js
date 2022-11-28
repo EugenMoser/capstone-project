@@ -4,7 +4,7 @@ import Svg from "../Svg";
 import Link from "next/link";
 
 function Article({ article }) {
-  const { id, name, size, gender, price, image } = article;
+  const { id, name, size, gender, price, image, author } = article;
 
   return (
     <StyledArticle>
@@ -20,7 +20,7 @@ function Article({ article }) {
       <ul>
         <li>Größe: {size}</li>
         <li>Geschlecht: {gender}</li>
-        <li>Preis: {price}</li>
+        <li>Preis: {price} Euro</li>
       </ul>
       <StyledDetailsLink
         href={`/articleDetails/${id}`}

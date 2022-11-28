@@ -6,14 +6,11 @@ import Svg from "../../../components/Svg";
 import ShowContact from "../../../components/ShowContact";
 import Link from "next/link";
 
-function articleDetails({ articles }) {
+function articleDetails({ getArticleById }) {
   const router = useRouter();
   const { id } = router.query;
 
-  function getArticlesById(id) {
-    return articles.find((article) => article.id === id);
-  }
-  const article = getArticlesById(id);
+  const article = getArticleById(id);
   if (!article) return <p>Artikel Details werden geladen...</p>;
 
   const {
@@ -75,10 +72,9 @@ function articleDetails({ articles }) {
           variant={author !== "Eugen" ? "hide" : undefined}
         >
           <Svg
-            variant={"edit"}
+            variant="edit"
             color={"black"}
           />
-          editieren
         </StyledEditLink>
       </StyledArticle>
     </>
@@ -89,11 +85,14 @@ export default articleDetails;
 
 const StyledEditLink = styled(Link)`
   border: 1px solid black;
+  background-color: white;
+  width: 35px;
+  height: 35px;
   ${({ variant }) =>
     variant === "hide" &&
     css`
       display: none;
-    `}
+    `};
 `;
 
 const StyledArticle = styled.article`

@@ -1,40 +1,48 @@
 import Form from "../../../../components/Form";
 import { useRouter } from "next/router";
 
-function Edit({ articles, setArticles }) {
+function Edit({ articles, setArticles, getArticleById }) {
   const { query } = useRouter();
   const { id } = query;
 
-  function getArticlesById(id) {
-    return articles.find((article) => article.id === id);
-  }
-  const article = getArticlesById(id);
+  const article = getArticleById(id);
   if (!article) return <p>Artikel Details werden geladen...</p>;
+
+  const {
+    name,
+    size,
+    gender,
+    status,
+    animal,
+    smoker,
+    description,
+    price,
+  } = article;
 
   function editArticle(
     id,
-    newname,
-    newsize,
-    newgender,
-    newstatus,
-    newanimal,
-    newsmoker,
-    newdescription,
-    newprice
+    newName,
+    newSize,
+    newGender,
+    newStatus,
+    newAnimal,
+    newSmoker,
+    newDescription,
+    newPrice
   ) {
     setArticles((oldArticles) =>
       oldArticles.map((article) => {
         if (id === article.id) {
           return {
             ...article,
-            name: newname,
-            size: newsize,
-            gender: newgender,
-            status: newstatus,
-            animal: newanimal,
-            smoker: newsmoker,
-            description: newdescription,
-            price: newprice,
+            name: newName,
+            size: newSize,
+            gender: newGender,
+            status: newStatus,
+            animal: newAnimal,
+            smoker: newSmoker,
+            description: newDescription,
+            price: newPrice,
           };
         }
         return article;
@@ -45,9 +53,18 @@ function Edit({ articles, setArticles }) {
   return (
     <>
       <p>Deinen Artikel ändern: {article.name}</p>
+
       <Form
-        id={article.id}
-        articles={articles}
+        id={id}
+        content={article}
+        nameContent={name}
+        sizeContent={size}
+        genderContent={gender}
+        statusContent={status}
+        animalContent={animal}
+        smokerContent={smoker}
+        descriptionContent={description}
+        priceContent={price}
         onSubmit={editArticle}
         buttonText="aktualisieren"
       />

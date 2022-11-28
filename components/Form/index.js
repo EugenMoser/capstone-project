@@ -1,10 +1,21 @@
 import Svg from "../../components/Svg";
 import accountData from "../../helpers/accountData.json";
 import styled from "styled-components";
-import Link from "next/link";
 import { useRouter } from "next/router";
 
-function Form({ onSubmit, id, buttonText }) {
+function Form({
+  onSubmit,
+  id,
+  buttonText,
+  nameContent,
+  sizeContent,
+  genderContent,
+  statusContent,
+  animalContent,
+  smokerContent,
+  descriptionContent,
+  priceContent,
+}) {
   const router = useRouter();
 
   function handleSubmit(event) {
@@ -40,6 +51,7 @@ function Form({ onSubmit, id, buttonText }) {
         <input
           type="text"
           name="name"
+          defaultValue={nameContent}
           id="name"
           maxLength={20}
           pattern=".*[\S]+.*"
@@ -49,6 +61,7 @@ function Form({ onSubmit, id, buttonText }) {
         <input
           type="number"
           name="size"
+          defaultValue={sizeContent}
           id="size"
           maxLength={3}
           pattern=".*[\S]+.*"
@@ -57,8 +70,8 @@ function Form({ onSubmit, id, buttonText }) {
         <label htmlFor="gender">Geschlecht</label>
         <select
           name="gender"
+          defaultValue={genderContent ? genderContent : ""}
           id="gender"
-          defaultValue={""}
           required
         >
           <option
@@ -76,7 +89,7 @@ function Form({ onSubmit, id, buttonText }) {
         <select
           name="status"
           id="status"
-          defaultValue={""}
+          defaultValue={statusContent ? statusContent : ""}
           required
         >
           <option
@@ -95,6 +108,7 @@ function Form({ onSubmit, id, buttonText }) {
           <input
             type="checkbox"
             name="animal"
+            defaultChecked={animalContent}
             id="animal"
           ></input>
           Tierhaushalt
@@ -103,6 +117,7 @@ function Form({ onSubmit, id, buttonText }) {
           <input
             type="checkbox"
             name="smoker"
+            defaultChecked={smokerContent}
             id="smoker"
           ></input>
           Raucherhaushalt
@@ -112,31 +127,33 @@ function Form({ onSubmit, id, buttonText }) {
         <textarea
           id="description"
           name="description"
+          defaultValue={descriptionContent}
         ></textarea>
         <label htmlFor="price">Preis in Euro</label>
         <input
           type="number"
           name="price"
+          defaultValue={priceContent}
           id="price"
           maxLength={4}
           step="0.01"
           pattern=".*[\S]+.*"
         ></input>
         <button type="submit">{buttonText}</button>
+        <StyledButton
+          type="button"
+          onClick={() => router.back()}
+          aria-label="Artikel Details schließen und zur Homepage zurück"
+        >
+          <Svg
+            variant="close"
+            size="35px"
+          />
+        </StyledButton>
       </StyledForm>
-      <StyledLink
-        href="/"
-        aria-label="Artikel Details schließen und zur Homepage zurück"
-      >
-        <Svg
-          variant="close"
-          size="35px"
-        />
-      </StyledLink>
     </>
   );
 }
-
 export default Form;
 
 const StyledForm = styled.form`
@@ -145,10 +162,12 @@ const StyledForm = styled.form`
   flex-direction: column;
 `;
 
-const StyledLink = styled(Link)`
+const StyledButton = styled.button`
   position: absolute;
   right: 10px;
   top: 10px;
   border-style: none;
   color: inherit;
+  cursor: pointer;
+  background-color: transparent;
 `;

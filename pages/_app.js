@@ -6,6 +6,10 @@ import articlesDb from "../helpers/db.json";
 function MyApp({ Component, pageProps }) {
   const [articles, setArticles] = useLocalStorage("Articles", articlesDb);
 
+  function getArticleById(id) {
+    return articles.find((article) => article.id === id);
+  }
+
   return (
     <>
       <GlobalStyles />
@@ -14,6 +18,7 @@ function MyApp({ Component, pageProps }) {
           {...pageProps}
           articles={articles}
           setArticles={setArticles}
+          getArticleById={getArticleById}
         />
       </Layout>
     </>

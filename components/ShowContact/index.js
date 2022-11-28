@@ -33,10 +33,7 @@ function ShowContact({ article }) {
                 setOpenContact(!openContact);
               }}
             >
-              <Svg
-                variant="close"
-                size="35px"
-              />
+              <Svg variant="close" />
             </StyledCloseButton>
             <h4>Kontaktdaten von {author}</h4>
             <StyledLink
@@ -107,8 +104,4 @@ const StyledCloseButton = styled.button`
 
 const StyledLink = styled(Link)`
   display: flex;
-`;
-
-const StyledShowContact = styled(ShowContact)`
-  border: 1px dotted yellow;
 `;

@@ -4,15 +4,13 @@ import styled from "styled-components";
 import css from "styled-jsx/css";
 import Svg from "../../../components/Svg";
 import ShowContact from "../../../components/ShowContact";
+import Link from "next/link";
 
-function articleDetails({ articles }) {
+function articleDetails({ getArticleById }) {
   const router = useRouter();
   const { id } = router.query;
 
-  function getArticlesById(id) {
-    return articles.find((article) => article.id === id);
-  }
-  const article = getArticlesById(id);
+  const article = getArticleById(id);
   if (!article) return <p>Artikel Details werden geladen...</p>;
 
   const {
@@ -45,34 +43,58 @@ function articleDetails({ articles }) {
           <StyledListItem>Geschlecht: {gender}</StyledListItem>
           <StyledListItem>Zustand: {status}</StyledListItem>
 
-          <StyledListItem variant={!animal && "hide"}>
+          <StyledListItem variant={!animal ? "hide" : undefined}>
             Tierhaushalt
           </StyledListItem>
-          <StyledListItem variant={!smoker && "hide"}>
+          <StyledListItem variant={!smoker ? "hide" : undefined}>
             Raucherhaushalt
           </StyledListItem>
           <StyledListItem>Beschreibung: {description}</StyledListItem>
 
-          <StyledListItem variant={author === "Eugen" && "hide"}>
+          <StyledListItem
+            variant={author === "Eugen" ? "hide" : undefined}
+          >
             Entfernung: {distance} KM
           </StyledListItem>
         </ul>
         <StyledButton
           onClick={() => router.back()}
-          aria-label="Artikel Details schließen und zur Homepage zurück"
+          aria-label="Artikel Details schließen und zurück"
+        >
+          <Svg variant="close" />
+        </StyledButton>
+        <ShowContact
+          article={article}
+          variant={author === "Eugen" ? "hide" : undefined}
+        />
+        <StyledEditLink
+          href={`/articleDetails/${id}/edit`}
+          variant={author !== "Eugen" ? "hide" : undefined}
         >
           <Svg
-            variant="close"
-            size="35px"
+            variant="edit"
+            color={"black"}
           />
-        </StyledButton>
-        <ShowContact article={article} />
+        </StyledEditLink>
       </StyledArticle>
     </>
   );
 }
 
 export default articleDetails;
+
+const StyledEditLink = styled(Link)`
+  border: 1px solid black;
+  background-color: white;
+  width: 35px;
+  height: 35px;
+  ${({ variant }) =>
+    variant === "hide" &&
+    css`
+      display: none;
+    `};
+`;
+
 const StyledArticle = styled.article`
   position: relative;
   margin-bottom: 50px; //for navbar

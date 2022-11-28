@@ -6,13 +6,16 @@ function ArticleList({ articles, secondHeadline }) {
     <>
       <h2>{secondHeadline}</h2>
       <StyledList>
-        {articles.map((article) => {
-          return (
-            <li key={article.id}>
-              <Article article={article} />
-            </li>
-          );
-        })}
+        {articles
+          .slice()
+          .reverse()
+          .map((article) => {
+            return (
+              <li key={article.id}>
+                <Article article={article} />
+              </li>
+            );
+          })}
       </StyledList>
     </>
   );

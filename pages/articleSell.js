@@ -1,5 +1,6 @@
 import Form from "../components/Form";
 import { nanoid } from "nanoid";
+import Head from "next/head";
 
 function ArticleSell({ setArticles }) {
   function addArticle(
@@ -32,10 +33,20 @@ function ArticleSell({ setArticles }) {
   }
 
   return (
-    <Form
-      onSubmit={addArticle}
-      buttonText="bestätigen"
-    />
+    <>
+      <Head>
+        <title>Artikel verkaufen</title>
+        <meta
+          property="og:title"
+          content="Artikel verkaufen"
+          key="title"
+        />
+      </Head>
+      <Form
+        onSubmit={addArticle}
+        buttonText="bestätigen"
+      />
+    </>
   );
 }
 

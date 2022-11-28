@@ -5,6 +5,7 @@ import css from "styled-jsx/css";
 import Svg from "../../../components/Svg";
 import ShowContact from "../../../components/ShowContact";
 import Link from "next/link";
+import Head from "next/head";
 
 function articleDetails({ getArticleById }) {
   const router = useRouter();
@@ -29,6 +30,14 @@ function articleDetails({ getArticleById }) {
 
   return (
     <>
+      <Head>
+        <title>Artikeldetails</title>
+        <meta
+          property="og:title"
+          content="Artikeldetails"
+          key="title"
+        />
+      </Head>
       <StyledArticle>
         <h3>Details zum Artikel: {name}</h3>
         <Image

@@ -127,6 +127,7 @@ function Form({
         <textarea
           id="description"
           name="description"
+          placeholder="keine Beschreibung vorhanden"
           defaultValue={descriptionContent}
         ></textarea>
         <label htmlFor="price">Preis in Euro</label>

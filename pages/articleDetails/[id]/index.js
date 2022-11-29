@@ -68,7 +68,12 @@ function articleDetails({ getArticleById, setArticles }) {
           <StyledListItem variant={!smoker ? "hide" : undefined}>
             Raucherhaushalt
           </StyledListItem>
-          <StyledListItem>Beschreibung: {description}</StyledListItem>
+          <StyledListItem>
+            Beschreibung:{" "}
+            {description.length === 0
+              ? "keine Beschreibung vorhanden"
+              : description}
+          </StyledListItem>
 
           <StyledListItem
             variant={author === "Eugen" ? "hide" : undefined}

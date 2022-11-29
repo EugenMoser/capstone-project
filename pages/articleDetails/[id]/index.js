@@ -3,10 +3,10 @@ import Image from "next/image";
 import styled from "styled-components";
 import css from "styled-jsx/css";
 import Svg from "../../../components/Svg";
-import ShowContact from "../../../components/ShowContact";
+import ShowContact from "../../../components/Modal/ShowDeleteModal/ShowContact";
 import Link from "next/link";
 import Head from "next/head";
-import ShowDeleteModal from "../../../components/ShowDeleteModal";
+import ShowDeleteModal from "../../../components/Modal/ShowDeleteModal";
 
 function articleDetails({ getArticleById, setArticles }) {
   const router = useRouter();

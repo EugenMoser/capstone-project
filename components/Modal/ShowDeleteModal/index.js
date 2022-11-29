@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import Svg from "../Svg";
+import Svg from "../../Svg";
 import { useState } from "react";
 
 import { css } from "styled-components";

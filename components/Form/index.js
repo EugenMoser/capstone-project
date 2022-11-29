@@ -139,19 +139,20 @@ function Form({
           maxLength={4}
           step="0.01"
           pattern=".*[\S]+.*"
+          required
         ></input>
         <button type="submit">{buttonText}</button>
-        <StyledButton
-          type="button"
-          onClick={() => router.back()}
-          aria-label="Artikel Details schließen und zur Homepage zurück"
-        >
-          <Svg
-            variant="close"
-            size="35px"
-          />
-        </StyledButton>
       </StyledForm>
+      <StyledButton
+        type="button"
+        onClick={() => router.back()}
+        aria-label="Artikel Details schließen und zur Homepage zurück"
+      >
+        <Svg
+          variant="close"
+          size="35px"
+        />
+      </StyledButton>
     </>
   );
 }

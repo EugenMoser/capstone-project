@@ -7,12 +7,22 @@ import ShowContact from "../../../components/ShowContact";
 import Link from "next/link";
 import Head from "next/head";
 
-function articleDetails({ getArticleById }) {
+function articleDetails({ getArticleById, setArticles }) {
   const router = useRouter();
   const { id } = router.query;
 
   const article = getArticleById(id);
-  if (!article) return <p>Artikel Details werden geladen...</p>;
+  if (!article) return <h3>Artikel Details werden geladen...</h3>;
+
+  function deleteArticle(id) {
+    setArticles((previousArticles) => {
+      const newArticles = previousArticles.filter(
+        (article) => article.id !== id
+      );
+      return newArticles;
+    });
+    router.push("/myArticles");
+  }
 
   const {
     name,
@@ -76,15 +86,23 @@ function articleDetails({ getArticleById }) {
           article={article}
           variant={author === "Eugen" ? "hide" : undefined}
         />
-        <StyledEditLink
-          href={`/articleDetails/${id}/edit`}
-          variant={author !== "Eugen" ? "hide" : undefined}
-        >
-          <Svg
-            variant="edit"
-            color={"black"}
-          />
-        </StyledEditLink>
+        <ButtonContainer>
+          <StyledEditLink
+            href={`/articleDetails/${id}/edit`}
+            variant={author !== "Eugen" ? "hide" : undefined}
+          >
+            <Svg
+              variant="edit"
+              color="black"
+            />
+          </StyledEditLink>
+          <StyledButton
+            variant={author !== "Eugen" ? "hide" : "delete"}
+            onClick={() => deleteArticle(id)}
+          >
+            <Svg variant="delete" />
+          </StyledButton>
+        </ButtonContainer>
       </StyledArticle>
     </>
   );
@@ -92,11 +110,16 @@ function articleDetails({ getArticleById }) {
 
 export default articleDetails;
 
+const ButtonContainer = styled.div`
+  position: relative;
+  display: flex;
+  justify-content: space-around;
+`;
+
 const StyledEditLink = styled(Link)`
-  border: 1px solid black;
-  background-color: white;
   width: 35px;
   height: 35px;
+  border: 2px solid green;
   ${({ variant }) =>
     variant === "hide" &&
     css`
@@ -122,8 +145,20 @@ const StyledButton = styled.button`
   position: absolute;
   right: 10px;
   top: 10px;
+  padding: 0;
   border-style: none;
   color: inherit;
   background-color: inherit;
+  border: 2px solid green;
   cursor: pointer;
+  ${({ variant }) =>
+    variant === "delete" &&
+    css`
+      position: relative;
+    `}
+  ${({ variant }) =>
+    variant === "hide" &&
+    css`
+      display: none;
+    `};
 `;

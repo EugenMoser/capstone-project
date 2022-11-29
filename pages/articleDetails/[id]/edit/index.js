@@ -31,8 +31,8 @@ function Edit({ setArticles, getArticleById }) {
     newDescription,
     newPrice
   ) {
-    setArticles((oldArticles) =>
-      oldArticles.map((article) => {
+    setArticles((previousArticles) =>
+      previousArticles.map((article) => {
         if (id === article.id) {
           return {
             ...article,

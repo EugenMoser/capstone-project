@@ -3,7 +3,7 @@ import Image from "next/image";
 import styled from "styled-components";
 import css from "styled-jsx/css";
 import Svg from "../../../components/Svg";
-import ShowContact from "../../../components/Modal/ShowDeleteModal/ShowContact";
+import ShowContact from "../../../components/Modal/ShowContact";
 import Link from "next/link";
 import Head from "next/head";
 import ShowDeleteModal from "../../../components/Modal/ShowDeleteModal";

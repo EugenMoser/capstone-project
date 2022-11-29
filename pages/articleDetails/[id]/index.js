@@ -6,6 +6,7 @@ import Svg from "../../../components/Svg";
 import ShowContact from "../../../components/ShowContact";
 import Link from "next/link";
 import Head from "next/head";
+import ShowDeleteModal from "../../../components/ShowDeleteModal";
 
 function articleDetails({ getArticleById, setArticles }) {
   const router = useRouter();
@@ -21,6 +22,7 @@ function articleDetails({ getArticleById, setArticles }) {
       );
       return newArticles;
     });
+
     router.push("/myArticles");
   }
 
@@ -87,10 +89,7 @@ function articleDetails({ getArticleById, setArticles }) {
         >
           <Svg variant="close" />
         </StyledButton>
-        <ShowContact
-          article={article}
-          variant={author === "Eugen" ? "hide" : undefined}
-        />
+        <ShowContact article={article} />
         <ButtonContainer>
           <StyledEditLink
             href={`/articleDetails/${id}/edit`}
@@ -101,12 +100,12 @@ function articleDetails({ getArticleById, setArticles }) {
               color="black"
             />
           </StyledEditLink>
-          <StyledButton
-            variant={author !== "Eugen" ? "hide" : "delete"}
-            onClick={() => deleteArticle(id)}
-          >
-            <Svg variant="delete" />
-          </StyledButton>
+          <ShowDeleteModal
+            articleName={name}
+            articleId={id}
+            articleAuthor={author}
+            deleteArticle={deleteArticle}
+          />
         </ButtonContainer>
       </StyledArticle>
     </>
@@ -156,11 +155,7 @@ const StyledButton = styled.button`
   background-color: inherit;
   border: 2px solid green;
   cursor: pointer;
-  ${({ variant }) =>
-    variant === "delete" &&
-    css`
-      position: relative;
-    `}
+
   ${({ variant }) =>
     variant === "hide" &&
     css`

@@ -1,4 +1,4 @@
-import GlobalStyles from "../components/GlobalStyles";
+import GlobalStyles from "../components/Style/GlobalStyles";
 import Layout from "../components/Layout";
 import { useLocalStorage } from "../helpers/hooks";
 import articlesDb from "../helpers/db.json";

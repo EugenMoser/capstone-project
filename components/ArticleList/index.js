@@ -1,10 +1,11 @@
 import Article from "../Article";
-import styled from "styled-components";
+import { StyledList } from "./ArticleList.styled";
+import { StyledH2 } from "../Style/Font.styled";
 
 function ArticleList({ articles, secondHeadline }) {
   return (
     <>
-      <h2>{secondHeadline}</h2>
+      <StyledH2>{secondHeadline}</StyledH2>
       <StyledList>
         {articles
           .slice()
@@ -22,7 +23,3 @@ function ArticleList({ articles, secondHeadline }) {
 }
 
 export default ArticleList;
-
-const StyledList = styled.ul`
-  padding: 0;
-`;

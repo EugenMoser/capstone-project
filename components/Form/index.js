@@ -1,6 +1,6 @@
 import Svg from "../../components/Svg";
 import accountData from "../../helpers/accountData.json";
-import styled from "styled-components";
+import { StyledForm, StyledButton } from "./Form.styled";
 import { useRouter } from "next/router";
 
 function Form({
@@ -152,19 +152,3 @@ function Form({
   );
 }
 export default Form;
-
-const StyledForm = styled.form`
-  margin: 10px;
-  display: flex;
-  flex-direction: column;
-`;
-
-const StyledButton = styled.button`
-  position: absolute;
-  right: 10px;
-  top: 10px;
-  border-style: none;
-  color: inherit;
-  cursor: pointer;
-  background-color: transparent;
-`;

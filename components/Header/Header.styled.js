@@ -7,13 +7,8 @@ const StyledHeader = styled.header`
   height: 89px;
   background-color: var(--primary-color);
   display: flex;
-  align-items: center;
-  justify-content: center;
+  align-items: flex-end;
+  z-index: 100;
 `;
 
-const StyledH1 = styled.h1`
-  margin: 0;
-  font-weight: 700;
-`;
-
-export { StyledHeader, StyledH1 };
+export { StyledHeader };

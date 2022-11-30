@@ -17,7 +17,7 @@ const svgObject = {
 function Svg({ variant, size = "35px", color = "currentColor" }) {
   return (
     <svg
-      style={{ width: size, height: size, padding: 0, margin: 0 }}
+      style={{ width: size, height: size }}
       viewBox="0 0 48 48"
     >
       <path

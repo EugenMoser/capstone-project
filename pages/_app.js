@@ -19,7 +19,6 @@ function MyApp({ Component, pageProps }) {
           articles={articles}
           setArticles={setArticles}
           getArticleById={getArticleById}
-          //deleteArticle={deleteArticle}
         />
       </Layout>
     </>

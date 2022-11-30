@@ -36,7 +36,7 @@ export default Article;
 
 const StyledArticle = styled.article`
   border: 1px solid black;
-  margin: 1rem 1rem 50px 1rem;
+  margin: 0 1rem 50px 1rem;
   list-style: none;
   position: relative;
   background-color: white;

@@ -3,15 +3,28 @@ import Image from "next/image";
 import styled from "styled-components";
 import css from "styled-jsx/css";
 import Svg from "../../../components/Svg";
-import ShowContact from "../../../components/ShowContact";
+import ShowContact from "../../../components/Modal/ShowContact";
 import Link from "next/link";
+import Head from "next/head";
+import ShowDeleteModal from "../../../components/Modal/ShowDeleteModal";
 
-function articleDetails({ getArticleById }) {
+function articleDetails({ getArticleById, setArticles }) {
   const router = useRouter();
   const { id } = router.query;
 
   const article = getArticleById(id);
-  if (!article) return <p>Artikel Details werden geladen...</p>;
+  if (!article) return <h3>Artikel Details werden geladen...</h3>;
+
+  function deleteArticle(id) {
+    setArticles((previousArticles) => {
+      const newArticles = previousArticles.filter(
+        (article) => article.id !== id
+      );
+      return newArticles;
+    });
+
+    router.push("/myArticles");
+  }
 
   const {
     name,
@@ -29,6 +42,14 @@ function articleDetails({ getArticleById }) {
 
   return (
     <>
+      <Head>
+        <title>Artikeldetails</title>
+        <meta
+          property="og:title"
+          content="Artikeldetails"
+          key="title"
+        />
+      </Head>
       <StyledArticle>
         <h3>Details zum Artikel: {name}</h3>
         <Image
@@ -49,7 +70,12 @@ function articleDetails({ getArticleById }) {
           <StyledListItem variant={!smoker ? "hide" : undefined}>
             Raucherhaushalt
           </StyledListItem>
-          <StyledListItem>Beschreibung: {description}</StyledListItem>
+          <StyledListItem>
+            Beschreibung:{" "}
+            {description.length === 0
+              ? "keine Beschreibung vorhanden"
+              : description}
+          </StyledListItem>
 
           <StyledListItem
             variant={author === "Eugen" ? "hide" : undefined}
@@ -63,19 +89,24 @@ function articleDetails({ getArticleById }) {
         >
           <Svg variant="close" />
         </StyledButton>
-        <ShowContact
-          article={article}
-          variant={author === "Eugen" ? "hide" : undefined}
-        />
-        <StyledEditLink
-          href={`/articleDetails/${id}/edit`}
-          variant={author !== "Eugen" ? "hide" : undefined}
-        >
-          <Svg
-            variant="edit"
-            color={"black"}
+        <ShowContact article={article} />
+        <ButtonContainer>
+          <StyledEditLink
+            href={`/articleDetails/${id}/edit`}
+            variant={author !== "Eugen" ? "hide" : undefined}
+          >
+            <Svg
+              variant="edit"
+              color="black"
+            />
+          </StyledEditLink>
+          <ShowDeleteModal
+            articleName={name}
+            articleId={id}
+            articleAuthor={author}
+            deleteArticle={deleteArticle}
           />
-        </StyledEditLink>
+        </ButtonContainer>
       </StyledArticle>
     </>
   );
@@ -83,11 +114,16 @@ function articleDetails({ getArticleById }) {
 
 export default articleDetails;
 
+const ButtonContainer = styled.div`
+  position: relative;
+  display: flex;
+  justify-content: space-around;
+`;
+
 const StyledEditLink = styled(Link)`
-  border: 1px solid black;
-  background-color: white;
   width: 35px;
   height: 35px;
+  border: 2px solid green;
   ${({ variant }) =>
     variant === "hide" &&
     css`
@@ -113,8 +149,16 @@ const StyledButton = styled.button`
   position: absolute;
   right: 10px;
   top: 10px;
+  padding: 0;
   border-style: none;
   color: inherit;
   background-color: inherit;
+  border: 2px solid green;
   cursor: pointer;
+
+  ${({ variant }) =>
+    variant === "hide" &&
+    css`
+      display: none;
+    `};
 `;

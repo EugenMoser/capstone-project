@@ -1,5 +1,6 @@
 import Form from "../../../../components/Form";
 import { useRouter } from "next/router";
+import Head from "next/head";
 
 function Edit({ setArticles, getArticleById }) {
   const { query } = useRouter();
@@ -30,8 +31,8 @@ function Edit({ setArticles, getArticleById }) {
     newDescription,
     newPrice
   ) {
-    setArticles((oldArticles) =>
-      oldArticles.map((article) => {
+    setArticles((previousArticles) =>
+      previousArticles.map((article) => {
         if (id === article.id) {
           return {
             ...article,
@@ -52,6 +53,14 @@ function Edit({ setArticles, getArticleById }) {
 
   return (
     <>
+      <Head>
+        <title>Artikel editieren</title>
+        <meta
+          property="og:title"
+          content="Artikel editieren"
+          key="title"
+        />
+      </Head>
       <p>Deinen Artikel ändern: {article.name}</p>
 
       <Form

@@ -66,7 +66,6 @@ function Form({
           maxLength={3}
           pattern=".*[\S]+.*"
         ></input>
-
         <label htmlFor="gender">Geschlecht</label>
         <select
           name="gender"
@@ -84,7 +83,6 @@ function Form({
           <option value="Junge">Junge</option>
           <option value="Unisex">Unisex</option>
         </select>
-
         <label htmlFor="status">Zustand</label>
         <select
           name="status"
@@ -103,7 +101,6 @@ function Form({
           <option value="gut">gut</option>
           <option value="zufriedenstellend">zufriedenstellend</option>
         </select>
-
         <label htmlFor="animal">
           <input
             type="checkbox"
@@ -122,12 +119,10 @@ function Form({
           ></input>
           Raucherhaushalt
         </label>
-
         <label htmlFor="description">Beschreibung:</label>
         <textarea
           id="description"
           name="description"
-          placeholder="keine Beschreibung vorhanden"
           defaultValue={descriptionContent}
         ></textarea>
         <label htmlFor="price">Preis in Euro</label>
@@ -139,19 +134,20 @@ function Form({
           maxLength={4}
           step="0.01"
           pattern=".*[\S]+.*"
+          required
         ></input>
         <button type="submit">{buttonText}</button>
-        <StyledButton
-          type="button"
-          onClick={() => router.back()}
-          aria-label="Artikel Details schließen und zur Homepage zurück"
-        >
-          <Svg
-            variant="close"
-            size="35px"
-          />
-        </StyledButton>
       </StyledForm>
+      <StyledButton
+        type="button"
+        onClick={() => router.back()}
+        aria-label="Artikel Details schließen und zur Homepage zurück"
+      >
+        <Svg
+          variant="close"
+          size="35px"
+        />
+      </StyledButton>
     </>
   );
 }

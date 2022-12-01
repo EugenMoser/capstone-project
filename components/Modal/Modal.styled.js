@@ -1,5 +1,6 @@
 import styled from "styled-components";
 import Link from "next/link";
+import { css } from "styled-components";
 
 const ModalBackground = styled.div`
   position: fixed;
@@ -16,10 +17,9 @@ const ModalBackground = styled.div`
 const Modal = styled.address`
   display: flex;
   flex-direction: column;
-  padding: 25px;
   font-style: normal;
   position: relative;
-  background: var(--tertiary-color);
+  background-color: var(--modal-delete-color);
   color: var(--primary-color);
   position: fixed;
   top: 60%;
@@ -30,6 +30,13 @@ const Modal = styled.address`
   border-radius: 10px;
   box-shadow: 0 0 10px rgb(0 0 0 / 6%), 0 5px 20px rgb(0 0 0 / 5%);
   transform: translate(-50%, -50%);
+  padding: 0 20px;
+  ${({ variant }) =>
+    variant === "showModal" &&
+    css`
+      padding-left: 20px;
+      background-color: var(--tertiary-color);
+    `}
 `;
 
 const StyledLink = styled(Link)`

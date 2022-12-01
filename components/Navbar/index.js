@@ -2,21 +2,22 @@ import Link from "next/link";
 import { StyledNavbar } from "./Navbar.styled";
 import Svg from "../Svg";
 import { useState } from "react";
+import { useRouter } from "next/router";
 
 function Navbar() {
-  const [page, setPage] = useState("home");
+  const { pathname } = useRouter();
+
   return (
     <footer>
       <StyledNavbar>
         <Link
           href="/"
           aria-label="zurück zur Startseite"
-          onClick={() => setPage("home")}
         >
           <Svg
             variant="home"
             color={
-              page === "home"
+              pathname === "/"
                 ? "var(--navbar-icon-active)"
                 : "var(--navbar-icon)"
             }
@@ -25,12 +26,11 @@ function Navbar() {
         <Link
           href="/articleSell"
           aria-label="zur Artikel verkaufen Seite"
-          onClick={() => setPage("sell")}
         >
           <Svg
             variant="sell"
             color={
-              page === "sell"
+              pathname === "/articleSell"
                 ? "var(--navbar-icon-active)"
                 : "var(--navbar-icon)"
             }
@@ -39,12 +39,11 @@ function Navbar() {
         <Link
           href="/myArticles"
           aria-label="zur meinen Artikel"
-          onClick={() => setPage("myarticles")}
         >
           <Svg
             variant="myarticles"
             color={
-              page === "myarticles"
+              pathname === "/myArticles"
                 ? "var(--navbar-icon-active)"
                 : "var(--navbar-icon)"
             }

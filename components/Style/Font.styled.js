@@ -18,13 +18,14 @@ const StyledH3 = styled.h3`
 
 const StyledH4 = styled.h4`
   font-size: 16px;
-  margin: 10px 0;
+  margin: 60px 0 0 0;
 `;
 
 const StyledParagraphName = styled.p`
   display: flex;
   align-items: center;
   font-size: 13px;
+  margin-top: 40px;
 `;
 
 const StyledSpan = styled.span`

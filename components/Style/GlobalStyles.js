@@ -35,6 +35,8 @@ const GlobalStyles = createGlobalStyle`
         --border-radius: 5px;
 
         --checkbox-color: #97c3af;
+
+        --modal-delete-color:#e94163;
 }
 `;
 

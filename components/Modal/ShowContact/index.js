@@ -32,15 +32,16 @@ function ShowContact({ article }) {
 
       {openContact && (
         <ModalBackground>
-          <Modal>
-            <StyledCloseButton
+          <Modal variant="showModal">
+            <StyledButton
+              variant="close"
               aria-label="Kontaktdaten schließen"
               onClick={() => {
                 setOpenContact(!openContact);
               }}
             >
               <Svg variant="close" />
-            </StyledCloseButton>
+            </StyledButton>
             <StyledH4>Kontaktdaten:</StyledH4>
             <StyledParagraphName>
               <Svg variant="person" />

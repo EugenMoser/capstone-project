@@ -75,7 +75,6 @@ function articleDetails({ getArticleById, setArticles }) {
         </StyledArticleImageContainer>
         <StyledH3>{name}</StyledH3>
         <StyledList>
-          <StyledListItem>Preis: {price} Euro</StyledListItem>
           <StyledListItem>Größe: {size}</StyledListItem>
           <StyledListItem>Geschlecht: {gender}</StyledListItem>
           <StyledListItem>Zustand: {status}</StyledListItem>
@@ -88,7 +87,7 @@ function articleDetails({ getArticleById, setArticles }) {
           <StyledListItem
             variant={author === "Eugen" ? "hide" : undefined}
           >
-            Entfernung: {distance} KM
+            Entfernung: {distance} km
           </StyledListItem>
           <StyledListItem variant={!animal ? "hide" : undefined}>
             Tierhaushalt
@@ -96,6 +95,7 @@ function articleDetails({ getArticleById, setArticles }) {
           <StyledListItem variant={!smoker ? "hide" : undefined}>
             Raucherhaushalt
           </StyledListItem>
+          <StyledListItem>Preis: {price} Euro</StyledListItem>
         </StyledList>
 
         <ShowContact article={article} />
@@ -106,7 +106,10 @@ function articleDetails({ getArticleById, setArticles }) {
             }
             variant={author !== "Eugen" ? "hide" : "edit"}
           >
-            <Svg variant="edit" />
+            <Svg
+              variant="edit"
+              size="25px"
+            />
           </StyledButton>
           <ShowDeleteModal
             articleName={name}

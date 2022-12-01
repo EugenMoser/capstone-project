@@ -12,9 +12,9 @@ function Header() {
       {pathname === "/articleSell" ? (
         <StyledH1>Artikel verkaufen:</StyledH1>
       ) : pathname.startsWith("/myArticles") ? (
-        <StyledH1>Meine Artikel</StyledH1>
+        <StyledH1>Meine Artikel:</StyledH1>
       ) : pathname.endsWith("/edit") ? (
-        <StyledH1>Artikel editieren</StyledH1>
+        <StyledH1>Artikel editieren:</StyledH1>
       ) : pathname.startsWith("/articleDetails") ? (
         <StyledH1>Details:</StyledH1>
       ) : (

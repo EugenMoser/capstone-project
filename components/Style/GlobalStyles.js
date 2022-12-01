@@ -1,14 +1,11 @@
 import { createGlobalStyle } from "styled-components";
-//import localFont from "next/font/local";
-
-//const Quicksand = localFont({ src: "./Font/Quicksand-Variable.ttf" });
 
 const GlobalStyles = createGlobalStyle`
 
 
     @font-face {
     font-family: "Quicksand";
-    src: url("/Fonts/Quicksand-Variable.ttf");
+    src: url("/fonts/Quicksand-Variable.ttf");
     }
 
     html,

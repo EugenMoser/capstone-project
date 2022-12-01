@@ -1,6 +1,6 @@
 import styled from "styled-components";
 import Link from "next/link";
-import Image from "next/image";
+import { css } from "styled-components";
 
 const StyledArticle = styled.article`
   margin: 0 25px 25px 25px;
@@ -30,13 +30,18 @@ const StyledArticleImageContainer = styled.div`
 
 const StyledList = styled.ul`
   list-style: none;
-  padding: 0;
+  margin: 0;
   padding: 0 0 15px 20px;
 `;
 
-const StyledLisItems = styled.li`
+const StyledListItem = styled.li`
   list-style: none;
   font-size: 13px;
+  ${({ variant }) =>
+    variant === "hide" &&
+    css`
+      display: none;
+    `};
 `;
 
 export {
@@ -44,5 +49,5 @@ export {
   StyledDetailsLink,
   StyledArticleImageContainer,
   StyledList,
-  StyledLisItems,
+  StyledListItem,
 };

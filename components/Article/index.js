@@ -4,7 +4,7 @@ import {
   StyledDetailsLink,
   StyledArticleImageContainer,
   StyledList,
-  StyledLisItems,
+  StyledListItem,
 } from "./Article.styled";
 import { StyledImage } from "../Style/Image.styled";
 import { StyledH3 } from "../Style/Font.styled";
@@ -27,15 +27,15 @@ function Article({ article }) {
       <StyledH3>{name}</StyledH3>
 
       <StyledList>
-        <StyledLisItems>
+        <StyledListItem>
           Größe: <StyledSpan>{size}</StyledSpan>
-        </StyledLisItems>
-        <StyledLisItems>
+        </StyledListItem>
+        <StyledListItem>
           Geschlecht: <StyledSpan>{gender}</StyledSpan>
-        </StyledLisItems>
-        <StyledLisItems>
+        </StyledListItem>
+        <StyledListItem>
           Preis: <StyledSpan>{price}</StyledSpan> Euro
-        </StyledLisItems>
+        </StyledListItem>
       </StyledList>
       <StyledDetailsLink
         href={`/articleDetails/${id}`}

@@ -1,10 +1,18 @@
 import { useRouter } from "next/router";
-import Image from "next/image";
-import styled from "styled-components";
-import css from "styled-jsx/css";
 import Svg from "../../../components/Svg";
 import ShowContact from "../../../components/Modal/ShowContact";
-import Link from "next/link";
+import {
+  ButtonContainer,
+  StyledArticle,
+} from "../../../components/Style/ArticleDetails.styled";
+import { StyledButton } from "../../../components/Style/Button.styled";
+import {
+  StyledArticleImageContainer,
+  StyledList,
+  StyledListItem,
+} from "../../../components/Article/Article.styled";
+import { StyledImage } from "../../../components/Style/Image.styled";
+import { StyledH3 } from "../../../components/Style/Font.styled";
 import Head from "next/head";
 import ShowDeleteModal from "../../../components/Modal/ShowDeleteModal";
 
@@ -50,56 +58,56 @@ function articleDetails({ getArticleById, setArticles }) {
           key="title"
         />
       </Head>
+      <StyledButton
+        variant="close"
+        onClick={() => router.back()}
+        aria-label="Artikel Details schließen und zurück"
+      >
+        <Svg variant="close" />
+      </StyledButton>
       <StyledArticle>
-        <h3>Details zum Artikel: {name}</h3>
-        <Image
-          src={image}
-          alt={`Ein Bild von / vom ${name}`}
-          width={150}
-          height={200}
-        />
-        <ul>
+        <StyledArticleImageContainer>
+          <StyledImage
+            src={image}
+            alt={`Ein Bild von / vom ${name}`}
+            fill
+          />
+        </StyledArticleImageContainer>
+        <StyledH3>{name}</StyledH3>
+        <StyledList>
           <StyledListItem>Preis: {price} Euro</StyledListItem>
           <StyledListItem>Größe: {size}</StyledListItem>
           <StyledListItem>Geschlecht: {gender}</StyledListItem>
           <StyledListItem>Zustand: {status}</StyledListItem>
-
-          <StyledListItem variant={!animal ? "hide" : undefined}>
-            Tierhaushalt
-          </StyledListItem>
-          <StyledListItem variant={!smoker ? "hide" : undefined}>
-            Raucherhaushalt
-          </StyledListItem>
           <StyledListItem>
             Beschreibung:{" "}
             {description.length === 0
               ? "keine Beschreibung vorhanden"
               : description}
           </StyledListItem>
-
           <StyledListItem
             variant={author === "Eugen" ? "hide" : undefined}
           >
             Entfernung: {distance} KM
           </StyledListItem>
-        </ul>
-        <StyledButton
-          onClick={() => router.back()}
-          aria-label="Artikel Details schließen und zurück"
-        >
-          <Svg variant="close" />
-        </StyledButton>
+          <StyledListItem variant={!animal ? "hide" : undefined}>
+            Tierhaushalt
+          </StyledListItem>
+          <StyledListItem variant={!smoker ? "hide" : undefined}>
+            Raucherhaushalt
+          </StyledListItem>
+        </StyledList>
+
         <ShowContact article={article} />
         <ButtonContainer>
-          <StyledEditLink
-            href={`/articleDetails/${id}/edit`}
-            variant={author !== "Eugen" ? "hide" : undefined}
+          <StyledButton
+            onClick={() =>
+              (window.location.href = `/articleDetails/${id}/edit`)
+            }
+            variant={author !== "Eugen" ? "hide" : "edit"}
           >
-            <Svg
-              variant="edit"
-              color="black"
-            />
-          </StyledEditLink>
+            <Svg variant="edit" />
+          </StyledButton>
           <ShowDeleteModal
             articleName={name}
             articleId={id}
@@ -113,52 +121,3 @@ function articleDetails({ getArticleById, setArticles }) {
 }
 
 export default articleDetails;
-
-const ButtonContainer = styled.div`
-  position: relative;
-  display: flex;
-  justify-content: space-around;
-`;
-
-const StyledEditLink = styled(Link)`
-  width: 35px;
-  height: 35px;
-  border: 2px solid green;
-  ${({ variant }) =>
-    variant === "hide" &&
-    css`
-      display: none;
-    `};
-`;
-
-const StyledArticle = styled.article`
-  position: relative;
-  margin-bottom: 50px; //for navbar
-`;
-
-const StyledListItem = styled.li`
-  list-style: none;
-  ${({ variant }) =>
-    variant === "hide" &&
-    css`
-      display: none;
-    `}
-`;
-
-const StyledButton = styled.button`
-  position: absolute;
-  right: 10px;
-  top: 10px;
-  padding: 0;
-  border-style: none;
-  color: inherit;
-  background-color: inherit;
-  border: 2px solid green;
-  cursor: pointer;
-
-  ${({ variant }) =>
-    variant === "hide" &&
-    css`
-      display: none;
-    `};
-`;

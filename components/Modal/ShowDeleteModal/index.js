@@ -1,7 +1,7 @@
 import styled from "styled-components";
 import Svg from "../../Svg";
 import { useState } from "react";
-
+import { StyledButton } from "../../Style/Button.styled";
 import { css } from "styled-components";
 
 function ShowDeleteModal({
@@ -14,14 +14,14 @@ function ShowDeleteModal({
 
   return (
     <>
-      <StyledDeleteButton
-        variant={articleAuthor !== "Eugen" ? "hide" : undefined}
+      <StyledButton
+        variant={articleAuthor !== "Eugen" ? "hide" : "edit"}
         onClick={() => {
           setOpenContact(!openContact);
         }}
       >
         <Svg variant="delete" />
-      </StyledDeleteButton>
+      </StyledButton>
 
       {openContact && (
         <ModalBackground>

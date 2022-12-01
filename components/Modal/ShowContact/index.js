@@ -2,7 +2,8 @@ import styled from "styled-components";
 import Svg from "../../Svg";
 import { useState } from "react";
 import Link from "next/link";
-import { css } from "styled-components";
+
+import { StyledButton } from "../../Style/Button.styled";
 
 function ShowContact({ article }) {
   const [openContact, setOpenContact] = useState(false);
@@ -10,8 +11,8 @@ function ShowContact({ article }) {
   const { author, tel, mail } = article;
   return (
     <>
-      <StyledContactButton
-        variant={author === "Eugen" && "hide"}
+      <StyledButton
+        variant={author === "Eugen" ? "hide" : "contact"}
         aria-label="Kontaktdaten anzeigen"
         onClick={() => {
           setOpenContact(!openContact);
@@ -22,7 +23,7 @@ function ShowContact({ article }) {
           size="20px"
         />
         Kontaktdaten
-      </StyledContactButton>
+      </StyledButton>
 
       {openContact && (
         <ModalBackground>
@@ -56,16 +57,6 @@ function ShowContact({ article }) {
 }
 
 export default ShowContact;
-
-const StyledContactButton = styled.button`
-  display: flex;
-  text-align: center;
-  ${({ variant }) =>
-    variant === "hide" &&
-    css`
-      display: none;
-    `}
-`;
 
 const ModalBackground = styled.div`
   position: fixed;

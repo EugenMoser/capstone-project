@@ -1,9 +1,14 @@
 import styled from "styled-components";
 import Svg from "../../Svg";
 import { useState } from "react";
-import Link from "next/link";
 
 import { StyledButton } from "../../Style/Button.styled";
+import { ModalBackground, Modal, StyledLink } from "../Modal.styled";
+import {
+  StyledH4,
+  StyledParagraphName,
+  StyledSpan,
+} from "../../Style/Font.styled";
 
 function ShowContact({ article }) {
   const [openContact, setOpenContact] = useState(false);
@@ -36,18 +41,24 @@ function ShowContact({ article }) {
             >
               <Svg variant="close" />
             </StyledCloseButton>
-            <h4>Kontaktdaten von {author}</h4>
+            <StyledH4>Kontaktdaten:</StyledH4>
+            <StyledParagraphName>
+              <Svg variant="person" />
+              <StyledSpan>{author}</StyledSpan>
+            </StyledParagraphName>
             <StyledLink
               href={`tel: ${tel}`}
               aria-label="Diese Telefonnummer anrufen"
             >
-              Telefon: {tel}
+              <Svg variant="contact" />
+              <StyledSpan>Telefon: {tel}</StyledSpan>
             </StyledLink>
             <StyledLink
               href={`mailto: ${mail}`}
               aria-label="Email schreiben"
             >
-              Mail: {mail}
+              <Svg variant="mail" />
+              <StyledSpan>Mail: {mail}</StyledSpan>
             </StyledLink>
           </Modal>
         </ModalBackground>
@@ -58,32 +69,6 @@ function ShowContact({ article }) {
 
 export default ShowContact;
 
-const ModalBackground = styled.div`
-  position: fixed;
-  background-color: rgba(0, 0, 0, 0.4);
-  width: 100vw;
-  height: 100vh;
-  z-index: 0;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-`;
-
-const Modal = styled.address`
-  font-style: normal;
-  position: relative;
-  background: white;
-  position: fixed;
-  top: 50%;
-  left: 50%;
-  width: 90vw;
-  height: 50vh;
-  z-index: 100;
-  border-radius: 10px;
-  box-shadow: 0 0 10px rgb(0 0 0 / 6%), 0 5px 20px rgb(0 0 0 / 5%);
-  transform: translate(-50%, -50%);
-`;
-
 const StyledCloseButton = styled.button`
   position: absolute;
   right: 10px;
@@ -91,8 +76,4 @@ const StyledCloseButton = styled.button`
   border-style: none;
   color: inherit;
   background-color: inherit;
-`;
-
-const StyledLink = styled(Link)`
-  display: flex;
 `;

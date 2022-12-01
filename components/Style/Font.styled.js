@@ -16,4 +16,26 @@ const StyledH3 = styled.h3`
   font-size: 16px;
 `;
 
-export { StyledH1, StyledH2, StyledH3 };
+const StyledH4 = styled.h4`
+  font-size: 16px;
+  margin: 10px 0;
+`;
+
+const StyledParagraphName = styled.p`
+  display: flex;
+  align-items: center;
+  font-size: 13px;
+`;
+
+const StyledSpan = styled.span`
+  margin-left: 10px;
+`;
+
+export {
+  StyledH1,
+  StyledH2,
+  StyledH3,
+  StyledH4,
+  StyledParagraphName,
+  StyledSpan,
+};

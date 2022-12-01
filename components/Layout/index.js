@@ -1,11 +1,12 @@
 import Header from "../Header";
 import Navbar from "../Navbar";
+import { StyledMain } from "../Layout/Layout.styled";
 
 function Layout({ children }) {
   return (
     <>
       <Header />
-      <main>{children}</main>
+      <StyledMain>{children}</StyledMain>
       <Navbar />
     </>
   );

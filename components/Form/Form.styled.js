@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { css } from "styled-components";
 
 const StyledForm = styled.form`
   margin: 25px;
@@ -6,14 +7,42 @@ const StyledForm = styled.form`
   flex-direction: column;
 `;
 
-const StyledButton = styled.button`
-  position: absolute;
-  right: 10px;
-  top: 10px;
-  border-style: none;
-  color: inherit;
-  cursor: pointer;
-  background-color: transparent;
+const StyledInput = styled.input`
+  margin-bottom: 15px;
+  border-radius: var(--border-radius);
+  line-height: 1.5;
+
+  ${({ variant }) =>
+    variant === "checkbox" &&
+    css`
+      margin-bottom: 0;
+      accent-color: var(--checkbox-color);
+    `}
 `;
 
-export { StyledForm, StyledButton };
+const StyledSelect = styled.select`
+  margin-bottom: 15px;
+  border-radius: var(--border-radius);
+  padding: 3px;
+  background-color: white;
+  color: black;
+`;
+
+const StyledTextarea = styled.textarea`
+  margin-bottom: 15px;
+  border-radius: var(--border-radius);
+`;
+
+const StyledCheckbox = styled.div`
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 20px;
+`;
+
+export {
+  StyledForm,
+  StyledInput,
+  StyledSelect,
+  StyledCheckbox,
+  StyledTextarea,
+};

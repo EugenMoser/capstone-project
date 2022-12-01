@@ -8,7 +8,7 @@ const StyledArticle = styled.article`
   position: relative;
   background-color: white;
   border: none;
-  border-radius: 5px;
+  border-radius: var(--border-radius);
 `;
 
 const StyledDetailsLink = styled(Link)`
@@ -25,7 +25,7 @@ const StyledArticleImageContainer = styled.div`
   width: 100%;
   height: 30vh;
   background-color: var(--article-card);
-  border-radius: 5px 5px 0 0;
+  border-radius: var(--border-radius) var(--border-radius) 0 0;
 `;
 
 const StyledList = styled.ul`

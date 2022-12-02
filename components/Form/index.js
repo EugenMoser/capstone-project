@@ -63,7 +63,7 @@ function Form({
           maxLength={20}
           pattern=".*[\S]+.*"
           required
-        ></StyledInput>
+        />
         <label htmlFor="size">Größe</label>
         <StyledInput
           type="number"
@@ -72,7 +72,7 @@ function Form({
           id="size"
           maxLength={3}
           pattern=".*[\S]+.*"
-        ></StyledInput>
+        />
         <label htmlFor="gender">Geschlecht</label>
         <StyledSelect
           name="gender"
@@ -125,7 +125,7 @@ function Form({
           step="0.01"
           pattern=".*[\S]+.*"
           required
-        ></StyledInput>
+        />
         <StyledCheckbox>
           <label htmlFor="animal">
             <StyledInput
@@ -134,7 +134,7 @@ function Form({
               name="animal"
               defaultChecked={animalContent}
               id="animal"
-            ></StyledInput>
+            />
             Tierhaushalt
           </label>
           <label htmlFor="smoker">
@@ -144,7 +144,7 @@ function Form({
               name="smoker"
               defaultChecked={smokerContent}
               id="smoker"
-            ></StyledInput>
+            />
             Raucherhaushalt
           </label>
         </StyledCheckbox>

@@ -1,8 +1,6 @@
 import { useRouter } from "next/router";
-
 import { StyledImage } from "../Style/Image.styled";
 import { StyledHeader } from "./Header.styled";
-import { StyledH1 } from "../Style/Font.styled";
 
 function Header() {
   const { pathname } = useRouter();
@@ -10,13 +8,13 @@ function Header() {
   return (
     <StyledHeader>
       {pathname === "/articleSell" ? (
-        <StyledH1>Artikel verkaufen:</StyledH1>
+        <h1>Artikel verkaufen:</h1>
       ) : pathname.startsWith("/myArticles") ? (
-        <StyledH1>Meine Artikel:</StyledH1>
+        <h1>Meine Artikel:</h1>
       ) : pathname.endsWith("/edit") ? (
-        <StyledH1>Artikel editieren:</StyledH1>
+        <h1>Artikel editieren:</h1>
       ) : pathname.startsWith("/articleDetails") ? (
-        <StyledH1>Details:</StyledH1>
+        <h1>Details:</h1>
       ) : (
         <h1>
           <StyledImage

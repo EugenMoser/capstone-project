@@ -8,7 +8,7 @@ const StyledNavbar = styled.nav`
   justify-content: space-around;
   align-items: center;
   width: 100vw;
-  height: 61px;
+  height: 60px;
 `;
 
 export { StyledNavbar };

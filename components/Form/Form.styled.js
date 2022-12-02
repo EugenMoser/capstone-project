@@ -1,5 +1,4 @@
-import styled from "styled-components";
-import { css } from "styled-components";
+import styled, { css } from "styled-components";
 
 const StyledForm = styled.form`
   margin: 25px;
@@ -24,8 +23,8 @@ const StyledSelect = styled.select`
   margin-bottom: 15px;
   border-radius: var(--border-radius);
   padding: 3px;
-  background-color: white;
-  color: black;
+  background-color: var(--primary-color);
+  color: #000000;
 `;
 
 const StyledTextarea = styled.textarea`

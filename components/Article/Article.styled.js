@@ -1,12 +1,10 @@
-import styled from "styled-components";
+import styled, { css } from "styled-components";
 import Link from "next/link";
-import { css } from "styled-components";
 
 const StyledArticle = styled.article`
   margin: 0 25px 25px 25px;
-
   position: relative;
-  background-color: white;
+  background-color: var(--primary-color);
   border: none;
   border-radius: var(--border-radius);
 `;
@@ -16,27 +14,28 @@ const StyledDetailsLink = styled(Link)`
   position: absolute;
   right: 10px;
   bottom: 10px;
-  border-style: none;
   color: var(--tertiary-color);
 `;
 
 const StyledArticleImageContainer = styled.div`
   position: relative;
-  width: 100%;
   height: 30vh;
   background-color: var(--article-card);
   border-radius: var(--border-radius) var(--border-radius) 0 0;
 `;
 
+const StyledArticleList = styled.ul`
+  margin: 0;
+  padding: 0;
+`;
+
 const StyledList = styled.ul`
-  list-style: none;
   margin: 0;
   padding: 0 0 15px 20px;
 `;
 
 const StyledListItem = styled.li`
-  list-style: none;
-  font-size: 13px;
+  font-size: 0.8rem;
   display: grid;
   grid-template-columns: 1fr 2fr;
   ${({ variant }) =>
@@ -50,6 +49,7 @@ export {
   StyledArticle,
   StyledDetailsLink,
   StyledArticleImageContainer,
+  StyledArticleList,
   StyledList,
   StyledListItem,
 };

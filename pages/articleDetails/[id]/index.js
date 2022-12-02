@@ -9,13 +9,10 @@ import { StyledButton } from "../../../components/Style/Button.styled";
 import {
   StyledArticleImageContainer,
   StyledList,
+  StyledListItem,
 } from "../../../components/Article/Article.styled";
-import { StyledListItem } from "../../../components/Article/Article.styled";
 import { StyledImage } from "../../../components/Style/Image.styled";
-import {
-  StyledH3,
-  StyledSpan,
-} from "../../../components/Style/Font.styled";
+
 import Head from "next/head";
 import ShowDeleteModal from "../../../components/Modal/ShowDeleteModal";
 
@@ -76,29 +73,29 @@ function articleDetails({ getArticleById, setArticles }) {
             fill
           />
         </StyledArticleImageContainer>
-        <StyledH3>{name}</StyledH3>
+        <h3>{name}</h3>
         <StyledList>
           <StyledListItem>
-            Größe: <StyledSpan>{size}</StyledSpan>
+            Größe: <span>{size}</span>
           </StyledListItem>
           <StyledListItem>
-            Geschlecht: <StyledSpan>{gender}</StyledSpan>
+            Geschlecht: <span>{gender}</span>
           </StyledListItem>
           <StyledListItem>
-            Zustand: <StyledSpan>{status}</StyledSpan>
+            Zustand: <span>{status}</span>
           </StyledListItem>
           <StyledListItem>
             Beschreibung:{" "}
-            <StyledSpan>
+            <span>
               {description.length === 0
                 ? "keine Beschreibung vorhanden"
                 : description}
-            </StyledSpan>
+            </span>
           </StyledListItem>
           <StyledListItem
             variant={author === "Eugen" ? "hide" : undefined}
           >
-            Entfernung (km): <StyledSpan>{distance}</StyledSpan>
+            Entfernung (km): <span>{distance}</span>
           </StyledListItem>
           <StyledListItem variant={!animal ? "hide" : undefined}>
             Tierhaushalt
@@ -107,7 +104,7 @@ function articleDetails({ getArticleById, setArticles }) {
             Raucherhaushalt
           </StyledListItem>
           <StyledListItem>
-            Preis (Euro): <StyledSpan>{price}</StyledSpan>{" "}
+            Preis (Euro): <span>{price}</span>{" "}
           </StyledListItem>
         </StyledList>
 

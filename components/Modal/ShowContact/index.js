@@ -1,14 +1,7 @@
-import styled from "styled-components";
 import Svg from "../../Svg";
 import { useState } from "react";
-
 import { StyledButton } from "../../Style/Button.styled";
 import { ModalBackground, Modal, StyledLink } from "../Modal.styled";
-import {
-  StyledH4,
-  StyledParagraphName,
-  StyledSpan,
-} from "../../Style/Font.styled";
 
 function ShowContact({ article }) {
   const [openContact, setOpenContact] = useState(false);
@@ -42,24 +35,24 @@ function ShowContact({ article }) {
             >
               <Svg variant="close" />
             </StyledButton>
-            <StyledH4>Kontaktdaten:</StyledH4>
-            <StyledParagraphName>
+            <h4>Kontaktdaten:</h4>
+            <p>
               <Svg variant="person" />
-              <StyledSpan>{author}</StyledSpan>
-            </StyledParagraphName>
+              <span>{author}</span>
+            </p>
             <StyledLink
               href={`tel: ${tel}`}
               aria-label="Diese Telefonnummer anrufen"
             >
               <Svg variant="contact" />
-              <StyledSpan>Telefon: {tel}</StyledSpan>
+              <span>{tel}</span>
             </StyledLink>
             <StyledLink
               href={`mailto: ${mail}`}
               aria-label="Email schreiben"
             >
               <Svg variant="mail" />
-              <StyledSpan>Mail: {mail}</StyledSpan>
+              <span>{mail}</span>
             </StyledLink>
           </Modal>
         </ModalBackground>
@@ -69,12 +62,3 @@ function ShowContact({ article }) {
 }
 
 export default ShowContact;
-
-const StyledCloseButton = styled.button`
-  position: absolute;
-  right: 10px;
-  top: 10px;
-  border-style: none;
-  color: inherit;
-  background-color: inherit;
-`;

@@ -1,5 +1,4 @@
-import styled from "styled-components";
-import { css } from "styled-components";
+import styled, { css } from "styled-components";
 
 const StyledButton = styled.button`
   cursor: pointer;
@@ -8,12 +7,12 @@ const StyledButton = styled.button`
     variant === "submit" &&
     css`
       background-color: var(--tertiary-color);
-      width: 176px;
+      width: 175px;
       height: 35px;
       border-radius: var(--border-radius);
       border: none;
       color: var(--primary-color);
-      font-size: 16px;
+      font-size: 1rem;
       align-self: center;
     `}
 
@@ -26,7 +25,7 @@ const StyledButton = styled.button`
       border-radius: var(--border-radius);
       border: none;
       color: var(--primary-color);
-      font-size: 16px;
+      font-size: 1rem;
       display: flex;
       align-items: center;
       justify-content: space-evenly;
@@ -90,7 +89,7 @@ const StyledButton = styled.button`
       margin-top: 50px;
       padding: 0;
       border-style: none;
-      font-size: 16px;
+      font-size: 1rem;
     `}
   ${({ variant }) =>
     variant === "modalcancel" &&
@@ -103,7 +102,7 @@ const StyledButton = styled.button`
       margin-top: 50px;
       padding: 0;
       border-style: none;
-      font-size: 16px;
+      font-size: 1rem;
     `}
 
   ${({ variant }) =>

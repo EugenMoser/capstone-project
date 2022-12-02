@@ -41,11 +41,16 @@ const Modal = styled.address`
 
 const StyledLink = styled(Link)`
   display: flex;
+
   align-items: center;
   text-decoration: none;
   color: var(--primary-color);
   margin: 10px 0;
-  font-size: 13px;
+  font-size: 0.8rem;
+
+  && span {
+    padding-left: 10px;
+  }
 `;
 
 export { ModalBackground, Modal, StyledLink };

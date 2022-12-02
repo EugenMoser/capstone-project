@@ -1,5 +1,4 @@
-import styled from "styled-components";
-import css from "styled-jsx/css";
+import styled, { css } from "styled-components";
 
 const ButtonContainer = styled.div`
   display: flex;
@@ -12,7 +11,6 @@ const StyledArticle = styled.article`
 `;
 
 const StyledListItem = styled.li`
-  list-style: none;
   ${({ variant }) =>
     variant === "hide" &&
     css`

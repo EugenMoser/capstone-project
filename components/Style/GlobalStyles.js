@@ -22,7 +22,7 @@ const GlobalStyles = createGlobalStyle`
 
         --checkbox-color: #97c3af;
 
-        --modal-delete-color:#e94163;
+        --modal-delete-color: #e94163;
 }
     html,
     body {
@@ -37,6 +37,48 @@ const GlobalStyles = createGlobalStyle`
     body {
         background-color: var(--secondary-color)
     }
+
+    main {
+    margin-bottom: 86px;
+    }
+
+   
+    h1{
+       margin: 0;
+       font-weight: 700;
+       font-size: 1.2rem;
+   }
+
+    h2{
+        font-size: 1.25rem;
+        margin: 20px 25px 10px 25px; 
+    }
+
+    h3 {
+        font-size: 1rem;
+        margin: 10px 0 5px 20px;
+    }
+
+
+    h4{
+        font-size: 1rem;
+        margin: 60px 0 0 0;
+    }
+
+    p {
+        display: flex;
+        align-items: center;
+        font-size: 0.8rem;
+        margin-top: 40px;
+
+    }
+
+    p  span {
+        padding:10px;
+    }
+
+
+
 `;
 
 export default GlobalStyles;

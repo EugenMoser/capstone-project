@@ -7,9 +7,6 @@ import {
   StyledListItem,
 } from "./Article.styled";
 import { StyledImage } from "../Style/Image.styled";
-import { StyledH3 } from "../Style/Font.styled";
-
-import styled from "styled-components";
 
 function Article({ article }) {
   const { id, name, size, gender, price, image } = article;
@@ -24,17 +21,17 @@ function Article({ article }) {
           fill
         />
       </StyledArticleImageContainer>
-      <StyledH3>{name}</StyledH3>
+      <h3>{name}</h3>
 
       <StyledList>
         <StyledListItem>
-          Größe: <StyledSpan>{size}</StyledSpan>
+          Größe: <span>{size}</span>
         </StyledListItem>
         <StyledListItem>
-          Geschlecht: <StyledSpan>{gender}</StyledSpan>
+          Geschlecht:<span>{gender}</span>
         </StyledListItem>
         <StyledListItem>
-          Preis (Euro): <StyledSpan>{price}</StyledSpan>
+          Preis (Euro): <span>{price}</span>
         </StyledListItem>
       </StyledList>
       <StyledDetailsLink
@@ -48,7 +45,3 @@ function Article({ article }) {
 }
 
 export default Article;
-
-const StyledSpan = styled.span`
-  tab-size: 100px;
-`;

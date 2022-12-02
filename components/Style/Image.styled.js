@@ -1,6 +1,5 @@
-import styled from "styled-components";
+import styled, { css } from "styled-components";
 import Image from "next/image";
-import { css } from "styled-components";
 
 const StyledImage = styled(Image)`
   object-fit: contain;

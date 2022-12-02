@@ -1,12 +1,11 @@
 import Article from "../Article";
-import { StyledList } from "./ArticleList.styled";
-import { StyledH2 } from "../Style/Font.styled";
+import { StyledArticleList } from "../Article/Article.styled";
 
 function ArticleList({ articles, secondHeadline }) {
   return (
     <>
-      <StyledH2>{secondHeadline}</StyledH2>
-      <StyledList>
+      <h2>{secondHeadline}</h2>
+      <StyledArticleList>
         {articles
           .slice()
           .reverse()
@@ -17,7 +16,7 @@ function ArticleList({ articles, secondHeadline }) {
               </li>
             );
           })}
-      </StyledList>
+      </StyledArticleList>
     </>
   );
 }

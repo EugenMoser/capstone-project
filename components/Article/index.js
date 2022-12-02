@@ -34,7 +34,7 @@ function Article({ article }) {
           Geschlecht: <StyledSpan>{gender}</StyledSpan>
         </StyledListItem>
         <StyledListItem>
-          Preis: <StyledSpan>{price}</StyledSpan> Euro
+          Preis (Euro): <StyledSpan>{price}</StyledSpan>
         </StyledListItem>
       </StyledList>
       <StyledDetailsLink

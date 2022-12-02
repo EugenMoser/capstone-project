@@ -37,6 +37,8 @@ const StyledList = styled.ul`
 const StyledListItem = styled.li`
   list-style: none;
   font-size: 13px;
+  display: grid;
+  grid-template-columns: 1fr 2fr;
   ${({ variant }) =>
     variant === "hide" &&
     css`

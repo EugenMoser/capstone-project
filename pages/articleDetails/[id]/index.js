@@ -9,10 +9,13 @@ import { StyledButton } from "../../../components/Style/Button.styled";
 import {
   StyledArticleImageContainer,
   StyledList,
-  StyledListItem,
 } from "../../../components/Article/Article.styled";
+import { StyledListItem } from "../../../components/Article/Article.styled";
 import { StyledImage } from "../../../components/Style/Image.styled";
-import { StyledH3 } from "../../../components/Style/Font.styled";
+import {
+  StyledH3,
+  StyledSpan,
+} from "../../../components/Style/Font.styled";
 import Head from "next/head";
 import ShowDeleteModal from "../../../components/Modal/ShowDeleteModal";
 
@@ -75,19 +78,27 @@ function articleDetails({ getArticleById, setArticles }) {
         </StyledArticleImageContainer>
         <StyledH3>{name}</StyledH3>
         <StyledList>
-          <StyledListItem>Größe: {size}</StyledListItem>
-          <StyledListItem>Geschlecht: {gender}</StyledListItem>
-          <StyledListItem>Zustand: {status}</StyledListItem>
+          <StyledListItem>
+            Größe: <StyledSpan>{size}</StyledSpan>
+          </StyledListItem>
+          <StyledListItem>
+            Geschlecht: <StyledSpan>{gender}</StyledSpan>
+          </StyledListItem>
+          <StyledListItem>
+            Zustand: <StyledSpan>{status}</StyledSpan>
+          </StyledListItem>
           <StyledListItem>
             Beschreibung:{" "}
-            {description.length === 0
-              ? "keine Beschreibung vorhanden"
-              : description}
+            <StyledSpan>
+              {description.length === 0
+                ? "keine Beschreibung vorhanden"
+                : description}
+            </StyledSpan>
           </StyledListItem>
           <StyledListItem
             variant={author === "Eugen" ? "hide" : undefined}
           >
-            Entfernung: {distance} km
+            Entfernung (km): <StyledSpan>{distance}</StyledSpan>
           </StyledListItem>
           <StyledListItem variant={!animal ? "hide" : undefined}>
             Tierhaushalt
@@ -95,7 +106,9 @@ function articleDetails({ getArticleById, setArticles }) {
           <StyledListItem variant={!smoker ? "hide" : undefined}>
             Raucherhaushalt
           </StyledListItem>
-          <StyledListItem>Preis: {price} Euro</StyledListItem>
+          <StyledListItem>
+            Preis (Euro): <StyledSpan>{price}</StyledSpan>{" "}
+          </StyledListItem>
         </StyledList>
 
         <ShowContact article={article} />

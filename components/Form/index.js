@@ -5,8 +5,10 @@ import {
   StyledSelect,
   StyledCheckbox,
   StyledTextarea,
+  StyledUploadLabel,
+  StyledUploadInput,
 } from "./Form.styled";
-
+import Svg from "../Svg";
 import { StyledButton } from "../Style/Button.styled";
 import { useRouter } from "next/router";
 
@@ -25,7 +27,7 @@ function Form({
 }) {
   const router = useRouter();
 
-  function handleSubmit(event) {
+  async function handleSubmit(event) {
     event.preventDefault();
 
     const formData = new FormData(event.target);
@@ -34,6 +36,13 @@ function Form({
 
     const checkedAnimal = animal.checked;
     const checkedSmoker = smoker.checked;
+
+    const response = await fetch("/api/image/upload", {
+      method: "POST",
+      body: formData,
+    });
+    const imageData = await response.json();
+    const image = imageData.secureUrl;
 
     onSubmit(
       id,
@@ -45,7 +54,8 @@ function Form({
       checkedSmoker,
       description.trim(),
       price,
-      accountData
+      accountData,
+      image
     );
 
     router.push("/myArticles");
@@ -54,6 +64,17 @@ function Form({
   return (
     <>
       <StyledForm onSubmit={handleSubmit}>
+        <StyledUploadLabel htmlFor="uploadImage">
+          <Svg
+            variant="upload"
+            size="35px"
+          />
+        </StyledUploadLabel>
+        <StyledUploadInput
+          type="file"
+          id="uploadImage"
+          name="uploadImage"
+        />
         <label htmlFor="name">Artikelbezeichnung</label>
         <StyledInput
           type="text"

@@ -39,7 +39,7 @@ const GlobalStyles = createGlobalStyle`
     }
 
     main {
-    margin-bottom: 86px;
+    margin-bottom: 70px;
     }
 
    

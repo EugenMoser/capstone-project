@@ -1,4 +1,3 @@
-import styled from "styled-components";
 import Svg from "../../Svg";
 import { useState } from "react";
 import { StyledButton } from "../../Style/Button.styled";

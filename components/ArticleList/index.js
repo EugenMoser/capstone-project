@@ -1,11 +1,11 @@
 import Article from "../Article";
-import styled from "styled-components";
+import { StyledArticleList } from "../Article/Article.styled";
 
 function ArticleList({ articles, secondHeadline }) {
   return (
     <>
       <h2>{secondHeadline}</h2>
-      <StyledList>
+      <StyledArticleList>
         {articles
           .slice()
           .reverse()
@@ -16,13 +16,9 @@ function ArticleList({ articles, secondHeadline }) {
               </li>
             );
           })}
-      </StyledList>
+      </StyledArticleList>
     </>
   );
 }
 
 export default ArticleList;
-
-const StyledList = styled.ul`
-  padding: 0;
-`;

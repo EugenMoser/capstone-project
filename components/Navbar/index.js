@@ -1,7 +1,12 @@
 import Link from "next/link";
-import styled from "styled-components";
+import { StyledNavbar } from "./Navbar.styled";
+import Svg from "../Svg";
+import { useState } from "react";
+import { useRouter } from "next/router";
 
 function Navbar() {
+  const { pathname } = useRouter();
+
   return (
     <footer>
       <StyledNavbar>
@@ -9,19 +14,40 @@ function Navbar() {
           href="/"
           aria-label="zurück zur Startseite"
         >
-          Home
+          <Svg
+            variant="home"
+            color={
+              pathname === "/"
+                ? "var(--navbar-icon-active)"
+                : "var(--navbar-icon)"
+            }
+          />
         </Link>
         <Link
           href="/articleSell"
           aria-label="zur Artikel verkaufen Seite"
         >
-          verkaufen
+          <Svg
+            variant="sell"
+            color={
+              pathname === "/articleSell"
+                ? "var(--navbar-icon-active)"
+                : "var(--navbar-icon)"
+            }
+          />
         </Link>
         <Link
           href="/myArticles"
           aria-label="zur meinen Artikel"
         >
-          meine Artikel
+          <Svg
+            variant="myarticles"
+            color={
+              pathname === "/myArticles"
+                ? "var(--navbar-icon-active)"
+                : "var(--navbar-icon)"
+            }
+          />
         </Link>
       </StyledNavbar>
     </footer>
@@ -29,14 +55,3 @@ function Navbar() {
 }
 
 export default Navbar;
-
-const StyledNavbar = styled.nav`
-  position: fixed;
-  bottom: 0;
-  background-color: lightblue;
-  display: flex;
-  justify-content: space-around;
-  align-items: center;
-  width: 100vw;
-  height: 40px;
-`;

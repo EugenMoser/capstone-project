@@ -44,7 +44,7 @@ function ArticleSell({ setArticles }) {
       </Head>
       <Form
         onSubmit={addArticle}
-        buttonText="bestätigen"
+        buttonText="Bestätigen"
       />
     </>
   );

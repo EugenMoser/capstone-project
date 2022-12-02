@@ -1,6 +1,13 @@
-import Svg from "../../components/Svg";
 import accountData from "../../helpers/accountData.json";
-import styled from "styled-components";
+import {
+  StyledForm,
+  StyledInput,
+  StyledSelect,
+  StyledCheckbox,
+  StyledTextarea,
+} from "./Form.styled";
+
+import { StyledButton } from "../Style/Button.styled";
 import { useRouter } from "next/router";
 
 function Form({
@@ -48,7 +55,7 @@ function Form({
     <>
       <StyledForm onSubmit={handleSubmit}>
         <label htmlFor="name">Artikelbezeichnung</label>
-        <input
+        <StyledInput
           type="text"
           name="name"
           defaultValue={nameContent}
@@ -56,18 +63,18 @@ function Form({
           maxLength={20}
           pattern=".*[\S]+.*"
           required
-        ></input>
+        />
         <label htmlFor="size">Größe</label>
-        <input
+        <StyledInput
           type="number"
           name="size"
           defaultValue={sizeContent}
           id="size"
           maxLength={3}
           pattern=".*[\S]+.*"
-        ></input>
+        />
         <label htmlFor="gender">Geschlecht</label>
-        <select
+        <StyledSelect
           name="gender"
           defaultValue={genderContent ? genderContent : ""}
           id="gender"
@@ -77,14 +84,14 @@ function Form({
             value=""
             disabled
           >
-            bitte wählen
+            Bitte wählen
           </option>
           <option value="Mädchen">Mädchen</option>
           <option value="Junge">Junge</option>
           <option value="Unisex">Unisex</option>
-        </select>
+        </StyledSelect>
         <label htmlFor="status">Zustand</label>
-        <select
+        <StyledSelect
           name="status"
           id="status"
           defaultValue={statusContent ? statusContent : ""}
@@ -94,39 +101,22 @@ function Form({
             value=""
             disabled
           >
-            bitte wählen
+            Bitte wählen
           </option>
           <option value="neu">neu</option>
           <option value="sehr gut">sehr gut</option>
           <option value="gut">gut</option>
           <option value="zufriedenstellend">zufriedenstellend</option>
-        </select>
-        <label htmlFor="animal">
-          <input
-            type="checkbox"
-            name="animal"
-            defaultChecked={animalContent}
-            id="animal"
-          ></input>
-          Tierhaushalt
-        </label>
-        <label htmlFor="smoker">
-          <input
-            type="checkbox"
-            name="smoker"
-            defaultChecked={smokerContent}
-            id="smoker"
-          ></input>
-          Raucherhaushalt
-        </label>
+        </StyledSelect>
+
         <label htmlFor="description">Beschreibung:</label>
-        <textarea
+        <StyledTextarea
           id="description"
           name="description"
           defaultValue={descriptionContent}
-        ></textarea>
-        <label htmlFor="price">Preis in Euro</label>
-        <input
+        ></StyledTextarea>
+        <label htmlFor="price">Preis (Euro)</label>
+        <StyledInput
           type="number"
           name="price"
           defaultValue={priceContent}
@@ -135,36 +125,37 @@ function Form({
           step="0.01"
           pattern=".*[\S]+.*"
           required
-        ></input>
-        <button type="submit">{buttonText}</button>
-      </StyledForm>
-      <StyledButton
-        type="button"
-        onClick={() => router.back()}
-        aria-label="Artikel Details schließen und zur Homepage zurück"
-      >
-        <Svg
-          variant="close"
-          size="35px"
         />
-      </StyledButton>
+        <StyledCheckbox>
+          <label htmlFor="animal">
+            <StyledInput
+              variant="checkbox"
+              type="checkbox"
+              name="animal"
+              defaultChecked={animalContent}
+              id="animal"
+            />
+            Tierhaushalt
+          </label>
+          <label htmlFor="smoker">
+            <StyledInput
+              variant="checkbox"
+              type="checkbox"
+              name="smoker"
+              defaultChecked={smokerContent}
+              id="smoker"
+            />
+            Raucherhaushalt
+          </label>
+        </StyledCheckbox>
+        <StyledButton
+          type="submit"
+          variant="submit"
+        >
+          {buttonText}
+        </StyledButton>
+      </StyledForm>
     </>
   );
 }
 export default Form;
-
-const StyledForm = styled.form`
-  margin: 10px;
-  display: flex;
-  flex-direction: column;
-`;
-
-const StyledButton = styled.button`
-  position: absolute;
-  right: 10px;
-  top: 10px;
-  border-style: none;
-  color: inherit;
-  cursor: pointer;
-  background-color: transparent;
-`;

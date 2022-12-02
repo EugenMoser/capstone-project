@@ -61,8 +61,6 @@ function Edit({ setArticles, getArticleById }) {
           key="title"
         />
       </Head>
-      <p>Deinen Artikel ändern: {article.name}</p>
-
       <Form
         id={id}
         content={article}

@@ -51,6 +51,12 @@ const StyledLink = styled(Link)`
   && span {
     padding-left: 10px;
   }
+  ${({ variant }) =>
+    variant === "linkToSell" &&
+    css`
+      color: var(--tertiary-color);
+      text-decoration: underline;
+    `}
 `;
 
 export { ModalBackground, Modal, StyledLink };

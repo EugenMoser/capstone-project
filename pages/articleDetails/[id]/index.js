@@ -68,7 +68,11 @@ function articleDetails({ getArticleById, setArticles }) {
       <StyledArticle>
         <StyledArticleImageContainer>
           <StyledImage
-            src={image}
+            src={
+              image === ""
+                ? "https://res.cloudinary.com/depezzq0e/image/upload/v1670228543/placeholder-image_j7hueu.jpg"
+                : image
+            }
             alt={`Ein Bild von / vom ${name}`}
             fill
           />

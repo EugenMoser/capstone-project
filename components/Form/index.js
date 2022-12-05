@@ -26,7 +26,6 @@ function Form({
   priceContent,
 }) {
   const router = useRouter();
-
   async function handleSubmit(event) {
     event.preventDefault();
 
@@ -36,27 +35,44 @@ function Form({
 
     const checkedAnimal = animal.checked;
     const checkedSmoker = smoker.checked;
+    const placeholderImage = "";
 
-    const response = await fetch("/api/image/upload", {
-      method: "POST",
-      body: formData,
-    });
-    const imageData = await response.json();
-    const image = imageData.secureUrl;
+    if (uploadImage.value === "") {
+      onSubmit(
+        id,
+        name.trim(),
+        size,
+        gender,
+        status,
+        checkedAnimal,
+        checkedSmoker,
+        description.trim(),
+        price,
+        placeholderImage,
+        accountData
+      );
+    } else {
+      const response = await fetch("/api/image/upload", {
+        method: "POST",
+        body: formData,
+      });
+      const imageData = await response.json();
+      const image = imageData.secureUrl;
 
-    onSubmit(
-      id,
-      name.trim(),
-      size,
-      gender,
-      status,
-      checkedAnimal,
-      checkedSmoker,
-      description.trim(),
-      price,
-      accountData,
-      image
-    );
+      onSubmit(
+        id,
+        name.trim(),
+        size,
+        gender,
+        status,
+        checkedAnimal,
+        checkedSmoker,
+        description.trim(),
+        price,
+        image,
+        accountData
+      );
+    }
 
     router.push("/myArticles");
   }
@@ -74,6 +90,7 @@ function Form({
           type="file"
           id="uploadImage"
           name="uploadImage"
+          defaultValue={""}
         />
         <label htmlFor="name">Artikelbezeichnung</label>
         <StyledInput

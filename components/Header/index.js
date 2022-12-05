@@ -16,14 +16,12 @@ function Header() {
       ) : pathname.startsWith("/articleDetails") ? (
         <h1>Details:</h1>
       ) : (
-        <h1>
-          <StyledImage
-            variant="logo"
-            src="/Logo_Bazam.png"
-            alt={`Bazam Logo`}
-            fill
-          />
-        </h1>
+        <StyledImage
+          variant="logo"
+          src="/Logo_Bazam.png"
+          alt={`Bazam Logo`}
+          fill
+        />
       )}
     </StyledHeader>
   );

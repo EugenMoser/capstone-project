@@ -13,8 +13,8 @@ function ArticleSell({ setArticles }) {
     smoker,
     description,
     price,
-    accountData,
-    image
+    image,
+    accountData
   ) {
     setArticles((oldArticles) => [
       ...oldArticles,
@@ -28,8 +28,8 @@ function ArticleSell({ setArticles }) {
         smoker,
         description,
         price,
-        ...accountData,
         image,
+        ...accountData,
       },
     ]);
   }

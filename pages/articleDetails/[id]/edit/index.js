@@ -29,7 +29,8 @@ function Edit({ setArticles, getArticleById }) {
     newAnimal,
     newSmoker,
     newDescription,
-    newPrice
+    newPrice,
+    newImage
   ) {
     setArticles((previousArticles) =>
       previousArticles.map((article) => {
@@ -44,6 +45,7 @@ function Edit({ setArticles, getArticleById }) {
             smoker: newSmoker,
             description: newDescription,
             price: newPrice,
+            image: newImage === "" ? article.image : newImage,
           };
         }
         return article;

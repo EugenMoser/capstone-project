@@ -4,13 +4,11 @@ import { StyledButton } from "../../Style/Button.styled";
 import { ModalBackground, Modal } from "../Modal.styled";
 import { ButtonContainer } from "../../Style/ArticleDetails.styled";
 
-import { css } from "styled-components";
-
 function ShowDeleteModal({
   articleName,
   articleId,
   articleAuthor,
-  deleteArticle,
+  onDeleteArticle,
 }) {
   const [openContact, setOpenContact] = useState(false);
 
@@ -54,7 +52,7 @@ function ShowDeleteModal({
               </StyledButton>
               <StyledButton
                 variant="modaldelete"
-                onClick={() => deleteArticle(articleId)}
+                onClick={() => onDeleteArticle(articleId)}
               >
                 löschen
               </StyledButton>

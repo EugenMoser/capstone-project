@@ -2,7 +2,7 @@ import ArticleList from "../components/ArticleList";
 import Head from "next/head";
 import { StyledLink } from "../components/Modal/Modal.styled";
 
-function MyArticles({ articles }) {
+function MyArticles({ articles, placeholderImage }) {
   const authorArticles = articles.filter(
     (findAuthor) => findAuthor.author === "Eugen"
   );
@@ -17,19 +17,20 @@ function MyArticles({ articles }) {
           key="title"
         />
       </Head>
-      {authorArticles.length !== 0 ? (
+      {authorArticles.length ? (
         <ArticleList
           articles={authorArticles}
+          placeholderImage={placeholderImage}
           secondHeadline="Das sind deine Artikel:"
         />
       ) : (
         <h2>
-          Du hast keine Artikel zum Verkauf.{" "}
+          Du hast keine Artikel zum Verkauf.
           <StyledLink
             href="articleSell"
             variant="linkToSell"
           >
-            Hier kannst du deine Artikel erstellen
+            Hier kannst du deine Artikel erstellen.
           </StyledLink>
         </h2>
       )}

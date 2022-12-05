@@ -1,39 +1,8 @@
 import Form from "../components/Form";
-import { nanoid } from "nanoid";
+
 import Head from "next/head";
 
-function ArticleSell({ setArticles }) {
-  function addArticle(
-    id,
-    name,
-    size,
-    gender,
-    status,
-    animal,
-    smoker,
-    description,
-    price,
-    image,
-    accountData
-  ) {
-    setArticles((oldArticles) => [
-      ...oldArticles,
-      {
-        id: nanoid(),
-        name,
-        size,
-        gender,
-        status,
-        animal,
-        smoker,
-        description,
-        price,
-        image,
-        ...accountData,
-      },
-    ]);
-  }
-
+function ArticleSell({ onAddArticle }) {
   return (
     <>
       <Head>
@@ -45,7 +14,7 @@ function ArticleSell({ setArticles }) {
         />
       </Head>
       <Form
-        onSubmit={addArticle}
+        onSubmit={onAddArticle}
         buttonText="Bestätigen"
       />
     </>

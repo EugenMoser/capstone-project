@@ -87,7 +87,7 @@ function MyApp({ Component, pageProps }) {
       return newArticles;
     });
 
-    router.push("/myArticles");
+    router.push("/myarticles");
   }
 
   return (

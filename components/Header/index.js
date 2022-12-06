@@ -7,13 +7,13 @@ function Header() {
 
   return (
     <StyledHeader>
-      {pathname === "/articleSell" ? (
+      {pathname === "/articlesell" ? (
         <h1>Artikel verkaufen:</h1>
-      ) : pathname.startsWith("/myArticles") ? (
+      ) : pathname.startsWith("/myarticles") ? (
         <h1>Meine Artikel:</h1>
       ) : pathname.endsWith("/edit") ? (
         <h1>Artikel editieren:</h1>
-      ) : pathname.startsWith("/articleDetails") ? (
+      ) : pathname.startsWith("/details") ? (
         <h1>Details:</h1>
       ) : (
         <StyledImage

@@ -74,7 +74,7 @@ function Form({
       );
     }
 
-    router.push("/myArticles");
+    router.push("/myarticles");
   }
 
   return (

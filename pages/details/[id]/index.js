@@ -103,9 +103,7 @@ function articleDetails({
         <ShowContact article={article} />
         <ButtonContainer>
           <StyledButton
-            onClick={() =>
-              (window.location.href = `/articleDetails/${id}/edit`)
-            }
+            onClick={() => (window.location.href = `/details/${id}/edit`)}
             variant={author !== "Eugen" ? "hide" : "edit"}
           >
             <Svg

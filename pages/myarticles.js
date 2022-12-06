@@ -27,7 +27,7 @@ function MyArticles({ articles, placeholderImage }) {
         <h2>
           Du hast keine Artikel zum Verkauf.
           <StyledLink
-            href="articleSell"
+            href="articlesell"
             variant="linkToSell"
           >
             Hier kannst du deine Artikel erstellen.

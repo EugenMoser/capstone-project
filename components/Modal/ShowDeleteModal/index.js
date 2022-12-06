@@ -2,7 +2,7 @@ import Svg from "../../Svg";
 import { useState } from "react";
 import { StyledButton } from "../../Style/Button.styled";
 import { ModalBackground, Modal } from "../Modal.styled";
-import { ButtonContainer } from "../../Style/ArticleDetails.styled";
+import { ButtonContainer } from "../../Style/articleDetails.styled";
 
 function ShowDeleteModal({
   articleName,

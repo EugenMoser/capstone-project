@@ -35,7 +35,7 @@ function Article({ article, placeholderImage }) {
         </StyledListItem>
       </StyledList>
       <StyledDetailsLink
-        href={`/articleDetails/${id}`}
+        href={`/details/${id}`}
         aria-label="Article Details"
       >
         <Svg variant={"details"} />

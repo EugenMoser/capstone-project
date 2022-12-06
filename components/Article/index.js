@@ -8,7 +8,7 @@ import {
 } from "./Article.styled";
 import { StyledImage } from "../Style/Image.styled";
 
-function Article({ article }) {
+function Article({ article, placeholderImage }) {
   const { id, name, size, gender, price, image } = article;
 
   return (
@@ -16,7 +16,7 @@ function Article({ article }) {
       <StyledArticleImageContainer>
         <StyledImage
           variant="article"
-          src={image}
+          src={image === "" ? placeholderImage : image}
           alt={`Ein Bild von ${name}`}
           fill
         />
@@ -35,10 +35,10 @@ function Article({ article }) {
         </StyledListItem>
       </StyledList>
       <StyledDetailsLink
-        href={`/articleDetails/${id}`}
+        href={`/details/${id}`}
         aria-label="Article Details"
       >
-        <Svg variant={"details"}></Svg>
+        <Svg variant={"details"} />
       </StyledDetailsLink>
     </StyledArticle>
   );

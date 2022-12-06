@@ -5,8 +5,10 @@ import {
   StyledSelect,
   StyledCheckbox,
   StyledTextarea,
+  StyledUploadLabel,
+  StyledUploadInput,
 } from "./Form.styled";
-
+import Svg from "../Svg";
 import { StyledButton } from "../Style/Button.styled";
 import { useRouter } from "next/router";
 
@@ -24,8 +26,7 @@ function Form({
   priceContent,
 }) {
   const router = useRouter();
-
-  function handleSubmit(event) {
+  async function handleSubmit(event) {
     event.preventDefault();
 
     const formData = new FormData(event.target);
@@ -34,26 +35,63 @@ function Form({
 
     const checkedAnimal = animal.checked;
     const checkedSmoker = smoker.checked;
+    const placeholderImage = "";
 
-    onSubmit(
-      id,
-      name.trim(),
-      size,
-      gender,
-      status,
-      checkedAnimal,
-      checkedSmoker,
-      description.trim(),
-      price,
-      accountData
-    );
+    if (uploadImage.value === "") {
+      onSubmit(
+        id,
+        name.trim(),
+        size,
+        gender,
+        status,
+        checkedAnimal,
+        checkedSmoker,
+        description.trim(),
+        price,
+        placeholderImage,
+        accountData
+      );
+    } else {
+      const response = await fetch("/api/image/upload", {
+        method: "POST",
+        body: formData,
+      });
+      const imageData = await response.json();
+      const image = imageData.secureUrl;
 
-    router.push("/myArticles");
+      onSubmit(
+        id,
+        name.trim(),
+        size,
+        gender,
+        status,
+        checkedAnimal,
+        checkedSmoker,
+        description.trim(),
+        price,
+        image,
+        accountData
+      );
+    }
+
+    router.push("/myarticles");
   }
 
   return (
     <>
       <StyledForm onSubmit={handleSubmit}>
+        <StyledUploadLabel htmlFor="uploadImage">
+          <Svg
+            variant="upload"
+            size="35px"
+          />
+        </StyledUploadLabel>
+        <StyledUploadInput
+          type="file"
+          id="uploadImage"
+          name="uploadImage"
+          defaultValue={""}
+        />
         <label htmlFor="name">Artikelbezeichnung</label>
         <StyledInput
           type="text"

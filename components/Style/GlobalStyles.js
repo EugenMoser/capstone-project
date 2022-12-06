@@ -39,14 +39,15 @@ const GlobalStyles = createGlobalStyle`
     }
 
     main {
-    margin-bottom: 86px;
+    margin-bottom: 70px;
     }
 
    
     h1{
        margin: 0;
        font-weight: 700;
-       font-size: 1.2rem;
+       font-size: 1.5rem;
+       z-index: 100;
    }
 
     h2{

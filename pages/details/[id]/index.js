@@ -1,4 +1,3 @@
-import { useRouter } from "next/router";
 import Svg from "../../../components/Svg";
 import ShowContact from "../../../components/Modal/ShowContact";
 import {
@@ -12,27 +11,20 @@ import {
   StyledListItem,
 } from "../../../components/Article/Article.styled";
 import { StyledImage } from "../../../components/Style/Image.styled";
-
+import { useRouter } from "next/router";
 import Head from "next/head";
 import ShowDeleteModal from "../../../components/Modal/ShowDeleteModal";
 
-function articleDetails({ getArticleById, setArticles }) {
+function articleDetails({
+  getArticleById,
+  onDeleteArticle,
+  placeholderImage,
+}) {
   const router = useRouter();
   const { id } = router.query;
 
   const article = getArticleById(id);
   if (!article) return <h3>Artikel Details werden geladen...</h3>;
-
-  function deleteArticle(id) {
-    setArticles((previousArticles) => {
-      const newArticles = previousArticles.filter(
-        (article) => article.id !== id
-      );
-      return newArticles;
-    });
-
-    router.push("/myArticles");
-  }
 
   const {
     name,
@@ -68,7 +60,7 @@ function articleDetails({ getArticleById, setArticles }) {
       <StyledArticle>
         <StyledArticleImageContainer>
           <StyledImage
-            src={image}
+            src={image === "" ? placeholderImage : image}
             alt={`Ein Bild von / vom ${name}`}
             fill
           />
@@ -111,9 +103,7 @@ function articleDetails({ getArticleById, setArticles }) {
         <ShowContact article={article} />
         <ButtonContainer>
           <StyledButton
-            onClick={() =>
-              (window.location.href = `/articleDetails/${id}/edit`)
-            }
+            onClick={() => (window.location.href = `/details/${id}/edit`)}
             variant={author !== "Eugen" ? "hide" : "edit"}
           >
             <Svg
@@ -125,7 +115,7 @@ function articleDetails({ getArticleById, setArticles }) {
             articleName={name}
             articleId={id}
             articleAuthor={author}
-            deleteArticle={deleteArticle}
+            onDeleteArticle={onDeleteArticle}
           />
         </ButtonContainer>
       </StyledArticle>

@@ -1,7 +1,7 @@
 import Article from "../Article";
 import { StyledArticleList } from "../Article/Article.styled";
 
-function ArticleList({ articles, secondHeadline }) {
+function ArticleList({ articles, secondHeadline, placeholderImage }) {
   return (
     <>
       <h2>{secondHeadline}</h2>
@@ -12,7 +12,10 @@ function ArticleList({ articles, secondHeadline }) {
           .map((article) => {
             return (
               <li key={article.id}>
-                <Article article={article} />
+                <Article
+                  article={article}
+                  placeholderImage={placeholderImage}
+                />
               </li>
             );
           })}

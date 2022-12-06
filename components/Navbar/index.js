@@ -1,7 +1,6 @@
 import Link from "next/link";
 import { StyledNavbar } from "./Navbar.styled";
 import Svg from "../Svg";
-import { useState } from "react";
 import { useRouter } from "next/router";
 
 function Navbar() {
@@ -24,26 +23,26 @@ function Navbar() {
           />
         </Link>
         <Link
-          href="/articleSell"
+          href="/articlesell"
           aria-label="zur Artikel verkaufen Seite"
         >
           <Svg
             variant="sell"
             color={
-              pathname === "/articleSell"
+              pathname === "/articlesell"
                 ? "var(--navbar-icon-active)"
                 : "var(--navbar-icon)"
             }
           />
         </Link>
         <Link
-          href="/myArticles"
+          href="/myarticles"
           aria-label="zur meinen Artikel"
         >
           <Svg
             variant="myarticles"
             color={
-              pathname === "/myArticles"
+              pathname === "/myarticles"
                 ? "var(--navbar-icon-active)"
                 : "var(--navbar-icon)"
             }

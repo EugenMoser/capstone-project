@@ -1,7 +1,7 @@
 import ArticleList from "../components/ArticleList";
 import Head from "next/head";
 
-function Home({ articles }) {
+function Home({ articles, placeholderImage }) {
   return (
     <>
       <Head>
@@ -14,6 +14,7 @@ function Home({ articles }) {
       </Head>
       <ArticleList
         articles={articles}
+        placeholderImage={placeholderImage}
         secondHeadline="Alle Artikel in deiner Nähe:"
       />
     </>

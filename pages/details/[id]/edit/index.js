@@ -2,7 +2,7 @@ import Form from "../../../../components/Form";
 import { useRouter } from "next/router";
 import Head from "next/head";
 
-function Edit({ setArticles, getArticleById }) {
+function Edit({ onEditArticle, getArticleById }) {
   const { query } = useRouter();
   const { id } = query;
 
@@ -19,37 +19,6 @@ function Edit({ setArticles, getArticleById }) {
     description,
     price,
   } = article;
-
-  function editArticle(
-    id,
-    newName,
-    newSize,
-    newGender,
-    newStatus,
-    newAnimal,
-    newSmoker,
-    newDescription,
-    newPrice
-  ) {
-    setArticles((previousArticles) =>
-      previousArticles.map((article) => {
-        if (id === article.id) {
-          return {
-            ...article,
-            name: newName,
-            size: newSize,
-            gender: newGender,
-            status: newStatus,
-            animal: newAnimal,
-            smoker: newSmoker,
-            description: newDescription,
-            price: newPrice,
-          };
-        }
-        return article;
-      })
-    );
-  }
 
   return (
     <>
@@ -72,7 +41,7 @@ function Edit({ setArticles, getArticleById }) {
         smokerContent={smoker}
         descriptionContent={description}
         priceContent={price}
-        onSubmit={editArticle}
+        onSubmit={onEditArticle}
         buttonText="aktualisieren"
       />
     </>

@@ -23,19 +23,6 @@ function Navbar() {
           />
         </Link>
         <Link
-          href="/articlesell"
-          aria-label="zur Artikel verkaufen Seite"
-        >
-          <Svg
-            variant="sell"
-            color={
-              pathname === "/articlesell"
-                ? "var(--navbar-icon-active)"
-                : "var(--navbar-icon)"
-            }
-          />
-        </Link>
-        <Link
           href="/search"
           aria-label="zur Suche"
         >
@@ -43,6 +30,19 @@ function Navbar() {
             variant="search"
             color={
               pathname === "/search"
+                ? "var(--navbar-icon-active)"
+                : "var(--navbar-icon)"
+            }
+          />
+        </Link>
+        <Link
+          href="/articlesell"
+          aria-label="zur Artikel verkaufen Seite"
+        >
+          <Svg
+            variant="sell"
+            color={
+              pathname === "/articlesell"
                 ? "var(--navbar-icon-active)"
                 : "var(--navbar-icon)"
             }

@@ -1,22 +1,19 @@
-import { useState } from "react";
 import Head from "next/head";
+import Searchbar from "../components/Searchbar";
 import ArticleList from "../components/ArticleList";
+import { useState } from "react";
 
 function Search({ articles, placeholderImage }) {
-  const [searchText, setSearchText] = useState("");
+  const [searchedText, setSearchedText] = useState("");
 
   const filteredArticles = articles.filter((findArticles) =>
-    findArticles.name.toLowerCase().includes(searchText.toLowerCase())
+    findArticles.name.toLowerCase().includes(searchedText.toLowerCase())
   );
-  console.log(filteredArticles);
 
   function inputHandler(event) {
     const searchValue = event.target.value;
-    setSearchText(searchValue.trim());
+    setSearchedText(searchValue.trim());
   }
-
-  function filterArticles() {}
-  console.log(searchText);
   return (
     <>
       <Head>
@@ -27,17 +24,14 @@ function Search({ articles, placeholderImage }) {
           key="title"
         />
       </Head>
-      <label htmlFor="search"></label>
-      <input
-        type="text"
-        id="search"
-        name="search"
-        value={searchText}
-        onChange={inputHandler}
-        placeholder="z.B. Strampler"
+      <Searchbar
+        articles={articles}
+        inputHandler={inputHandler}
       />
 
-      {searchText.length ? (
+      {!filteredArticles.length ? (
+        <h2>keine Artikel gefunden</h2>
+      ) : searchedText.length ? (
         <ArticleList
           articles={filteredArticles}
           placeholderImage={placeholderImage}

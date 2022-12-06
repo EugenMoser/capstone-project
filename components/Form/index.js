@@ -26,6 +26,7 @@ function Form({
   priceContent,
 }) {
   const router = useRouter();
+
   async function handleSubmit(event) {
     event.preventDefault();
 
@@ -86,6 +87,7 @@ function Form({
             size="35px"
           />
         </StyledUploadLabel>
+
         <StyledUploadInput
           type="file"
           id="uploadImage"

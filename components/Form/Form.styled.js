@@ -7,7 +7,7 @@ const StyledForm = styled.form`
 `;
 
 const StyledInput = styled.input`
-  margin-bottom: 13px;
+  margin-bottom: 10px;
   border-radius: var(--border-radius);
   line-height: 1.5;
 
@@ -20,7 +20,7 @@ const StyledInput = styled.input`
 `;
 
 const StyledSelect = styled.select`
-  margin-bottom: 13px;
+  margin-bottom: 10px;
   border-radius: var(--border-radius);
   padding: 3px;
   background-color: var(--primary-color);
@@ -28,7 +28,7 @@ const StyledSelect = styled.select`
 `;
 
 const StyledTextarea = styled.textarea`
-  margin-bottom: 13px;
+  margin-bottom: 10px;
   border-radius: var(--border-radius);
   font-size: 0.8rem;
 `;
@@ -49,7 +49,7 @@ const StyledUploadLabel = styled.label`
   display: flex;
   align-items: center;
   justify-content: center;
-  margin: 0 auto;
+  margin: 10px auto;
 `;
 
 const StyledUploadInput = styled.input`

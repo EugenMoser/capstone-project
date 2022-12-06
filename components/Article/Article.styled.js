@@ -19,7 +19,7 @@ const StyledDetailsLink = styled(Link)`
 
 const StyledArticleImageContainer = styled.div`
   position: relative;
-  height: 30vh;
+  height: 35vh;
   background-color: var(--article-card);
   border-radius: var(--border-radius) var(--border-radius) 0 0;
 `;

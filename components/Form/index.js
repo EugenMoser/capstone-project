@@ -7,10 +7,13 @@ import {
   StyledTextarea,
   StyledUploadLabel,
   StyledUploadInput,
+  StyledParagraph,
 } from "./Form.styled";
 import Svg from "../Svg";
 import { StyledButton } from "../Style/Button.styled";
 import { useRouter } from "next/router";
+import React from "react";
+import { useState } from "react";
 
 function Form({
   onSubmit,
@@ -36,7 +39,7 @@ function Form({
 
     const checkedAnimal = animal.checked;
     const checkedSmoker = smoker.checked;
-    const placeholderImage = "";
+    const placeholderImageValue = "";
 
     if (uploadImage.value === "") {
       onSubmit(
@@ -49,7 +52,7 @@ function Form({
         checkedSmoker,
         description.trim(),
         price,
-        placeholderImage,
+        placeholderImageValue,
         accountData
       );
     } else {
@@ -78,6 +81,13 @@ function Form({
     router.push("/myarticles");
   }
 
+  const [imageValue, setImageValue] = useState("");
+
+  function handlerImageValue(event) {
+    const value = event.target.name;
+    setImageValue(value);
+  }
+
   return (
     <>
       <StyledForm onSubmit={handleSubmit}>
@@ -85,6 +95,7 @@ function Form({
           <Svg
             variant="upload"
             size="35px"
+            aria-label="Bild hochladen"
           />
         </StyledUploadLabel>
 
@@ -93,7 +104,13 @@ function Form({
           id="uploadImage"
           name="uploadImage"
           defaultValue={""}
+          onChange={handlerImageValue}
         />
+        {imageValue === "" ? (
+          ""
+        ) : (
+          <StyledParagraph>&#10003; Bild hinzugefügt</StyledParagraph>
+        )}
         <label htmlFor="name">Artikelbezeichnung</label>
         <StyledInput
           type="text"

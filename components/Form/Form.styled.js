@@ -2,6 +2,7 @@ import styled, { css } from "styled-components";
 
 const StyledForm = styled.form`
   margin: 10px 25px 5px;
+  position: relative;
   display: flex;
   flex-direction: column;
 `;
@@ -56,6 +57,13 @@ const StyledUploadInput = styled.input`
   display: none;
 `;
 
+const StyledParagraph = styled.p`
+  position: absolute;
+  margin: 0;
+  top: 25px;
+  right: 10px;
+`;
+
 export {
   StyledForm,
   StyledInput,
@@ -64,4 +72,5 @@ export {
   StyledTextarea,
   StyledUploadLabel,
   StyledUploadInput,
+  StyledParagraph,
 };

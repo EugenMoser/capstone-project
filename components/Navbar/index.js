@@ -36,6 +36,19 @@ function Navbar() {
           />
         </Link>
         <Link
+          href="/search"
+          aria-label="zur Suche"
+        >
+          <Svg
+            variant="search"
+            color={
+              pathname === "/search"
+                ? "var(--navbar-icon-active)"
+                : "var(--navbar-icon)"
+            }
+          />
+        </Link>
+        <Link
           href="/myarticles"
           aria-label="zur meinen Artikel"
         >

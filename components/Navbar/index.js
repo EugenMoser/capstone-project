@@ -20,6 +20,7 @@ function Navbar() {
                 ? "var(--navbar-icon-active)"
                 : "var(--navbar-icon)"
             }
+            aria-label="Home Icon"
           />
         </Link>
         <Link
@@ -33,6 +34,7 @@ function Navbar() {
                 ? "var(--navbar-icon-active)"
                 : "var(--navbar-icon)"
             }
+            aria-label="Suchen Icon"
           />
         </Link>
         <Link
@@ -46,6 +48,7 @@ function Navbar() {
                 ? "var(--navbar-icon-active)"
                 : "var(--navbar-icon)"
             }
+            aria-label="Verkaufen Icon"
           />
         </Link>
         <Link
@@ -59,6 +62,7 @@ function Navbar() {
                 ? "var(--navbar-icon-active)"
                 : "var(--navbar-icon)"
             }
+            aria-label="meine Artikel Icon"
           />
         </Link>
       </StyledNavbar>

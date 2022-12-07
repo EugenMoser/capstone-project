@@ -11,7 +11,6 @@ const StyledInput = styled.input`
   margin-bottom: 10px;
   border-radius: var(--border-radius);
   line-height: 1.5;
-
   ${({ variant }) =>
     variant === "checkbox" &&
     css`

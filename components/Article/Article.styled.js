@@ -31,9 +31,17 @@ const StyledArticleList = styled.ul`
 
 const StyledList = styled.ul`
   margin: 0;
-  padding: 0 20px 15px 20px;
+  padding: 0 20px 50px 20px;
 `;
 
+const StyledArticleContent = styled.div`
+  display: grid;
+  grid-template-columns: auto auto;
+  margin: 10px 0 0 0;
+  padding: 0;
+  justify-content: space-around;
+  gap: 20px;
+`;
 const StyledListItem = styled.li`
   font-size: 0.8rem;
   display: grid;
@@ -48,6 +56,19 @@ const StyledListItem = styled.li`
     css`
       margin-top: 0.8rem;
     `};
+  ${({ variant }) =>
+    variant === "tags" &&
+    css`
+      position: relative;
+      display: flex;
+      justify-content: center;
+      width: 100px;
+      font-size: 0.7rem;
+      border-radius: var(--border-radius);
+      border: 1px solid #000;
+      padding: 3px;
+      margin-top: 5px;
+    `};
 `;
 
 export {
@@ -57,4 +78,5 @@ export {
   StyledArticleList,
   StyledList,
   StyledListItem,
+  StyledArticleContent,
 };

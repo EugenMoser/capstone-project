@@ -9,6 +9,7 @@ import {
   StyledArticleImageContainer,
   StyledList,
   StyledListItem,
+  StyledArticleContent,
 } from "../../../components/Article/Article.styled";
 import { StyledImage } from "../../../components/Style/Image.styled";
 import { useRouter } from "next/router";
@@ -65,7 +66,9 @@ function articleDetails({
             fill
           />
         </StyledArticleImageContainer>
+
         <h3>{name}</h3>
+
         <StyledList>
           <StyledListItem>
             Größe: <span>{size}</span>
@@ -89,21 +92,23 @@ function articleDetails({
           >
             Entfernung (km): <span>{distance}</span>
           </StyledListItem>
-          <StyledListItem variant={!animal ? "hide" : undefined}>
-            Tierhaushalt
-          </StyledListItem>
-          <StyledListItem variant={!smoker ? "hide" : undefined}>
-            Raucherhaushalt
-          </StyledListItem>
+
           <StyledListItem variant="priceDetailspage">
             Preis (Euro): <span>{price}</span>{" "}
           </StyledListItem>
+          <StyledArticleContent>
+            <StyledListItem variant={!animal ? "hide" : "tags"}>
+              Tierhaushalt
+            </StyledListItem>
+            <StyledListItem variant={!smoker ? "hide" : "tags"}>
+              Raucherhaushalt
+            </StyledListItem>
+          </StyledArticleContent>
         </StyledList>
-
         <ShowContact article={article} />
         <ButtonContainer>
           <StyledButton
-            onClick={() => (window.location.href = `/details/${id}/edit`)}
+            onClick={() => router.push(`/details/${id}/edit`)}
             variant={author !== "Eugen" ? "hide" : "edit"}
           >
             <Svg

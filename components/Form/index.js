@@ -111,7 +111,7 @@ function Form({
         ) : (
           <StyledParagraph>&#10003; Bild hinzugefügt</StyledParagraph>
         )}
-        <label htmlFor="name">Artikelbezeichnung</label>
+        <label htmlFor="name">Artikelbezeichnung*</label>
         <StyledInput
           type="text"
           name="name"
@@ -121,7 +121,7 @@ function Form({
           pattern=".*[\S]+.*"
           required
         />
-        <label htmlFor="size">Größe</label>
+        <label htmlFor="size">Größe*</label>
         <StyledInput
           type="number"
           name="size"
@@ -130,7 +130,7 @@ function Form({
           maxLength={3}
           pattern=".*[\S]+.*"
         />
-        <label htmlFor="gender">Geschlecht</label>
+        <label htmlFor="gender">Geschlecht*</label>
         <StyledSelect
           name="gender"
           defaultValue={genderContent ? genderContent : ""}
@@ -147,7 +147,7 @@ function Form({
           <option value="Junge">Junge</option>
           <option value="Unisex">Unisex</option>
         </StyledSelect>
-        <label htmlFor="status">Zustand</label>
+        <label htmlFor="status">Zustand*</label>
         <StyledSelect
           name="status"
           id="status"
@@ -172,7 +172,7 @@ function Form({
           name="description"
           defaultValue={descriptionContent}
         ></StyledTextarea>
-        <label htmlFor="price">Preis (Euro)</label>
+        <label htmlFor="price">Preis (Euro)*</label>
         <StyledInput
           type="number"
           name="price"

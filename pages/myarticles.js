@@ -16,6 +16,10 @@ function MyArticles({ articles, placeholderImage }) {
           content="meine Artikel"
           key="title"
         />
+        <link
+          rel="shortcut icon"
+          href="/favicon.png"
+        />
       </Head>
       {authorArticles.length ? (
         <ArticleList

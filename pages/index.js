@@ -11,6 +11,10 @@ function Home({ articles, placeholderImage }) {
           content="Startseite"
           key="title"
         />
+        <link
+          rel="shortcut icon"
+          href="/favicon.png"
+        />
       </Head>
       <ArticleList
         articles={articles}

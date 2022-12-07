@@ -2,9 +2,11 @@ import { useRouter } from "next/router";
 import { StyledImage } from "../Style/Image.styled";
 import { StyledHeader } from "./Header.styled";
 
-function Header() {
-  const { pathname } = useRouter();
-
+function Header({ getArticleById }) {
+  const { pathname, query } = useRouter();
+  const { id } = query;
+  const article = getArticleById(id);
+  console.log(article?.name);
   return (
     <StyledHeader>
       {pathname === "/articlesell" ? (
@@ -14,7 +16,7 @@ function Header() {
       ) : pathname.endsWith("/edit") ? (
         <h1>Artikel editieren:</h1>
       ) : pathname.startsWith("/details") ? (
-        <h1>Details:</h1>
+        <h1>{article?.name}</h1>
       ) : pathname.startsWith("/search") ? (
         <h1>Suchen:</h1>
       ) : (

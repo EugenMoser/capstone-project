@@ -29,6 +29,10 @@ function Edit({ onEditArticle, getArticleById }) {
           content="Artikel editieren"
           key="title"
         />
+        <link
+          rel="shortcut icon"
+          href="/favicon.png"
+        />
       </Head>
       <Form
         id={id}

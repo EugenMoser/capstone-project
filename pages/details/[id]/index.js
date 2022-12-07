@@ -51,6 +51,10 @@ function articleDetails({
           content="Artikeldetails"
           key="title"
         />
+        <link
+          rel="shortcut icon"
+          href="/favicon.png"
+        />
       </Head>
       <StyledButton
         variant="close"
@@ -67,7 +71,6 @@ function articleDetails({
             fill
           />
         </StyledArticleImageContainer>
-        <h3>{name}</h3>
         <StyledList>
           <StyledListItem>
             Größe: <span>{size}</span>

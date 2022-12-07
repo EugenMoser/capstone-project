@@ -23,6 +23,10 @@ function Search({ articles, placeholderImage }) {
           content="Artikel suchen"
           key="title"
         />
+        <link
+          rel="shortcut icon"
+          href="/favicon.png"
+        />
       </Head>
       <Searchbar
         articles={articles}

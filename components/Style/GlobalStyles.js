@@ -16,13 +16,15 @@ const GlobalStyles = createGlobalStyle`
         --navbar-icon: #706f6f;
         --navbar-icon-active: #e94163;
 
-        --article-card: #e0e0e0;
+       
 
         --border-radius: 5px;
 
         --checkbox-color: #97c3af;
 
         --modal-delete-color: #e94163;
+
+        --image-background-color: #97c3af;
 }
     html,
     body {
@@ -37,7 +39,7 @@ const GlobalStyles = createGlobalStyle`
     body {
         background-color: var(--secondary-color)
     }
-
+    image.png
     main {
     margin-bottom: 70px;
     }

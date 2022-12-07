@@ -20,7 +20,7 @@ const StyledDetailsLink = styled(Link)`
 const StyledArticleImageContainer = styled.div`
   position: relative;
   height: 35vh;
-  background-color: var(--article-card);
+  background-color: var(--image-background-color);
   border-radius: var(--border-radius) var(--border-radius) 0 0;
 `;
 
@@ -31,18 +31,14 @@ const StyledArticleList = styled.ul`
 
 const StyledList = styled.ul`
   position: relative;
-  margin: 0;
+  margin: 1rem 0 0;
   padding: 0 20px 20px 20px;
 `;
 
 const StyledTagContainer = styled.div`
-  width: 150px;
-  position: absolute;
-  display: flex;
-  flex-direction: row-reverse;
-  justify-content: space-between;
-  top: -25px;
-  right: 25px;
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  margin-top: 20px;
 `;
 const StyledListItem = styled.li`
   font-size: 0.8rem;
@@ -56,26 +52,25 @@ const StyledListItem = styled.li`
   ${({ variant }) =>
     variant === "priceDetailspage" &&
     css`
-      margin-top: 0.8rem;
+      margin-top: 0.5rem;
     `};
   ${({ variant }) =>
     variant === "taganimal" &&
     css`
       display: flex;
-      flex-direction: column;
       align-items: center;
     `};
   ${({ variant }) =>
     variant === "tagsmoker" &&
     css`
       display: flex;
-      flex-direction: column;
       align-items: center;
     `};
 `;
 
 const StyledTagSpan = styled.span`
   font-size: 0.6rem;
+  margin-left: 5px;
 `;
 
 export {

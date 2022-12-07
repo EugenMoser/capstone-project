@@ -95,7 +95,7 @@ function articleDetails({
           <StyledListItem variant={!smoker ? "hide" : undefined}>
             Raucherhaushalt
           </StyledListItem>
-          <StyledListItem>
+          <StyledListItem variant="priceDetailspage">
             Preis (Euro): <span>{price}</span>{" "}
           </StyledListItem>
         </StyledList>

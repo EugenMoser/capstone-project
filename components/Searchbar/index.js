@@ -11,6 +11,7 @@ function Searchbar({ inputHandler, searchedText }) {
         value={searchedText}
         onChange={inputHandler}
         placeholder="z. B. Strampler"
+        autoFocus
       />
     </StyledForm>
   );

@@ -31,7 +31,7 @@ const StyledArticleList = styled.ul`
 
 const StyledList = styled.ul`
   margin: 0;
-  padding: 0 0 15px 20px;
+  padding: 0 20px 15px 20px;
 `;
 
 const StyledListItem = styled.li`
@@ -42,6 +42,11 @@ const StyledListItem = styled.li`
     variant === "hide" &&
     css`
       display: none;
+    `};
+  ${({ variant }) =>
+    variant === "priceDetailspage" &&
+    css`
+      margin-top: 0.8rem;
     `};
 `;
 

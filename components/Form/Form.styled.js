@@ -2,15 +2,15 @@ import styled, { css } from "styled-components";
 
 const StyledForm = styled.form`
   margin: 10px 25px 5px;
+  position: relative;
   display: flex;
   flex-direction: column;
 `;
 
 const StyledInput = styled.input`
-  margin-bottom: 13px;
+  margin-bottom: 10px;
   border-radius: var(--border-radius);
   line-height: 1.5;
-
   ${({ variant }) =>
     variant === "checkbox" &&
     css`
@@ -20,7 +20,7 @@ const StyledInput = styled.input`
 `;
 
 const StyledSelect = styled.select`
-  margin-bottom: 13px;
+  margin-bottom: 10px;
   border-radius: var(--border-radius);
   padding: 3px;
   background-color: var(--primary-color);
@@ -28,7 +28,7 @@ const StyledSelect = styled.select`
 `;
 
 const StyledTextarea = styled.textarea`
-  margin-bottom: 13px;
+  margin-bottom: 10px;
   border-radius: var(--border-radius);
   font-size: 0.8rem;
 `;
@@ -49,11 +49,18 @@ const StyledUploadLabel = styled.label`
   display: flex;
   align-items: center;
   justify-content: center;
-  margin: 0 auto;
+  margin: 10px auto;
 `;
 
 const StyledUploadInput = styled.input`
   display: none;
+`;
+
+const StyledParagraph = styled.p`
+  position: absolute;
+  margin: 0;
+  top: 25px;
+  right: 10px;
 `;
 
 export {
@@ -64,4 +71,5 @@ export {
   StyledTextarea,
   StyledUploadLabel,
   StyledUploadInput,
+  StyledParagraph,
 };

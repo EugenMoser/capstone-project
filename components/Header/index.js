@@ -15,6 +15,8 @@ function Header() {
         <h1>Artikel editieren:</h1>
       ) : pathname.startsWith("/details") ? (
         <h1>Details:</h1>
+      ) : pathname.startsWith("/search") ? (
+        <h1>Suchen:</h1>
       ) : (
         <StyledImage
           variant="logo"

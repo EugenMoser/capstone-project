@@ -7,10 +7,13 @@ import {
   StyledTextarea,
   StyledUploadLabel,
   StyledUploadInput,
+  StyledParagraph,
 } from "./Form.styled";
 import Svg from "../Svg";
 import { StyledButton } from "../Style/Button.styled";
 import { useRouter } from "next/router";
+import React from "react";
+import { useState } from "react";
 
 function Form({
   onSubmit,
@@ -26,6 +29,7 @@ function Form({
   priceContent,
 }) {
   const router = useRouter();
+
   async function handleSubmit(event) {
     event.preventDefault();
 
@@ -35,7 +39,7 @@ function Form({
 
     const checkedAnimal = animal.checked;
     const checkedSmoker = smoker.checked;
-    const placeholderImage = "";
+    const placeholderImageValue = "";
 
     if (uploadImage.value === "") {
       onSubmit(
@@ -48,7 +52,7 @@ function Form({
         checkedSmoker,
         description.trim(),
         price,
-        placeholderImage,
+        placeholderImageValue,
         accountData
       );
     } else {
@@ -77,6 +81,13 @@ function Form({
     router.push("/myarticles");
   }
 
+  const [imageValue, setImageValue] = useState("");
+
+  function handlerImageValue(event) {
+    const value = event.target.name;
+    setImageValue(value);
+  }
+
   return (
     <>
       <StyledForm onSubmit={handleSubmit}>
@@ -84,15 +95,23 @@ function Form({
           <Svg
             variant="upload"
             size="35px"
+            aria-label="Bild hochladen"
           />
         </StyledUploadLabel>
+
         <StyledUploadInput
           type="file"
           id="uploadImage"
           name="uploadImage"
           defaultValue={""}
+          onChange={handlerImageValue}
         />
-        <label htmlFor="name">Artikelbezeichnung</label>
+        {imageValue === "" ? (
+          ""
+        ) : (
+          <StyledParagraph>&#10003; Bild hinzugefügt</StyledParagraph>
+        )}
+        <label htmlFor="name">Artikelbezeichnung*</label>
         <StyledInput
           type="text"
           name="name"
@@ -102,7 +121,7 @@ function Form({
           pattern=".*[\S]+.*"
           required
         />
-        <label htmlFor="size">Größe</label>
+        <label htmlFor="size">Größe*</label>
         <StyledInput
           type="number"
           name="size"
@@ -111,7 +130,7 @@ function Form({
           maxLength={3}
           pattern=".*[\S]+.*"
         />
-        <label htmlFor="gender">Geschlecht</label>
+        <label htmlFor="gender">Geschlecht*</label>
         <StyledSelect
           name="gender"
           defaultValue={genderContent ? genderContent : ""}
@@ -128,7 +147,7 @@ function Form({
           <option value="Junge">Junge</option>
           <option value="Unisex">Unisex</option>
         </StyledSelect>
-        <label htmlFor="status">Zustand</label>
+        <label htmlFor="status">Zustand*</label>
         <StyledSelect
           name="status"
           id="status"
@@ -153,7 +172,7 @@ function Form({
           name="description"
           defaultValue={descriptionContent}
         ></StyledTextarea>
-        <label htmlFor="price">Preis (Euro)</label>
+        <label htmlFor="price">Preis (Euro)*</label>
         <StyledInput
           type="number"
           name="price"

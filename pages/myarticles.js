@@ -37,5 +37,4 @@ function MyArticles({ articles, placeholderImage }) {
     </>
   );
 }
-
 export default MyArticles;

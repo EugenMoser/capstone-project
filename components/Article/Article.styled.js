@@ -2,7 +2,7 @@ import styled, { css } from "styled-components";
 import Link from "next/link";
 
 const StyledArticle = styled.article`
-  margin: 0 25px 25px 25px;
+  margin: 0 25px 20px 25px;
   position: relative;
   background-color: var(--primary-color);
   border: none;
@@ -30,17 +30,19 @@ const StyledArticleList = styled.ul`
 `;
 
 const StyledList = styled.ul`
+  position: relative;
   margin: 0;
-  padding: 0 20px 50px 20px;
+  padding: 0 20px 20px 20px;
 `;
 
-const StyledArticleContent = styled.div`
-  display: grid;
-  grid-template-columns: auto auto;
-  margin: 10px 0 0 0;
-  padding: 0;
-  justify-content: space-around;
-  gap: 20px;
+const StyledTagContainer = styled.div`
+  width: 150px;
+  position: absolute;
+  display: flex;
+  flex-direction: row-reverse;
+  justify-content: space-between;
+  top: -25px;
+  right: 25px;
 `;
 const StyledListItem = styled.li`
   font-size: 0.8rem;
@@ -57,18 +59,23 @@ const StyledListItem = styled.li`
       margin-top: 0.8rem;
     `};
   ${({ variant }) =>
-    variant === "tags" &&
+    variant === "taganimal" &&
     css`
-      position: relative;
       display: flex;
-      justify-content: center;
-      width: 100px;
-      font-size: 0.7rem;
-      border-radius: var(--border-radius);
-      border: 1px solid #000;
-      padding: 3px;
-      margin-top: 5px;
+      flex-direction: column;
+      align-items: center;
     `};
+  ${({ variant }) =>
+    variant === "tagsmoker" &&
+    css`
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    `};
+`;
+
+const StyledTagSpan = styled.span`
+  font-size: 0.6rem;
 `;
 
 export {
@@ -78,5 +85,6 @@ export {
   StyledArticleList,
   StyledList,
   StyledListItem,
-  StyledArticleContent,
+  StyledTagContainer,
+  StyledTagSpan,
 };

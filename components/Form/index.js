@@ -122,14 +122,30 @@ function Form({
           required
         />
         <label htmlFor="size">Größe*</label>
-        <StyledInput
-          type="number"
+        <StyledSelect
           name="size"
-          defaultValue={sizeContent}
+          defaultValue={sizeContent ? sizeContent : ""}
           id="size"
-          maxLength={3}
-          pattern=".*[\S]+.*"
-        />
+          required
+        >
+          <option
+            value=""
+            disabled
+          >
+            Bitte wählen
+          </option>
+          <option value="50">50</option>
+          <option value="56">56</option>
+          <option value="62">62</option>
+          <option value="68">68</option>
+          <option value="74">74</option>
+          <option value="80">80</option>
+          <option value="86">86</option>
+          <option value="92">92</option>
+          <option value="98">98</option>
+          <option value="104">104</option>
+        </StyledSelect>
+
         <label htmlFor="gender">Geschlecht*</label>
         <StyledSelect
           name="gender"

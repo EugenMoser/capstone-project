@@ -9,7 +9,8 @@ import {
   StyledArticleImageContainer,
   StyledList,
   StyledListItem,
-  StyledArticleContent,
+  StyledTagContainer,
+  StyledTagSpan,
 } from "../../../components/Article/Article.styled";
 import { StyledImage } from "../../../components/Style/Image.styled";
 import { useRouter } from "next/router";
@@ -66,9 +67,7 @@ function articleDetails({
             fill
           />
         </StyledArticleImageContainer>
-
         <h3>{name}</h3>
-
         <StyledList>
           <StyledListItem>
             Größe: <span>{size}</span>
@@ -92,18 +91,30 @@ function articleDetails({
           >
             Entfernung (km): <span>{distance}</span>
           </StyledListItem>
-
           <StyledListItem variant="priceDetailspage">
             Preis (Euro): <span>{price}</span>{" "}
           </StyledListItem>
-          <StyledArticleContent>
-            <StyledListItem variant={!animal ? "hide" : "tags"}>
-              Tierhaushalt
+
+          {/* //-------------- */}
+
+          <StyledTagContainer>
+            <StyledListItem variant={!animal ? "hide" : "taganimal"}>
+              <Svg
+                variant="animal"
+                size="20px"
+              />
+              <StyledTagSpan>Tierhaushalt</StyledTagSpan>
             </StyledListItem>
-            <StyledListItem variant={!smoker ? "hide" : "tags"}>
-              Raucherhaushalt
+            <StyledListItem variant={!smoker ? "hide" : "tagsmoker"}>
+              <Svg
+                variant="smoker"
+                size="20px"
+              />
+              <StyledTagSpan>Raucherhaushalt</StyledTagSpan>
             </StyledListItem>
-          </StyledArticleContent>
+          </StyledTagContainer>
+
+          {/* //-------------- */}
         </StyledList>
         <ShowContact article={article} />
         <ButtonContainer>

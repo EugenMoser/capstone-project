@@ -19,7 +19,7 @@ function Header({ getArticleById }) {
       ) : pathname.startsWith("/search") ? (
         <h1>Suchen:</h1>
       ) : pathname === "/bookmark" ? (
-        <h1>meine Merkliste:</h1>
+        <h1>Merkliste:</h1>
       ) : (
         <StyledImage
           variant="logo"

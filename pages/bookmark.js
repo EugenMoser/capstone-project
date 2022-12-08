@@ -1,5 +1,6 @@
 import Head from "next/head";
 import Article from "../components/Article";
+import { StyledArticleList } from "../components/Article/Article.styled";
 
 function Bookmark({ placeholderImage, articles, toggleBookmark }) {
   // console.log(toggleBookmark(article[0].id));
@@ -17,19 +18,22 @@ function Bookmark({ placeholderImage, articles, toggleBookmark }) {
           href="/favicon.png"
         />
       </Head>
-      <h2>Merkliste under construction...</h2>
-      {articles.map(
-        (article) =>
-          article.isBookmarked && (
-            <li key={article.id}>
-              <Article
-                article={article}
-                placeholderImage={placeholderImage}
-                toggleBookmark={toggleBookmark}
-              />
-            </li>
-          )
-      )}
+      <h2>Deine Favoriten</h2>
+      <StyledArticleList>
+        {articles.map(
+          (article) =>
+            article.isBookmarked && (
+              <li key={article.id}>
+                <Article
+                  article={article}
+                  placeholderImage={placeholderImage}
+                  toggleBookmark={toggleBookmark}
+                  s
+                />
+              </li>
+            )
+        )}
+      </StyledArticleList>
     </>
   );
 }

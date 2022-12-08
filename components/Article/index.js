@@ -10,17 +10,21 @@ import { StyledImage } from "../Style/Image.styled";
 import { StyledButton } from "../Style/Button.styled";
 
 function Article({ article, placeholderImage, toggleBookmark }) {
-  const { id, name, size, gender, price, image, isBookmarked } = article;
+  const { id, name, size, gender, price, image, isBookmarked, author } =
+    article;
 
   return (
     <StyledArticle>
       <StyledButton
-        variant="favorite"
+        variant={author === "Eugen" ? "hide" : "favorite"}
         onClick={() => {
           toggleBookmark(id);
         }}
       >
-        <Svg variant={isBookmarked ? "bookmark_fill" : "bookmark_empty"} />
+        <Svg
+          variant={isBookmarked ? "bookmark_fill" : "bookmark_empty"}
+          color="var(--color-red)"
+        />
       </StyledButton>
 
       <StyledArticleImageContainer>

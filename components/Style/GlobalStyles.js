@@ -22,7 +22,7 @@ const GlobalStyles = createGlobalStyle`
 
         --checkbox-color: #97c3af;
 
-        --modal-delete-color: #e94163;
+        --color-red: #e94163;
 
         --image-background-color: #97c3af;
 }
@@ -39,7 +39,7 @@ const GlobalStyles = createGlobalStyle`
     body {
         background-color: var(--secondary-color)
     }
-    image.png
+    
     main {
     margin-bottom: 70px;
     }

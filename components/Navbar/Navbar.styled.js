@@ -9,6 +9,7 @@ const StyledNavbar = styled.nav`
   align-items: center;
   width: 100vw;
   height: 60px;
+  z-index: 200;
 `;
 
 export { StyledNavbar };

@@ -110,6 +110,16 @@ const StyledButton = styled.button`
     css`
       display: none;
     `};
+
+  ${({ variant }) =>
+    variant === "favorite" &&
+    css`
+      display: absolute;
+      top: 10px;
+      right: 10px;
+      background-color: transparent;
+      border: none;
+    `};
 `;
 
 export { StyledButton };

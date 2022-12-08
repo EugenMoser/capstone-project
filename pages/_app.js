@@ -91,6 +91,17 @@ function MyApp({ Component, pageProps }) {
     router.push("/myarticles");
   }
 
+  function toggleBookmark(id) {
+    const newState = articles.map((article) => {
+      if (article.id === id) {
+        return { ...article, isBookmarked: !article.isBookmarked };
+      } else {
+        return article;
+      }
+    });
+    setArticles(newState);
+  }
+
   return (
     <>
       <CloudinaryContext cloudName="depezzq0e">
@@ -104,6 +115,7 @@ function MyApp({ Component, pageProps }) {
             onDeleteArticle={deleteArticle}
             getArticleById={getArticleById}
             placeholderImage={placeholderImage}
+            toggleBookmark={toggleBookmark}
           />
         </Layout>
       </CloudinaryContext>

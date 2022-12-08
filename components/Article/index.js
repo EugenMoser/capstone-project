@@ -7,12 +7,22 @@ import {
   StyledListItem,
 } from "./Article.styled";
 import { StyledImage } from "../Style/Image.styled";
+import { StyledButton } from "../Style/Button.styled";
 
-function Article({ article, placeholderImage }) {
-  const { id, name, size, gender, price, image } = article;
+function Article({ article, placeholderImage, toggleBookmark }) {
+  const { id, name, size, gender, price, image, isBookmarked } = article;
 
   return (
     <StyledArticle>
+      <StyledButton
+        variant="favorite"
+        onClick={() => {
+          toggleBookmark(id);
+        }}
+      >
+        <Svg variant={isBookmarked ? "bookmark_fill" : "bookmark_empty"} />
+      </StyledButton>
+
       <StyledArticleImageContainer>
         <StyledImage
           variant="article"

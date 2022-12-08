@@ -9,6 +9,8 @@ import {
   StyledArticleImageContainer,
   StyledList,
   StyledListItem,
+  StyledTagContainer,
+  StyledTagSpan,
 } from "../../../components/Article/Article.styled";
 import { StyledImage } from "../../../components/Style/Image.styled";
 import { useRouter } from "next/router";
@@ -49,6 +51,10 @@ function articleDetails({
           content="Artikeldetails"
           key="title"
         />
+        <link
+          rel="shortcut icon"
+          href="/favicon.png"
+        />
       </Head>
       <StyledButton
         variant="close"
@@ -65,7 +71,6 @@ function articleDetails({
             fill
           />
         </StyledArticleImageContainer>
-        <h3>{name}</h3>
         <StyledList>
           <StyledListItem>
             Größe: <span>{size}</span>
@@ -89,21 +94,35 @@ function articleDetails({
           >
             Entfernung (km): <span>{distance}</span>
           </StyledListItem>
-          <StyledListItem variant={!animal ? "hide" : undefined}>
-            Tierhaushalt
-          </StyledListItem>
-          <StyledListItem variant={!smoker ? "hide" : undefined}>
-            Raucherhaushalt
-          </StyledListItem>
-          <StyledListItem>
+          <StyledListItem variant="priceDetailspage">
             Preis (Euro): <span>{price}</span>{" "}
           </StyledListItem>
-        </StyledList>
 
+          {/* //-------------- */}
+
+          <StyledTagContainer>
+            <StyledListItem variant={!animal ? "hide" : "taganimal"}>
+              <Svg
+                variant="animal"
+                size="20px"
+              />
+              <StyledTagSpan>Tierhaushalt</StyledTagSpan>
+            </StyledListItem>
+            <StyledListItem variant={!smoker ? "hide" : "tagsmoker"}>
+              <Svg
+                variant="smoker"
+                size="20px"
+              />
+              <StyledTagSpan>Raucherhaushalt</StyledTagSpan>
+            </StyledListItem>
+          </StyledTagContainer>
+
+          {/* //-------------- */}
+        </StyledList>
         <ShowContact article={article} />
         <ButtonContainer>
           <StyledButton
-            onClick={() => (window.location.href = `/details/${id}/edit`)}
+            onClick={() => router.push(`/details/${id}/edit`)}
             variant={author !== "Eugen" ? "hide" : "edit"}
           >
             <Svg

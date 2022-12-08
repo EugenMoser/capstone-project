@@ -12,6 +12,10 @@ function ArticleSell({ onAddArticle }) {
           content="Artikel verkaufen"
           key="title"
         />
+        <link
+          rel="shortcut icon"
+          href="/favicon.png"
+        />
       </Head>
       <Form
         onSubmit={onAddArticle}

@@ -7,15 +7,6 @@ const ButtonContainer = styled.div`
 
 const StyledArticle = styled.article`
   position: relative;
-  margin-bottom: 50px;
 `;
 
-const StyledListItem = styled.li`
-  ${({ variant }) =>
-    variant === "hide" &&
-    css`
-      display: none;
-    `}
-`;
-
-export { ButtonContainer, StyledArticle, StyledListItem };
+export { ButtonContainer, StyledArticle };

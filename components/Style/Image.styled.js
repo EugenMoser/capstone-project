@@ -3,6 +3,8 @@ import Image from "next/image";
 
 const StyledImage = styled(Image)`
   object-fit: cover;
+  overflow: hidden;
+  border-radius: var(--border-radius) var(--border-radius) 0 0;
   ${({ variant }) =>
     variant === "logo" &&
     css`

@@ -1,10 +1,10 @@
 import Header from "../Header";
 import Navbar from "../Navbar";
 
-function Layout({ children }) {
+function Layout({ children, getArticleById }) {
   return (
     <>
-      <Header />
+      <Header getArticleById={getArticleById} />
       <main>{children}</main>
       <Navbar />
     </>

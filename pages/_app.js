@@ -10,7 +10,8 @@ function MyApp({ Component, pageProps }) {
   const [articles, setArticles] = useLocalStorage("Articles", articlesDb);
   const router = useRouter();
   const placeholderImage =
-    "https://res.cloudinary.com/depezzq0e/image/upload/v1670228543/placeholder-image_j7hueu.jpg";
+    "https://res.cloudinary.com/depezzq0e/image/upload/v1670434918/Logo_Bazam_Platzhalterbild-02_w0jx3d.png";
+
   function getArticleById(id) {
     return articles.find((article) => article.id === id);
   }
@@ -94,7 +95,7 @@ function MyApp({ Component, pageProps }) {
     <>
       <CloudinaryContext cloudName="depezzq0e">
         <GlobalStyles />
-        <Layout>
+        <Layout getArticleById={getArticleById}>
           <Component
             {...pageProps}
             articles={articles}

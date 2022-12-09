@@ -65,6 +65,20 @@ function Navbar() {
             aria-label="meine Artikel Icon"
           />
         </Link>
+        <Link
+          href="/bookmark"
+          aria-label="zur meinen Artikel"
+        >
+          <Svg
+            variant="bookmark_empty"
+            color={
+              pathname === "/bookmark"
+                ? "var(--navbar-icon-active)"
+                : "var(--navbar-icon)"
+            }
+            aria-label="meine Artikel Icon"
+          />
+        </Link>
       </StyledNavbar>
     </footer>
   );

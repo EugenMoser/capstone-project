@@ -3,7 +3,7 @@
     "id": "1",
     "name": "Body",
     "price": 10.0,
-    "size": "74",
+    "size": "98",
     "gender": "Mädchen",
     "status": "gut",
     "animal": false,
@@ -13,13 +13,14 @@
     "distance": "20",
     "tel": "+49 0123 456789",
     "mail": "anna@mail.com",
-    "image": "/images/body.JPG"
+    "image": "/images/body.JPG",
+    "isBookmarked": false
   },
   {
     "id": "2",
     "name": "Strampler",
     "price": 15.0,
-    "size": "48",
+    "size": "50",
     "gender": "Junge",
     "status": "sehr gut",
     "animal": false,
@@ -29,7 +30,8 @@
     "distance": "10",
     "tel": "+43 9876 54321",
     "mail": "maik@examplemail.com",
-    "image": "/images/strampler.JPG"
+    "image": "/images/strampler.JPG",
+    "isBookmarked": false
   },
   {
     "id": "3",
@@ -45,13 +47,14 @@
     "distance": "10",
     "tel": "+49 0123 456789",
     "mail": "anna@mail.com",
-    "image": "/images/muetze.JPG"
+    "image": "/images/muetze.JPG",
+    "isBookmarked": false
   },
   {
     "id": "4",
     "name": "Socken",
     "price": 2.0,
-    "size": "16",
+    "size": "62",
     "gender": "Mädchen",
     "status": "gut",
     "animal": true,
@@ -61,6 +64,74 @@
     "distance": "17",
     "tel": "+49 0011 223344",
     "mail": "john@reactcoding.com",
-    "image": "/images/socken.JPG"
+    "image": "/images/socken2.JPG"
+  },
+  {
+    "id": "5",
+    "name": "Socken",
+    "price": 5.0,
+    "size": "56",
+    "gender": "Junge",
+    "status": "sehr gut",
+    "animal": false,
+    "smoker": true,
+    "description": "super warme Socken.",
+    "author": "Mareike",
+    "distance": "11",
+    "tel": "+49 5511 443344",
+    "mail": "mareike@starwars.universe",
+    "image": "/images/socken.JPG",
+    "isBookmarked": false
+  },
+  {
+    "id": "6",
+    "name": "Strampler",
+    "price": 20.0,
+    "size": "56",
+    "gender": "Junge",
+    "status": "gut",
+    "animal": true,
+    "smoker": false,
+    "description": "Wir haben 20 Katen.",
+    "author": "Caty",
+    "distance": "17",
+    "tel": "+49 0011 223344",
+    "mail": "caty@catythecatwoman.cat",
+    "image": "/images/strampler.JPG",
+    "isBookmarked": false
+  },
+  {
+    "id": "7",
+    "name": "Body",
+    "price": 12.0,
+    "size": "104",
+    "gender": "Mädchen",
+    "status": "gut",
+    "animal": false,
+    "smoker": false,
+    "description": "nicht für Jungs geeignet",
+    "author": "Heinz",
+    "distance": "17",
+    "tel": "+49 0011 223344",
+    "mail": "heinz@supermail.com",
+    "image": "/images/body.JPG",
+    "isBookmarked": false
+  },
+  {
+    "id": "8",
+    "name": "Mütze",
+    "price": 2.0,
+    "size": "50",
+    "gender": "Mädchen",
+    "status": "gut",
+    "animal": false,
+    "smoker": false,
+    "description": "wir haben keine Tiere. Kommt aus einem Nichtraucherhaushalt",
+    "author": "Claudia",
+    "distance": "15",
+    "tel": "+49 5555 223344",
+    "mail": "claudia@foto-moser.de",
+    "image": "/images/muetze.JPG",
+    "isBookmarked": false
   }
 ]

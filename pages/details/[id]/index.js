@@ -26,7 +26,7 @@ function articleDetails({
   const { id } = router.query;
 
   const article = getArticleById(id);
-  if (!article) return <h3>Artikel Details werden geladen...</h3>;
+  if (!article) return <h3>Artikeldetails werden geladen...</h3>;
 
   const {
     name,

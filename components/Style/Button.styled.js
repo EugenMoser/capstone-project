@@ -51,7 +51,7 @@ const StyledButton = styled.button`
     ${({ variant }) =>
     variant === "delete" &&
     css`
-      background-color: var(--modal-delete-color);
+      background-color: var(--color-red);
       width: 150px;
       height: 35px;
       border-radius: var(--border-radius);
@@ -85,7 +85,7 @@ const StyledButton = styled.button`
       height: 35px;
       border-radius: var(--border-radius);
       border: none;
-      color: var(--modal-delete-color);
+      color: var(--color-red);
       margin-top: 50px;
       padding: 0;
       border-style: none;
@@ -109,6 +109,17 @@ const StyledButton = styled.button`
     variant === "hide" &&
     css`
       display: none;
+    `};
+
+  ${({ variant }) =>
+    variant === "favorite" &&
+    css`
+      position: absolute;
+      top: 10px;
+      right: 10px;
+      background-color: transparent;
+      border: none;
+      z-index: 100;
     `};
 `;
 

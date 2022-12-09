@@ -29,7 +29,6 @@ function Form({
   priceContent,
 }) {
   const router = useRouter();
-  console.log(sizeContent);
 
   async function handleSubmit(event) {
     event.preventDefault();

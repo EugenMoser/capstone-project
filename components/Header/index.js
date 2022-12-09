@@ -6,7 +6,6 @@ function Header({ getArticleById }) {
   const { pathname, query } = useRouter();
   const { id } = query;
   const article = getArticleById(id);
-  console.log(article?.name);
   return (
     <StyledHeader>
       {pathname === "/articlesell" ? (
@@ -19,6 +18,8 @@ function Header({ getArticleById }) {
         <h1>{article?.name}</h1>
       ) : pathname.startsWith("/search") ? (
         <h1>Suchen:</h1>
+      ) : pathname === "/bookmark" ? (
+        <h1>Merkliste:</h1>
       ) : (
         <StyledImage
           variant="logo"

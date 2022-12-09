@@ -1,5 +1,6 @@
 import styled, { css } from "styled-components";
 import Link from "next/link";
+import Svg from "../Svg";
 
 const StyledArticle = styled.article`
   margin: 0 25px 20px 25px;

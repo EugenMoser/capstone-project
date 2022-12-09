@@ -19,7 +19,7 @@ const Modal = styled.address`
   flex-direction: column;
   font-style: normal;
   position: relative;
-  background-color: var(--modal-delete-color);
+  background-color: var(--color-red);
   color: var(--primary-color);
   position: fixed;
   top: 60%;

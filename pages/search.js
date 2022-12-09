@@ -1,19 +1,14 @@
 import Head from "next/head";
 import Searchbar from "../components/Searchbar";
 import ArticleList from "../components/ArticleList";
-import { useState } from "react";
 
-function Search({ articles, placeholderImage }) {
-  const [searchedText, setSearchedText] = useState("");
-
-  const filteredArticles = articles.filter((findArticles) =>
-    findArticles.name.toLowerCase().includes(searchedText.toLowerCase())
-  );
-
-  function inputHandler(event) {
-    const searchValue = event.target.value;
-    setSearchedText(searchValue.trim());
-  }
+function Search({
+  articles,
+  placeholderImage,
+  filteredArticles,
+  inputHandler,
+  searchedText,
+}) {
   return (
     <>
       <Head>

@@ -1,9 +1,15 @@
 import Head from "next/head";
 import Article from "../components/Article";
+
 import { StyledArticleList } from "../components/Article/Article.styled";
 
 function Bookmark({ placeholderImage, articles, toggleBookmark }) {
-  // console.log(toggleBookmark(article[0].id));
+  const anyBookmark = articles.every(
+    (article) =>
+      (article.isBookmarked === false) |
+      (article.isBookmarked === undefined)
+  );
+
   return (
     <>
       <Head>
@@ -18,22 +24,27 @@ function Bookmark({ placeholderImage, articles, toggleBookmark }) {
           href="/favicon.png"
         />
       </Head>
-      <h2>Deine Favoriten</h2>
-      <StyledArticleList>
-        {articles.map(
-          (article) =>
-            article.isBookmarked && (
-              <li key={article.id}>
-                <Article
-                  article={article}
-                  placeholderImage={placeholderImage}
-                  toggleBookmark={toggleBookmark}
-                  s
-                />
-              </li>
-            )
-        )}
-      </StyledArticleList>
+      {!anyBookmark ? (
+        <>
+          <h2>Deine Favoriten</h2>
+          <StyledArticleList>
+            {articles.map(
+              (article) =>
+                article.isBookmarked && (
+                  <li key={article.id}>
+                    <Article
+                      article={article}
+                      placeholderImage={placeholderImage}
+                      toggleBookmark={toggleBookmark}
+                    />
+                  </li>
+                )
+            )}
+          </StyledArticleList>
+        </>
+      ) : (
+        <h2>keine Favoriten hinzugefügt</h2>
+      )}
     </>
   );
 }

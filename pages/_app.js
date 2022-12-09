@@ -5,12 +5,14 @@ import articlesDb from "../helpers/db.json";
 import { CloudinaryContext } from "cloudinary-react";
 import { nanoid } from "nanoid";
 import { useRouter } from "next/router";
+import { useState } from "react";
 
 function MyApp({ Component, pageProps }) {
   const [articles, setArticles] = useLocalStorage("Articles", articlesDb);
   const router = useRouter();
   const placeholderImage =
     "https://res.cloudinary.com/depezzq0e/image/upload/v1670434918/Logo_Bazam_Platzhalterbild-02_w0jx3d.png";
+  const [searchedText, setSearchedText] = useState("");
 
   function getArticleById(id) {
     return articles.find((article) => article.id === id);
@@ -102,6 +104,14 @@ function MyApp({ Component, pageProps }) {
     setArticles(newState);
   }
 
+  const filteredArticles = articles.filter((findArticles) =>
+    findArticles.name.toLowerCase().includes(searchedText.toLowerCase())
+  );
+  function inputHandler(event) {
+    const searchValue = event.target.value;
+    setSearchedText(searchValue.trim());
+  }
+
   return (
     <>
       <CloudinaryContext cloudName="depezzq0e">
@@ -116,6 +126,9 @@ function MyApp({ Component, pageProps }) {
             getArticleById={getArticleById}
             placeholderImage={placeholderImage}
             toggleBookmark={toggleBookmark}
+            filteredArticles={filteredArticles}
+            inputHandler={inputHandler}
+            searchedText={searchedText}
           />
         </Layout>
       </CloudinaryContext>

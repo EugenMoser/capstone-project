@@ -68,7 +68,7 @@ function articleDetails({
           <StyledImage
             src={image === "" ? placeholderImage : image}
             alt={`Ein Bild von / vom ${name}`}
-            layout="fill"
+            fill
           />
         </StyledArticleImageContainer>
         <StyledList>

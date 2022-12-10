@@ -1,6 +1,6 @@
 import styled, { css } from "styled-components";
-// import Image from "next/image";
-import Image from "next/legacy/image";
+import Image from "next/image";
+
 const StyledImage = styled(Image)`
   object-fit: cover;
   overflow: hidden;

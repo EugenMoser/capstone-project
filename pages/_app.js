@@ -13,6 +13,7 @@ function MyApp({ Component, pageProps }) {
   const placeholderImage =
     "https://res.cloudinary.com/depezzq0e/image/upload/v1670434918/Logo_Bazam_Platzhalterbild-02_w0jx3d.png";
   const [searchedText, setSearchedText] = useState("");
+  const resetValue = () => setSearchedText("");
 
   function getArticleById(id) {
     return articles.find((article) => article.id === id);
@@ -104,13 +105,17 @@ function MyApp({ Component, pageProps }) {
     setArticles(newState);
   }
 
-  const filteredArticles = articles.filter((findArticles) =>
-    findArticles.name.toLowerCase().includes(searchedText.toLowerCase())
+  const filteredArticles = articles.filter((findArticle) =>
+    findArticle.name.toLowerCase().includes(searchedText.toLowerCase())
   );
   function inputHandler(event) {
     const searchValue = event.target.value;
     setSearchedText(searchValue.trim());
   }
+
+  const authorArticles = articles.filter(
+    (findAuthor) => findAuthor.author === "Eugen"
+  );
 
   return (
     <>
@@ -129,6 +134,8 @@ function MyApp({ Component, pageProps }) {
             filteredArticles={filteredArticles}
             inputHandler={inputHandler}
             searchedText={searchedText}
+            resetValue={resetValue}
+            authorArticles={authorArticles}
           />
         </Layout>
       </CloudinaryContext>

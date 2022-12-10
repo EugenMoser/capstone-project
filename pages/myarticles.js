@@ -2,11 +2,7 @@ import ArticleList from "../components/ArticleList";
 import Head from "next/head";
 import { StyledLink } from "../components/Modal/Modal.styled";
 
-function MyArticles({ articles, placeholderImage }) {
-  const authorArticles = articles.filter(
-    (findAuthor) => findAuthor.author === "Eugen"
-  );
-
+function MyArticles({ placeholderImage, authorArticles }) {
   return (
     <>
       <Head>

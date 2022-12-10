@@ -25,7 +25,7 @@ function Header({ getArticleById }) {
           variant="logo"
           src="/Logo_Bazam.png"
           alt={`Bazam Logo`}
-          fill
+          layout="fill"
         />
       )}
     </StyledHeader>

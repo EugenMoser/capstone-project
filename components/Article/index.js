@@ -32,7 +32,7 @@ function Article({ article, placeholderImage, toggleBookmark }) {
           variant="article"
           src={image === "" ? placeholderImage : image}
           alt={`Ein Bild von ${name}`}
-          fill
+          layout="fill"
         />
       </StyledArticleImageContainer>
       <h3>{name}</h3>

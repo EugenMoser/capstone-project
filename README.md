@@ -1,34 +1,53 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+<h1 style="border-bottom: 3px solid grey" align="center" >
+<a href="https://bazam.vercel.app" >
+<img src="./public/Logo_Bazam.png" width="300" /></a ></h1>
 
-## Getting Started
+### My Capstone Project [@neuefische](https://www.neuefische.de/)
 
-First, run the development server:
+Bazam is a regional marketplace for baby and children's clothing.
 
-```bash
-npm run dev
-# or
-yarn dev
-```
+The app offers young and expectant parents the opportunity to sell and buy second hand clothing regionally.
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+The personal contact to other parents has an important value as well as the ecological thought, cause you sell and by only in your “neighborhood”.
 
-You can start editing the page by modifying `pages/index.js`. The page auto-updates as you edit the file.
+Bazam was built with Next.js and optimized for mobile use with 375x667px (e.g. iPhone SE 2nd gen or iPhone 6/7/8).
 
-[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.js`.
+<hr />
 
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
+## Bazam App
 
-## Learn More
+[bazam.vercel.app](https://bazam.vercel.app)
 
-To learn more about Next.js, take a look at the following resources:
+<div align="center">
+<video width="300" auto-play loop>
+<source src="./public/images/eugen_moser.mov">
+</video>
+</div>
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+<!-- ![gif](/public/images/eugen_moser.gif)
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+![video](/public/images/eugen_moser.mov) -->
 
-## Deploy on Vercel
+<hr />
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## **Tech Stack**
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+- React
+- React Hooks
+- Next.js
+- Styled components
+- Cloudinary
+- Jest
+- React Testing Libary
+
+<hr />
+
+## **Project Setup**
+
+- Clone this repository.
+- Install all npm dependencies
+  `npm install`
+- To run the app in development mode with `npm run dev`
+
+- Open [http://localhost:3000](http://localhost:3000/) to display it in the browser
+- Toggle the device view to iPhone SE 2nd gen, iPhone 6/7/8 or width 375px and height 667px

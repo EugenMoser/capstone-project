@@ -1,6 +1,11 @@
+import { use, useEffect } from "react";
 import { StyledForm, StyledInput } from "./Searchbar.styled";
 
-function Searchbar({ inputHandler, searchedText }) {
+function Searchbar({ inputHandler, searchedText, resetValue }) {
+  useEffect(() => {
+    resetValue();
+  }, []);
+
   return (
     <StyledForm onSubmit={(event) => event.preventDefault()}>
       <label htmlFor="search"></label>

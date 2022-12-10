@@ -1,6 +1,6 @@
 import styled, { css } from "styled-components";
-import Image from "next/image";
-
+// import Image from "next/image";
+import Image from "next/legacy/image";
 const StyledImage = styled(Image)`
   object-fit: cover;
   overflow: hidden;
@@ -9,6 +9,7 @@ const StyledImage = styled(Image)`
     variant === "logo" &&
     css`
       padding: 15px;
+
       object-fit: contain;
     `}
 `;

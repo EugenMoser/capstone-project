@@ -9,7 +9,7 @@ function Search({
   inputHandler,
   searchedText,
   resetValue,
-  authorArticles,
+  toggleBookmark,
 }) {
   return (
     <>
@@ -35,6 +35,7 @@ function Search({
           articles={filteredArticles}
           placeholderImage={placeholderImage}
           secondHeadline="gefundene Artikel:"
+          toggleBookmark={toggleBookmark}
         />
       ) : (
         <h2>keine Artikel gefunden</h2>

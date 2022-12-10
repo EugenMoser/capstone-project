@@ -18,8 +18,12 @@ Bazam was built with Next.js and optimized for mobile use with 375x667px (e.g. i
 
 [bazam.vercel.app](https://bazam.vercel.app)
 
-![gif](/public/images/eugen_moser.gif)
+<!-- ![gif](/public/images/eugen_moser-test.gif) -->
 
+<div align="center">
+  <img src="./public/img/eugen_moser-test.gif"
+     height="400px"/>
+</div>
 <hr />
 
 ## **Tech Stack**

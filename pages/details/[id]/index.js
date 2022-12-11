@@ -4,7 +4,7 @@ import {
   ButtonContainer,
   StyledArticle,
 } from "../../../components/Style/ArticleDetails.styled";
-import { StyledButton } from "../../../components/Style/Button.styled";
+import Button from "../../../components/Button";
 import {
   StyledArticleImageContainer,
   StyledList,
@@ -56,13 +56,13 @@ function articleDetails({
           href="/favicon.png"
         />
       </Head>
-      <StyledButton
+      <Button
         variant="close"
+        ariaLabel="Artikel Details schließen und zurück"
         onClick={() => router.back()}
-        aria-label="Artikel Details schließen und zurück"
       >
         <Svg variant="close" />
-      </StyledButton>
+      </Button>
       <StyledArticle>
         <StyledArticleImageContainer>
           <StyledImage
@@ -98,8 +98,6 @@ function articleDetails({
             Preis (Euro): <span>{price}</span>{" "}
           </StyledListItem>
 
-          {/* //-------------- */}
-
           <StyledTagContainer>
             <StyledListItem variant={!animal ? "hide" : "taganimal"}>
               <Svg
@@ -116,20 +114,19 @@ function articleDetails({
               <StyledTagSpan>Raucherhaushalt</StyledTagSpan>
             </StyledListItem>
           </StyledTagContainer>
-
-          {/* //-------------- */}
         </StyledList>
         <ShowContact article={article} />
         <ButtonContainer>
-          <StyledButton
-            onClick={() => router.push(`/details/${id}/edit`)}
+          <Button
             variant={author !== "Eugen" ? "hide" : "edit"}
+            ariaLabel="aktualisieren"
+            onClick={() => router.push(`/details/${id}/edit`)}
           >
             <Svg
               variant="edit"
               size="25px"
             />
-          </StyledButton>
+          </Button>
           <ShowDeleteModal
             articleName={name}
             articleId={id}

@@ -7,7 +7,7 @@ import {
   StyledListItem,
 } from "./Article.styled";
 import { StyledImage } from "../Style/Image.styled";
-import { StyledButton } from "../Style/Button.styled";
+import Button from "../Button";
 
 function Article({ article, placeholderImage, toggleBookmark }) {
   const { id, name, size, gender, price, image, isBookmarked, author } =
@@ -15,8 +15,9 @@ function Article({ article, placeholderImage, toggleBookmark }) {
 
   return (
     <StyledArticle>
-      <StyledButton
+      <Button
         variant={author === "Eugen" ? "hide" : "favorite"}
+        ariaLabel="Favoriet hinzufügen/entfernen"
         onClick={() => {
           toggleBookmark(id);
         }}
@@ -25,7 +26,7 @@ function Article({ article, placeholderImage, toggleBookmark }) {
           variant={isBookmarked ? "bookmark_fill" : "bookmark_empty"}
           color="var(--color-red)"
         />
-      </StyledButton>
+      </Button>
 
       <StyledArticleImageContainer>
         <StyledImage

@@ -10,7 +10,7 @@ import {
   StyledParagraph,
 } from "./Form.styled";
 import Svg from "../Svg";
-import { StyledButton } from "../Style/Button.styled";
+import Button from "../Button";
 import { useRouter } from "next/router";
 import React from "react";
 import { useState } from "react";
@@ -221,12 +221,12 @@ function Form({
             Raucherhaushalt
           </label>
         </StyledCheckbox>
-        <StyledButton
+        <Button
           type="submit"
           variant="submit"
         >
           {buttonText}
-        </StyledButton>
+        </Button>
       </StyledForm>
     </>
   );

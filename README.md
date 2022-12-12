@@ -20,6 +20,12 @@ Bazam was built with Next.js and optimized for mobile use with 375x667px (e.g. i
 
 <div align="center">
 <img src="./public/images/bazam_screenshot.png" width="250"/>
+
+</div>
+
+<div align="center">
+<img src="./public/images/bazam_screenshot2.png" width="250"/>
+<img src="./public/images/bazam_screenshot3.png" width="250"/>
 </div>
 
 <hr />

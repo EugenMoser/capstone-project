@@ -1,4 +1,4 @@
-import { StyledButton } from "../Style/Button.styled";
+import { StyledButton } from "./Button.styled";
 
 function Button({ type, variant, children, ariaLabel, onClick }) {
   return (

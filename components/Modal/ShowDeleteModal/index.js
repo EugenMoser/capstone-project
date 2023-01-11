@@ -17,6 +17,7 @@ function ShowDeleteModal({
       <Button
         variant={articleAuthor !== "Eugen" ? "hide" : "delete"}
         ariaLabel="löschen"
+        role="deleteButton"
         onClick={() => {
           setOpenContact(!openContact);
         }}

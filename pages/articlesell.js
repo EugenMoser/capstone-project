@@ -1,5 +1,4 @@
 import Form from "../components/Form";
-
 import Head from "next/head";
 
 function ArticleSell({ onAddArticle, router }) {

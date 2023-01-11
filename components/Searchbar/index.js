@@ -1,4 +1,4 @@
-import { use, useEffect } from "react";
+import { useEffect } from "react";
 import { StyledForm, StyledInput } from "./Searchbar.styled";
 
 function Searchbar({ inputHandler, searchedText, resetValue }) {

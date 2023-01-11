@@ -14,7 +14,6 @@ import Button from "../Button";
 //
 import React from "react";
 import { useState } from "react";
-import { check } from "prettier";
 
 function Form({
   onSubmit,

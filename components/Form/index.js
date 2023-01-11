@@ -14,6 +14,7 @@ import Button from "../Button";
 //
 import React from "react";
 import { useState } from "react";
+import { check } from "prettier";
 
 function Form({
   onSubmit,
@@ -189,6 +190,7 @@ function Form({
         ></StyledTextarea>
         <label htmlFor="price">Preis (Euro)*</label>
         <StyledInput
+          role="price"
           type="number"
           name="price"
           defaultValue={priceContent}
@@ -201,6 +203,7 @@ function Form({
         <StyledCheckbox>
           <label htmlFor="animal">
             <StyledInput
+              role="animal"
               variant="checkbox"
               type="checkbox"
               name="animal"
@@ -211,6 +214,7 @@ function Form({
           </label>
           <label htmlFor="smoker">
             <StyledInput
+              role="smoker"
               variant="checkbox"
               type="checkbox"
               name="smoker"

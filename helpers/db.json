@@ -2,7 +2,7 @@
   {
     "id": "1",
     "name": "Body",
-    "price": 10.0,
+    "price": "10.0",
     "size": "98",
     "gender": "Mädchen",
     "status": "gut",
@@ -19,7 +19,7 @@
   {
     "id": "2",
     "name": "Strampler",
-    "price": 15.0,
+    "price": "15.0",
     "size": "50",
     "gender": "Junge",
     "status": "sehr gut",
@@ -36,7 +36,7 @@
   {
     "id": "3",
     "name": "Mütze",
-    "price": 5.0,
+    "price": "5.0",
     "size": "38",
     "gender": "Mädchen",
     "status": "schlecht",
@@ -53,7 +53,7 @@
   {
     "id": "4",
     "name": "Socken",
-    "price": 2.0,
+    "price": "2.0",
     "size": "62",
     "gender": "Mädchen",
     "status": "gut",
@@ -69,7 +69,7 @@
   {
     "id": "5",
     "name": "Socken",
-    "price": 5.0,
+    "price": "5.0",
     "size": "56",
     "gender": "Junge",
     "status": "sehr gut",
@@ -86,7 +86,7 @@
   {
     "id": "6",
     "name": "Strampler",
-    "price": 20.0,
+    "price": "20.0",
     "size": "56",
     "gender": "Junge",
     "status": "gut",
@@ -103,7 +103,7 @@
   {
     "id": "7",
     "name": "Body",
-    "price": 12.0,
+    "price": "12.0",
     "size": "104",
     "gender": "Mädchen",
     "status": "gut",
@@ -120,7 +120,7 @@
   {
     "id": "8",
     "name": "Mütze",
-    "price": 2.0,
+    "price": "2.0",
     "size": "50",
     "gender": "Mädchen",
     "status": "gut",

@@ -22,7 +22,6 @@ function Article({ article, placeholderImage, toggleBookmark }) {
           toggleBookmark(id);
         }}
       >
-        test
         <Svg
           variant={isBookmarked ? "bookmark_fill" : "bookmark_empty"}
           color="var(--color-red)"

@@ -2,7 +2,7 @@ import Form from "../../../../components/Form";
 import { useRouter } from "next/router";
 import Head from "next/head";
 
-function Edit({ onEditArticle, getArticleById }) {
+function Edit({ onEditArticle, getArticleById, router }) {
   const { query } = useRouter();
   const { id } = query;
 
@@ -35,6 +35,7 @@ function Edit({ onEditArticle, getArticleById }) {
         />
       </Head>
       <Form
+        router={router}
         id={id}
         content={article}
         nameContent={name}

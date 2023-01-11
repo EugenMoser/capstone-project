@@ -11,7 +11,7 @@ import {
 } from "./Form.styled";
 import Svg from "../Svg";
 import Button from "../Button";
-import { useRouter } from "next/router";
+//
 import React from "react";
 import { useState } from "react";
 
@@ -27,9 +27,8 @@ function Form({
   smokerContent,
   descriptionContent,
   priceContent,
+  router,
 }) {
-  const router = useRouter();
-
   async function handleSubmit(event) {
     event.preventDefault();
 

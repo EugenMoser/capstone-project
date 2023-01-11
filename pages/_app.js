@@ -136,6 +136,7 @@ function MyApp({ Component, pageProps }) {
             searchedText={searchedText}
             resetValue={resetValue}
             authorArticles={authorArticles}
+            router={router}
           />
         </Layout>
       </CloudinaryContext>

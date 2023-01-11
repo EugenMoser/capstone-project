@@ -9,6 +9,7 @@ const StyledImage = styled(Image)`
     variant === "logo" &&
     css`
       padding: 15px;
+
       object-fit: contain;
     `}
 `;

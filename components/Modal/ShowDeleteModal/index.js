@@ -1,6 +1,6 @@
 import Svg from "../../Svg";
 import { useState } from "react";
-import { StyledButton } from "../../Style/Button.styled";
+import Button from "../../Button";
 import { ModalBackground, Modal } from "../Modal.styled";
 import { ButtonContainer } from "../../Style/ArticleDetails.styled";
 
@@ -14,8 +14,10 @@ function ShowDeleteModal({
 
   return (
     <>
-      <StyledButton
+      <Button
         variant={articleAuthor !== "Eugen" ? "hide" : "delete"}
+        ariaLabel="löschen"
+        role="deleteButton"
         onClick={() => {
           setOpenContact(!openContact);
         }}
@@ -24,38 +26,40 @@ function ShowDeleteModal({
           variant="delete"
           size="25px"
         />
-      </StyledButton>
+      </Button>
 
       {openContact && (
         <ModalBackground>
           <Modal variant="delete">
-            <StyledButton
+            <Button
               variant="close"
-              aria-label="Kontaktdaten schließen"
+              ariaLabel="Kontaktdaten schließen"
               onClick={() => {
                 setOpenContact(!openContact);
               }}
             >
               <Svg variant="close" />
-            </StyledButton>
+            </Button>
             <h4>
               Willst du deinen Artikel "{articleName}" wirklich löschen?
             </h4>
             <ButtonContainer>
-              <StyledButton
+              <Button
                 variant="modalcancel"
+                ariaLabel="abbrechen"
                 onClick={() => {
                   setOpenContact(!openContact);
                 }}
               >
                 abbrechen
-              </StyledButton>
-              <StyledButton
+              </Button>
+              <Button
                 variant="modaldelete"
+                ariaLabel="Artikel löschen"
                 onClick={() => onDeleteArticle(articleId)}
               >
                 löschen
-              </StyledButton>
+              </Button>
             </ButtonContainer>
           </Modal>
         </ModalBackground>

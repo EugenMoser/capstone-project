@@ -10,8 +10,8 @@ import {
   StyledParagraph,
 } from "./Form.styled";
 import Svg from "../Svg";
-import { StyledButton } from "../Style/Button.styled";
-import { useRouter } from "next/router";
+import Button from "../Button";
+//
 import React from "react";
 import { useState } from "react";
 
@@ -27,9 +27,8 @@ function Form({
   smokerContent,
   descriptionContent,
   priceContent,
+  router,
 }) {
-  const router = useRouter();
-
   async function handleSubmit(event) {
     event.preventDefault();
 
@@ -190,6 +189,7 @@ function Form({
         ></StyledTextarea>
         <label htmlFor="price">Preis (Euro)*</label>
         <StyledInput
+          role="price"
           type="number"
           name="price"
           defaultValue={priceContent}
@@ -202,6 +202,7 @@ function Form({
         <StyledCheckbox>
           <label htmlFor="animal">
             <StyledInput
+              role="animal"
               variant="checkbox"
               type="checkbox"
               name="animal"
@@ -212,6 +213,7 @@ function Form({
           </label>
           <label htmlFor="smoker">
             <StyledInput
+              role="smoker"
               variant="checkbox"
               type="checkbox"
               name="smoker"
@@ -221,12 +223,12 @@ function Form({
             Raucherhaushalt
           </label>
         </StyledCheckbox>
-        <StyledButton
+        <Button
           type="submit"
           variant="submit"
         >
           {buttonText}
-        </StyledButton>
+        </Button>
       </StyledForm>
     </>
   );

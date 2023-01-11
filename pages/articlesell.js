@@ -1,8 +1,7 @@
 import Form from "../components/Form";
-
 import Head from "next/head";
 
-function ArticleSell({ onAddArticle }) {
+function ArticleSell({ onAddArticle, router }) {
   return (
     <>
       <Head>
@@ -19,6 +18,7 @@ function ArticleSell({ onAddArticle }) {
       </Head>
       <Form
         onSubmit={onAddArticle}
+        router={router}
         buttonText="Bestätigen"
       />
     </>

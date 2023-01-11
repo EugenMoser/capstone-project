@@ -8,6 +8,8 @@ function Search({
   filteredArticles,
   inputHandler,
   searchedText,
+  resetValue,
+  toggleBookmark,
 }) {
   return (
     <>
@@ -26,15 +28,14 @@ function Search({
       <Searchbar
         articles={articles}
         inputHandler={inputHandler}
+        resetValue={resetValue}
       />
-
-      {!filteredArticles.length ? (
-        <h2>keine Artikel gefunden</h2>
-      ) : searchedText.length ? (
+      {searchedText ? (
         <ArticleList
           articles={filteredArticles}
           placeholderImage={placeholderImage}
           secondHeadline="gefundene Artikel:"
+          toggleBookmark={toggleBookmark}
         />
       ) : (
         <h2>keine Artikel gefunden</h2>

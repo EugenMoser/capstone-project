@@ -1,6 +1,6 @@
 import Svg from "../../Svg";
 import { useState } from "react";
-import { StyledButton } from "../../Style/Button.styled";
+import Button from "../../Button";
 import { ModalBackground, Modal, StyledLink } from "../Modal.styled";
 
 function ShowContact({ article }) {
@@ -9,9 +9,9 @@ function ShowContact({ article }) {
   const { author, tel, mail } = article;
   return (
     <>
-      <StyledButton
+      <Button
         variant={author === "Eugen" ? "hide" : "contact"}
-        aria-label="Kontaktdaten anzeigen"
+        ariaLabel="Kontaktdaten anzeigen"
         onClick={() => {
           setOpenContact(!openContact);
         }}
@@ -21,20 +21,20 @@ function ShowContact({ article }) {
           size="20px"
         />
         Kontaktdaten
-      </StyledButton>
+      </Button>
 
       {openContact && (
         <ModalBackground>
           <Modal variant="showModal">
-            <StyledButton
+            <Button
               variant="close"
-              aria-label="Kontaktdaten schließen"
+              ariaLabel="Kontaktdaten schließen"
               onClick={() => {
                 setOpenContact(!openContact);
               }}
             >
               <Svg variant="close" />
-            </StyledButton>
+            </Button>
             <h4>Kontaktdaten:</h4>
             <p>
               <Svg variant="person" />
